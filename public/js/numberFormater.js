@@ -12,7 +12,10 @@ Usage Sample:
 document.write(FormatNumberBy3("1234512345.12345", ".", ","));
 </script>
 */
-
+function MoneyFormat(money)
+{
+  return "$ " + FormatNumberBy3(money);
+}
 // function to format a number with separators. returns formatted number.
 // num - the number to be formatted
 // decpoint - the decimal point character. if skipped, "." is used
@@ -52,4 +55,17 @@ function FormatNumberBy3(num, decpoint, sep) {
       x += decpoint + y;
   }
   return x;
+}
+
+function DateTimeFormat(datetime) {
+  a = datetime.split(" ");
+  date = a[0];
+  time = a[1];
+  
+  d = date.split("-");
+  year = d[0];
+  month = d[1];
+  day = d[2];
+  
+  return day + "/" + month  + "/" + year + " " + time;
 }

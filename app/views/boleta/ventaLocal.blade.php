@@ -12,20 +12,21 @@
       <form class="form-horizontal" role="form" action = "/venta/local/crear" method="post">
 
         <hr>
-        <div class="form-group">
-          <label class="col-sm-5 control-label">Código de barras (*)</label>
-          <div class="col-sm-7">
-            <input type="number" name="codigoB" class="form-control" placeholder="Codigo : " required> 
-          </div>
-        </div>
-
+        
         <div class="form-group">
           <label class="col-sm-5 control-label">Cantidad (*)</label>
           <div class="col-sm-7">
-            <input type="number" name="cantidad" class="form-control" placeholder="Cantidad : " required> 
+            <input type="number" name="cantidad" class="form-control" min=1 value=1 max=100 required> 
           </div>
         </div>
 
+
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Código de barras (*)</label>
+          <div class="col-sm-7">
+            <input type="text" pattern="[0-9]*" name="codigoB" class="form-control" onKeyPress="return submitenter(this,event)" required> 
+          </div>
+        </div>
         
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-10">

@@ -31,15 +31,17 @@ class ProductoController extends BaseController {
     $producto->cod_laboratorio = Input::get('laboratorio');
     $producto->descripcion = Input::get('descripcion');
     $producto->precio_venta = Input::get('precio');
-    $producto->imagen = Input::get('imagen');
+    $producto->imagen = base64_encode(file_get_contents(Input::file('imagen')));
+    //$producto->imagen = base64_encode(file_get_contents(Input::file('imagen')->resize(510, 588)));
     $producto->save();
- 
-  foreach(Input::get('idsCategorias') as $categoria){
-    $catpro = new CatProducto();
-    $catpro->codigo_producto = $producto->codigo_producto;
-    $catpro->cod_categoria = $categoria;
-     $catpro->save();
-  }
+    
+    if (Input::get('idsCategorias') != null)
+      foreach(Input::get('idsCategorias') as $categoria){
+      $catpro = new CatProducto();
+      $catpro->codigo_producto = $producto->codigo_producto;
+      $catpro->cod_categoria = $categoria;
+      $catpro->save();
+    }
     
     return Redirect::to('/listado/productos');
   }
@@ -80,7 +82,12 @@ class ProductoController extends BaseController {
     $producto->cod_laboratorio = Input::get('laboratorio');
     $producto->descripcion = Input::get('descripcion');
     $producto->precio_venta = Input::get('precio');
-    $producto->imagen = Input::get('imagen');
+    if (Input::file('imagen') != null)
+      {
+      //$producto->imagen = base64_encode(file_get_contents(Input::file('imagen')));
+      
+     $producto->imagen = Image::make(Input::file('imagen'))->resize(300, 200)->encode('jpg', 75);
+    }
     $producto->save();
    
     CatProducto::where('codigo_producto', '=', $producto->codigo_producto)->delete();

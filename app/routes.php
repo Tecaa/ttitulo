@@ -109,7 +109,7 @@ Route::get('/listado/categorias', ['uses' => 'ListadoController@categorias', 'be
 Route::get('/listado/laboratorios', ['uses' => 'ListadoController@laboratorios', 'before' => 'vendedor']);
 Route::get('/listado/compras', ['uses' => 'ListadoController@compras', 'before' => 'administrador']);
 Route::get('/listado/pedidos', ['uses' => 'ListadoController@listadoPedido', 'before' => 'vendedor']);
-Route::get('/listado/carroCompras', ['uses' => 'ListadoController@carroCompras', 'before' => 'cliente']);
+Route::get('/listado/carroCompras', ['uses' => 'ListadoController@carroCompras']);
 Route::get('/listado/vendedores', ['uses' => 'ListadoController@listarVendedor', 'before' => 'administrador']);
 Route::get('/listado/clientes', ['uses' => 'ListadoController@listadoClientes', 'before' => 'administrador']);
 Route::get('/listado/bancos', ['uses' => 'ListadoController@listadoBancos', 'before' => 'administrador']);

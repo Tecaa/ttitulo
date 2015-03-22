@@ -3,7 +3,7 @@
   <h3>{{$titulo}}</h3>
   <div class="row confirm">
   <div class="col-md-15">
-    <form class="form-horizontal" role="form" method="post" action="/producto/editando/{{$producto->codigo_producto}}">
+    <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="/producto/editando/{{$producto->codigo_producto}}">
 
       <hr>
       <div class="form-group">
@@ -40,7 +40,7 @@
       <div class="form-group">
           <label class="col-sm-5 control-label">Descripción </label>
           <div class="col-sm-7">
-            <input type="text" name="descripcion" class="form-control" placeholder="{{$producto->descripcion}}">
+            <input type="text" name="descripcion" class="form-control" value="{{$producto->descripcion}}">
           </div>
         </div>
 
@@ -72,7 +72,7 @@
       <div class="form-group">
         <label class="col-sm-5 control-label">Subir imágen</label>
         <div class="col-sm-7">
-          <input type="file" name="imagen" value="{{ $producto->imagen}}" class="form-control">
+          <input type="file" name="imagen" class="form-control" method="post" accept="image/*">
         </div>
       </div>
 
@@ -93,7 +93,11 @@
 
     <div class="carousel-inner">
       <div class="item active">
+        @if ($producto->imagen == null)
         {{ HTML::image("img/manuk.jpg", "Logo") }}
+        @else
+          <img class="img-responsive imagenListada" src='data:image/jpeg;base64,{{ $producto->imagen }}' />
+        @endif
       </div>
       <div class="item">
         {{ HTML::image("img/manuk.jpg", "Logo") }}

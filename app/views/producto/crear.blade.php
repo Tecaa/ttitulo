@@ -3,9 +3,21 @@
   <h3>{{$titulo}}</h3>
   <div class="row confirm">
     <div class="col-md-15">
-      <form class="form-horizontal" role="form" action="/producto/creando" method="POST">
+      <form class="form-horizontal" role="form" action="/producto/creando" method="POST" enctype="multipart/form-data">
 
         <hr>
+        
+            <div class="form-group">
+          <label class="col-sm-5 control-label">Laboratorio (*)</label>
+          <div class="col-sm-7">
+            <select class="form-control" name="laboratorio" required>
+              @foreach ($labs as $lab)
+              <option value="{{ $lab->cod_laboratorio }}">{{ $lab->nom_laboratorio}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
+        
         <div class="form-group">
           <label class="col-sm-5 control-label">Código de barras</label>
           <div class="col-sm-7">
@@ -17,18 +29,6 @@
           <label class="col-sm-5 control-label">Nombre producto (*)</label>
           <div class="col-sm-7">
             <input type="text" name="nombre" class="form-control"  placeholder="Ej : Mi producto " required>
-          </div>
-        </div>
-
-
-        <div class="form-group">
-          <label class="col-sm-5 control-label">Laboratorio (*)</label>
-          <div class="col-sm-7">
-            <select class="form-control" name="laboratorio" required>
-              @foreach ($labs as $lab)
-              <option value="{{ $lab->cod_laboratorio }}">{{ $lab->nom_laboratorio}}</option>
-              @endforeach
-            </select>
           </div>
         </div>
         
@@ -60,7 +60,7 @@
         <div class="form-group">
           <label class="col-sm-5 control-label">Subir imágen</label>
           <div class="col-sm-7">
-            <input type="file" name="imagen" class="form-control">
+            <input type="file" name="imagen" class="form-control" method="post" accept="image/*">
           </div>
         </div>
 

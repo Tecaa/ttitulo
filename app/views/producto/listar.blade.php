@@ -5,10 +5,15 @@
   
   @foreach ($productos as $prod)
   <ul class="thumbnails">
-    
     <li class="col-md-3 col-sm-3">
       <div class="thumbnail">
-        <a href="/producto/consultar/{{$prod->codigo_producto}}"> {{ HTML::image("img/manuk.jpg", "Foto 2", array('class' => 'img-responsive'))  }}</a>
+        <a href="/producto/consultar/{{$prod->codigo_producto}}"> 
+          @if($prod->imagen == null)
+            {{ HTML::image("img/manuk.jpg", "Foto 2", array('class' => 'img-responsive imagenListada'))  }}
+          @else
+            <img class="img-responsive imagenListada" src='data:image/jpeg;base64,{{ $prod->imagen }}' />
+          @endif
+        </a>
         <div class="caption-details">
           <h3>{{$prod->nombre_producto}}</h3>
           <span class="price">{{$prod->precioVentaF}}</span>
@@ -42,3 +47,7 @@
 @endif
 </div>
 @stop
+
+@section('extra-css')
+  {{ HTML::style('css/listarProductos.css') }}
+@stop()

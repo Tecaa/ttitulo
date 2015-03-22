@@ -7,7 +7,15 @@
 							
 								<div class="carousel-inner">
 								  <div class="item active">
-									{{ HTML::image("img/manuk.jpg", "Foto 2", array('class' => 'img-responsive'))  }}
+                    <li data-target="#itemsingle" data-slide-to="0" class="active">
+                      @if ($producto->imagen != null)
+                      <img class="img-responsive" src='data:image/jpeg;base64,{{ $producto->imagen }}' />
+                      @else
+									      {{ HTML::image("img/manuk.jpg", "Foto 2", array('class' => 'img-responsive'))  }}
+                      @endif
+                      
+                    </li>
+									<!--{{ HTML::image("img/manuk.jpg", "Foto 2", array('class' => 'img-responsive'))  }}-->
 								  </div>
 								  <div class="item">
 									{{ HTML::image("img/manuk.jpg", "Foto 2", array('class' => 'img-responsive'))  }}
@@ -18,9 +26,11 @@
 								</div>
 								
 								<ol class="carousel-indicators">
-								  <li data-target="#itemsingle" data-slide-to="0" class="active">{{ HTML::image("img/manuk.jpg", "Foto 2", array('class' => 'img-responsive'))  }}</li>
+								  <!--
+                  <li data-target="#itemsingle" data-slide-to="0" class="active"><img src='data:image/jpeg;base64,{{ $producto->imagen }}' /></li>
 								  <li data-target="#itemsingle" data-slide-to="1" class="">{{ HTML::image("img/manuk.jpg", "Foto 2", array('class' => 'img-responsive'))  }}</li>
 								  <li data-target="#itemsingle" data-slide-to="2" class="">{{ HTML::image("img/manuk.jpg", "Foto 2", array('class' => 'img-responsive'))  }}</li>
+                  -->
 								</ol>
 							
 							</div>

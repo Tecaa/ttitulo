@@ -14,6 +14,12 @@ $(document).ready(function() {
         ],
       columnDefs: [
         {
+          render: function ( data, type, row ) {
+            return MoneyFormat(data);
+          },
+          targets: [ 3 ]
+        },
+        {
           data: null,
           render: function ( data, type, row ) {
             return " <a class='btn btn-success'  data-codigo-producto=" + data.codigo_producto + " onclick='activarProducto(this)'" +

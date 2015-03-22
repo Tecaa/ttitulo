@@ -13,6 +13,7 @@
     <table class="table table-bordered table-hover" id="pedidoTable" width="100%">
       <thead align="center">
         <th>Codigo documento</th>
+        <th>Fecha y hora</th>
         <th>Rut Cliente</th>
         <th>Cantidad productos</th>
         <th>Total</th>
