@@ -14,8 +14,8 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="carousel-content">
-                    <h2 class="animated fadeInUpBig text-center text-black">Hello</h2>
-                      <p class="animated rollIn text-black text-center"><span class="text900">Welcome to Dodolan Manuk</span> an awesome catalog theme, <br> built with <i class="fa fa-heart-o"></i> in <span class="text900">Ngayogyokarto hadiningrat.</span><br><br> <a href="#" class="btn btn-purple btn-lg">Get Started</a></p>  
+                    <h2 class="animated fadeInUpBig text-center text-black">Bienvenidos</h2>
+                      <p class="animated rollIn text-black text-center"><span class="text900">Productos de salud y belleza de la mano de la naturaleza</span> </p>  
                   </div>
                 </div> 
               </div>
@@ -26,9 +26,9 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="carousel-content">
-                  	<h3 class="animated fadeInLeftBig text-left">.Built</h3>
-					<p class="animated fadeInDownBig text-left">Your own online shop using this catalog theme.<br> Simple and easy cutomize just $12.</p>
-					<a class="btn btn-purple btn-lg animated fadeInRight" href="#">Learn more &raquo;</a>
+                  	<h3 class="animated fadeInLeftBig text-left">Inaugurando nueva página</h3>
+					<p class="animated fadeInDownBig text-left">Compruebe los precios rebajados de inauguración de nueva página.<br> ¡Son por poco tiempo!.</p>
+					<a class="btn btn-purple btn-lg animated fadeInRight" href="#">Leer más &raquo;</a>
                   </div>
                 </div>
               </div>
@@ -52,8 +52,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Hello There, This is 'Dodolan Manuk' Themes</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque bibendum.</p>
+					<h2>Conozca nuestra galería de productos</h2>
+					<p>Visite nuestra galería de productos o utilice el buscador para encontrar esos productos que más ha estado buscando.</p>
 				</div>
 			</div>
 		</div>
@@ -66,8 +66,8 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-title">
-						<h2>Services</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+						<h2>Características</h2>
+						<p>En Centro Naturista Masiel podrá encontrar lo siguiente. </p>
 					</div>
 				</div>
 			</div>
@@ -77,8 +77,8 @@
 						<div class="featured-photos">
 							<i class="fa fa-gift"></i>
 						</div>
-						<h3>the chairman</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere neque.</p>
+						<h3>Compra por internet</h3>
+						<p>Podrá comprar sus productos favoritos desde la comodidad de su hogar.</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4">
@@ -86,8 +86,8 @@
 						<div class="featured-photos">
 							<i class="fa fa-heart-o"></i>
 						</div>
-						<h3>the vice chairman</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere neque.</p>
+						<h3>Cuidamos su salud</h3>
+						<p>Los productos ofrecidos por nosotros son naturales cuidando su saludo.</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4">
@@ -95,8 +95,8 @@
 						<div class="featured-photos">
 							<i class="fa fa-flag"></i>
 						</div>
-						<h3>the treasurer</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere neque.</p>
+						<h3>Buena atención</h3>
+						<p>Atención rápida y amigable para hacer de sus compras una experiencia agradable.</p>
 					</div>
 				</div>
 			</div>
@@ -110,8 +110,8 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-title">
-						<h2>Most Wanted</h2>
-						<p>The best of the best item most wanted in 2013</p>
+						<h2>Más buscados</h2>
+						<p>Los productos más buscados de este último tiempo.</p>
 					</div>	
 				</div>
 			</div>
@@ -120,8 +120,8 @@
 					<div class="thumbnail">
 					  <div class="caption-img" style="background: url(img/manuk.jpg);"></div>
 					  <div class="caption-details">
-						<h3>Border Canary</h3>
-						<span class="price">$200</span>
+						<h3>Shampú de Melisa</h3>
+						<span class="price">$ 2.500</span>
 					  </div>
 					  <a href="detail.html"><div class="caption-link"><i class="fa fa-plus"></i></div></a>
 					</div>
@@ -130,8 +130,8 @@
 					<div class="thumbnail">
 					  <div class="caption-img" style="background: url(img/manuk.jpg);"></div>
 					  <div class="caption-details">
-						<h3>Border Canary</h3>
-						<span class="price">$200</span>
+						<h3>Shampú de Melisa</h3>
+						<span class="price">$ 200</span>
 					  </div>
 					  <a href="detail.html"><div class="caption-link"><i class="fa fa-plus"></i></div></a>
 					</div>
@@ -140,8 +140,8 @@
 					<div class="thumbnail">
 					  <div class="caption-img" style="background: url(img/manuk.jpg);"></div>
 					  <div class="caption-details">
-						<h3>Border Canary</h3>
-						<span class="price">$200</span>
+						<h3>Shampú de Melisa</h3>
+						<span class="price">$ 200</span>
 					  </div>
 					  <a href="detail.html"><div class="caption-link"><i class="fa fa-plus"></i></div></a>
 					</div>
@@ -150,8 +150,8 @@
 					<div class="thumbnail">
 					  <div class="caption-img" style="background: url(img/manuk.jpg);"></div>
 					  <div class="caption-details">
-						<h3>Border Canary</h3>
-						<span class="price">$200</span>
+						<h3>Shampú de Melisa</h3>
+						<span class="price">$ 200</span>
 					  </div>
 					  <a href="detail.html"><div class="caption-link"><i class="fa fa-plus"></i></div></a>
 					</div>
@@ -160,8 +160,8 @@
 					<div class="thumbnail">
 					  <div class="caption-img" style="background: url(img/manuk.jpg);"></div>
 					  <div class="caption-details">
-						<h3>Border Canary</h3>
-						<span class="price">$200</span>
+						<h3>Shampú de Melisa</h3>
+						<span class="price">$ 200</span>
 					  </div>
 					  <a href="detail.html"><div class="caption-link"><i class="fa fa-plus"></i></div></a>
 					</div>
@@ -170,8 +170,8 @@
 					<div class="thumbnail">
 					  <div class="caption-img" style="background: url(img/manuk.jpg);"></div>
 					  <div class="caption-details">
-						<h3>Border Canary</h3>
-						<span class="price">$200</span>
+						<h3>Shampú de Melisa</h3>
+						<span class="price">$ 200</span>
 					  </div>
 					  <a href="detail.html"><div class="caption-link"><i class="fa fa-plus"></i></div></a>
 					</div>
@@ -180,8 +180,8 @@
 					<div class="thumbnail">
 					  <div class="caption-img" style="background: url(img/manuk.jpg);"></div>
 					  <div class="caption-details">
-						<h3>Border Canary</h3>
-						<span class="price">$200</span>
+						<h3>Shampú de Melisa</h3>
+						<span class="price">$ 200</span>
 					  </div>
 					  <a href="detail.html"><div class="caption-link"><i class="fa fa-plus"></i></div></a>
 					</div>
@@ -190,8 +190,8 @@
 					<div class="thumbnail">
 					  <div class="caption-img" style="background: url(img/manuk.jpg);"></div>
 					  <div class="caption-details">
-						<h3>Border Canary</h3>
-						<span class="price">$200</span>
+						<h3>Shampú de Melisa</h3>
+						<span class="price">$ 200</span>
 					  </div>
 					  <a href="detail.html"><div class="caption-link"><i class="fa fa-plus"></i></div></a>
 					</div>
@@ -237,6 +237,7 @@
 	<!-- end:testimoni -->
 	
 	<!-- begin:blog -->
+<!--
 	<div id="blog">
 		<div class="container">
 			<div class="row">
@@ -288,5 +289,6 @@
 			</div>
 		</div>
 	</div>
+-->
 	<!-- end:blog -->
 @stop

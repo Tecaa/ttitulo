@@ -1,121 +1,44 @@
 @section('content')
 
-          	<!-- begin:heading -->
-	<div class="heads" style="background: url(../img/img02.jpg) center center;">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h2><span>//</span> Crear categoría</h2>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end:heading -->
+<div class="col-md-7 col-sm-7">
+  <h3>{{$titulo}}</h3>
 
-<!-- begin:content -->
-	<div class="page-content">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<ol class="breadcrumb">
-				      <li><a href="#">Home</a></li>
-				      <li class="active">Editar Categoría</li>
-				    </ol>
-				</div>
-			</div>
-			
-			<div class="row">
-						
-        <!-- begin:product-sidebar -->
-				<div class="col-md-3 col-sm-3">
-					<div class="row sidebar">
-						<div class="col-md-12">
-								
-							<h3>Menú</h3>
-							<ul class="nav nav-pills nav-stacked">
-                      
-              <li>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mantenedores <i class="fa fa-caret-down icon-dropdown"></i></a>
-              <ul class="dropdown-menu sub-menu">
-                  <li><a href="product.html">Productos</a></li>
-                  <li><a href="product.html">Categoríaas</a></li>
-                  <li><a href="product.html">Laboratorios</a></li>
-                  <li><a href="product.html">Vendedores</a></li>
-                  <li><a href="product.html">Clientes</a></li>
-                  <li><a href="product.html">Proveedorea</a></li>
-                  <li><a href="product.html">Bancos</a></li>
-                  <li><a href="product.html">Ciudades</a></li>
-                  <li><a href="product.html">Regiones</a></li>
-              </ul>
-              </li>
+  <div class="row confirm">
+    <div class="col-md-15">
+      <form class="form-horizontal" role="form" method="post" action="/categorias/editando/{{$categoria->cod_categoria}}">
 
-              <li>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Listados <i class="fa fa-caret-down icon-dropdown"></i></a>
-              <ul class="dropdown-menu sub-menu">
-                  <li><a href="product.html">Productos</a></li>
-                  <li><a href="product.html">Ventas</a></li>
-                  <li><a href="product.html">Stock</a></li>
+        <hr>
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Código categoría</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" placeholder="Codigo : " value="{{$categoria->cod_categoria}}" disabled>
+          </div>
+        </div>
 
-              </ul>
-              </li>
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Nombre categoría  (*)</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" name="nombre" pattern="[A-Za-z| |ñ|Ñ|á|é|í|ó|ú|Á|É|Í|Ó|Ú]*" placeholder="Nombre : " value="{{$categoria->nom_categoria}}" required>
+          </div>
+        </div>
 
-                    <li><a href="product.html">Ventas</a></li>
-                    <li><a href="product.html">Compras</a></li>
-                    <li><a href="product.html">Stock</a></li>
-                    <li><a href="product.html">Informes</a></li>
-                    <li><a href="product.html">Ajustes</a></li>
-                    <li><a href="product.html">Agenda proveedores</a></li>
-                  </ul>
-
-                  
-                </div>
-              </div>
-            </div>
-				<!-- end:product-sidebar -->
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Descripción  </label>
+          <div class="col-sm-7">
+            <input type="textarea" class="form-control" name="descripcion" pattern="[A-Za-z| |ñ|Ñ|á|é|í|ó|ú|Á|É|Í|Ó|Ú]*" placeholder="Ej.: Alivie su gripe naturalmente en este invierno." value="{{ $categoria->descripcion }}" >
+          </div>
+        </div>
         
-        <!-- begin:product-content -->
-				<div class="col-md-9 col-sm-9 single-item">
-					<div class="row">
-						<div class="col-md-7 col-sm-7">
-							<h3>Editar categoría</h3>
-         
-              <div class="row confirm">
-                <div class="col-md-15">
-                  <form class="form-horizontal" role="form">
-
-                    <hr>
-                    <div class="form-group">
-                      <label class="col-sm-5 control-label">Código categoría</label>
-                      <div class="col-sm-7">
-                        <input type="text" class="form-control" placeholder="Codigo : " required>
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="col-sm-5 control-label">Nombre categoría</label>
-                      <div class="col-sm-7">
-                        <input type="text" class="form-control" placeholder="Nombre : " required>
-                      </div>
-                    </div>
-
-
-
-                    <div class="form-group">
-                      <div class="col-sm-offset-3 col-sm-10">
-                        <button type="submit" class="btn btn-purple">Editar</button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-10">
+            <div class="pull-right">
+            <button type="submit" class="btn btn-purple">Editar</button>
             </div>
           </div>
         </div>
-      </div>
-        
-
-    
+      </form>
     </div>
+  </div>
 </div>
 
 @stop

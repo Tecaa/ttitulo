@@ -1,0 +1,183 @@
+<?php
+
+class BoletaController extends BaseController {
+  protected $layout = "layouts.admin";
+  
+   public function __construct()
+  {
+  }
+  
+  public function ventaLocal(){
+    View::share('titulo', "Realizar Venta");
+    $this->layout->content = View::make('boleta.ventaLocal');
+  }
+
+  public function crearboleta(){
+    View::share('titulo', "Compra");
+    $productos = Input::get('productos');
+
+    $documento = new Documento();
+    $documento->rut = Auth::user()->rut;
+    $documento->tipo_documento = 'boleta';
+
+
+    $total = 0;
+    $precio_total = 0;
+    foreach ($productos as $detBoleta)
+    {
+      $total = $total+ intval($detBoleta["cantidadVendida"]); 
+      $precio_total = intval($precio_total + $detBoleta["subtotal"]);
+      
+      $prod = Producto::find(intval($detBoleta["codigo_producto"]));  
+      if ($prod->cantidad - intval($detBoleta["cantidadVendida"]) < 0)
+      {
+        return 'Insuficiente stock de: ' + $prod->nombre_producto;
+      }
+    }
+
+    $documento->precio_total = $precio_total;
+    $documento->cantidad_total = $total;
+    
+    
+    foreach($productos as $det)
+    {
+      $prod = Producto::find(intval($det["codigo_producto"]));  
+      if ($prod->cantidad - intval($det["cantidadVendida"]) >= 0)
+      {
+        $prod->cantidad = $prod->cantidad - intval($det["cantidadVendida"]);
+        $prod->save();
+      }
+    }
+    $documento->save();
+
+
+    $boleta = new Boleta();
+    $boleta->cod_documento = $documento->cod_documento;
+
+    $boleta->save();
+
+
+    foreach ($productos as $prodVendido)
+    {
+      $detboleta = new DetalleBoleta();
+      $detboleta->cod_documento = $documento->cod_documento;
+      $detboleta->codigo_producto = intval ($prodVendido["codigo_producto"]);
+      $detboleta->cantidad = intval( $prodVendido["cantidadVendida"]);
+      $detboleta->precio_venta = intval ($prodVendido ["precio_venta"]);
+      $detboleta->precio_compra = intval ($prodVendido ["precio_compra"]);
+      $detboleta->save();
+    }
+
+    return Redirect::to('/listado/compras');
+  }
+
+  public function ventaInternet($cod_documento){
+    $bancos = Banco::get();
+    $documento = Documento::find($cod_documento);
+    View::share('titulo', "Realizar Venta");
+    $this->layout->content = View::make('boleta.ventaInternet')->withBancos($bancos)->withDocumento($documento);
+     
+    $detalles = DetalleBoleta::where('cod_documento', '=', $cod_documento);
+     JavaScript::put([
+        'detalles' => $detalles->with("producto")->with("producto.laboratorio")->get(),
+    ]);
+  }
+/*
+  public function ordenCompra(){
+    View::share('titulo', "Orden de compra");
+    $this->layout->content = View::make('boleta.ordenCompra');
+  }*/  
+  public function crearPedido()
+  {
+    $productos = Input::get('productos');
+
+    $documento = new Documento();
+    $documento->rut = Auth::user()->rut;
+    $documento->tipo_documento = 'pedido';
+
+
+    $total = 0;
+    $precio_total = 0;
+    foreach ($productos as $detBoleta)
+    {
+      $total = $total+ intval($detBoleta["cantidadComprada"]); 
+      $precio_total = $precio_total + intval($detBoleta["subtotal"]);
+    }
+
+    $documento->precio_total = $precio_total;
+    $documento->cantidad_total = $total;
+    $documento->save();
+
+    $boleta = new Boleta();
+    $boleta->cod_documento = $documento->cod_documento;
+    $boleta->save();
+
+    foreach ($productos as $prodVendido)
+    {
+      $detboleta = new DetalleBoleta();
+      $detboleta->cod_documento = $documento->cod_documento;
+      $detboleta->codigo_producto = intval ($prodVendido["codigo_producto"]);
+      $detboleta->cantidad = intval( $prodVendido["cantidadComprada"]);
+      $detboleta->precio_compra = intval ($prodVendido ["precio_compra"]);
+      $detboleta->precio_venta = intval ($prodVendido ["precio_venta"]);
+      $detboleta->save();
+    
+    }
+     return 'true';
+  }
+  public function aceptarPedido($cod_documento)
+  {
+    $pago = new Pago();
+    $pago->fecha_pago = Input::get('fecha');
+    $pago->hora_pago = Input::get('hora');
+    $pago->monto = Input::get('monto');
+    $pago->tipo_pago = Input::get('tipo_pago');
+    $pago->cod_banco = Input::get('banco');
+    $pago->cod_documento = Input::get('cod_documento');
+    
+     View::share('titulo', "Aceptando pedido");
+    $documento = Documento::find($cod_documento);
+    
+    $documento->tipo_documento = 'aceptado';
+    foreach($documento->detalles as $det)
+    {
+      $prod = Producto::find($det->codigo_producto);  
+      if ($prod->cantidad - $det->cantidad < 0)
+      {
+        return 'Insuficiente stock de: ' + $prod->nombre_producto;
+      }
+    }
+    
+    foreach($documento->detalles as $det)
+    {
+      $prod = Producto::find($det->codigo_producto);  
+      if ($prod->cantidad - $det->cantidad >= 0)
+      {
+        $prod->cantidad = $prod->cantidad - $det->cantidad;
+        $prod->save();
+      }
+    }
+    $documento->save();
+    $pago->save();
+    return Redirect::to('/listado/pedidos');
+  }
+  public function rechazarPedido($cod_documento)
+  {
+    $documento = Documento::find($cod_documento);
+    $documento->tipo_documento = 'rechazado';
+    $documento->save();
+    return Redirect::to('/listado/pedidos');
+  }
+  public function pedido($cod_documento)
+  {
+    View::share('titulo', "Detalle del pedido");
+    $detalles = DetalleBoleta::where('cod_documento', '=', $cod_documento);
+    $this->layout->content = View::make('boleta.pedido');
+     JavaScript::put([
+        'detalles' => $detalles->with("producto")->with("producto.laboratorio")->get(),
+    ]);
+    
+    
+    
+  }
+}  

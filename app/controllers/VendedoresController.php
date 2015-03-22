@@ -1,20 +1,72 @@
 <?php
 
 class VendedoresController extends BaseController {
-  protected $layout = "layouts.default";
+  protected $layout = "layouts.admin";
 
   public function crear(){
-    $this->layout->content = View::make('vendedores.crear');
+    $ciudad = Ciudad::get();
+    View::share('titulo', "Crear Vendedor");
+    $this->layout->content = View::make('vendedores.crear')->withCiudad($ciudad);
+  }
+
+  public function creando()
+  {
+    View::share('titulo', "Creando Vendedor");
+    $vendedor = new Usuario();
+    $vendedor->rut = Input::get('rut');
+    $vendedor->nom_usuario = Input::get('nombre');
+    $vendedor->contrasena = Hash::make(Input::get('pass'));
+    $vendedor->direccion = Input::get('direccion');
+    $vendedor->fecha_nacimiento = Input::get('fnac');
+    $vendedor->cod_ciudad = Input::get('ciudad');
+    $vendedor->sexo = Input::get('sexo');
+    $vendedor->mail = Input::get('mail');
+    $vendedor->fono = Input::get('fono');
+    $vendedor->tipo_usuario = 'vendedor';  
+    $vendedor->save();
+    
+    return Redirect::to('/listado/vendedores');
   }
   
   public function consultar(){
     $this->layout->content = View::make('vendedores.consultar');
   }
   
-  public function editar(){
-    $this->layout->content = View::make('vendedores.editar');
+  public function editar($rut){
+    $ciudad = Ciudad::get();
+    $vendedor = Usuario::find($rut);
+    View::share('titulo', "Editar Vendedor");
+    $this->layout->content = View::make('vendedores.editar')->withCiudad($ciudad)->withVendedor($vendedor);
   }
+
+  public function editando($rut)
+  {
+    View::share('titulo', "Editando Vendedor");
+    $vendedor = Usuario::find($rut);
+    $vendedor->rut = Input::get('rut');
+    $vendedor->nom_usuario = Input::get('nombre');
+    $vendedor->contrasena = Hash::make(Input::get('pass'));
+    $vendedor->direccion = Input::get('direccion');
+    $vendedor->fecha_nacimiento = Input::get('fnac');
+    $vendedor->cod_ciudad = Input::get('ciudad');
+    $vendedor->sexo = Input::get('sexo');
+    $vendedor->mail = Input::get('mail');
+    $vendedor->fono = Input::get('fono');
+    $vendedor-> tipo_usuario = 'vendedor';  
+    $vendedor->save();
+    
+    return Redirect::to('/listado/vendedores');
+  }
+  
   public function eliminar(){
+    View::share('titulo', "Eliminar Vendedor");
      $this->layout->content = View::make('vendedores.eliminar');
+  }
+  
+  public function eliminando($rut){
+    View::share('titulo', "Eliminar Vendedor");
+    $vendedor = Usuario::find($rut);
+    $vendedor->delete();
+    return Redirect::to('/listado/vendedores');
   }
 }

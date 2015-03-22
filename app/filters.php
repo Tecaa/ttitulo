@@ -22,6 +22,22 @@ App::after(function($request, $response)
 	//
 });
 
+Route::filter('administrador', function()
+{
+  if (Auth::user()->tipo_usuario != "administrador")
+    
+    return Redirect::guest('/');
+});
+Route::filter('vendedor', function()
+{
+  if (Auth::user()->tipo_usuario != "vendedor" && Auth::user()->tipo_usuario != "administrador")
+    return Redirect::guest('/');
+});
+Route::filter('cliente', function()
+{
+  if (Auth::user()->tipo_usuario != "cliente" && Auth::user()->tipo_usuario != "vendedor" && Auth::user()->tipo_usuario != "administrador")
+    return Redirect::guest('/');
+});
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters
