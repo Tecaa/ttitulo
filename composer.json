@@ -6,7 +6,7 @@
 	"require": {
 		"laravel/framework": "4.2.*",
     "laracasts/utilities": "~1.0",
-    "intervention/image": "2.1.2"
+		"intervention/image": "2.1.2"
 	},
 	"autoload": {
 		"classmap": [
