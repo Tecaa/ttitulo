@@ -38,14 +38,14 @@ $(document).ready(function() {
           message: 'Producto agregado al carro de compras correctamente, haga click en Ver Carro para ir su carro de compras.',
           buttons: [
             {
-              label: 'Cancelar',
+              label: 'Seguir viendo productos',
               cssClass: 'btn-default',
               action: function(dialogRef){
                 dialogRef.close();
               }
             },
             {
-              label: 'Ver Carro',
+              label: 'Ver carro',
               cssClass: 'btn-primary',
               action: function(dialogRef){
                 window.location.assign("/listado/carroCompras")

@@ -2,3 +2,9 @@
 {
   height: 280px !important;
 }
+
+.hPrecio
+{
+  margin-top: 0px;
+  text-align: right;
+}

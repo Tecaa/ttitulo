@@ -53,7 +53,8 @@ class BoletaController extends BaseController {
 
     $boleta = new Boleta();
     $boleta->cod_documento = $documento->cod_documento;
-
+    if (Input::get('rutCliente') != "")
+      $boleta->rut = Input::get('rutCliente');
     $boleta->save();
 
 
@@ -90,9 +91,9 @@ class BoletaController extends BaseController {
   public function crearPedido()
   {
     $productos = Input::get('productos');
-
+    $metodo = MetodoEnvio::find(Input::get('cod_metodo'));
+    
     $documento = new Documento();
-    $documento->rut = Auth::user()->rut;
     $documento->tipo_documento = 'pedido';
 
 
@@ -104,12 +105,15 @@ class BoletaController extends BaseController {
       $precio_total = $precio_total + intval($detBoleta["subtotal"]);
     }
 
-    $documento->precio_total = $precio_total;
+    $documento->precio_total = $precio_total + $metodo->costo;
     $documento->cantidad_total = $total;
     $documento->save();
 
     $boleta = new Boleta();
     $boleta->cod_documento = $documento->cod_documento;
+    $boleta->metodo_nombre = $metodo->nombre;
+    $boleta->metodo_costo = $metodo->costo;
+    $boleta->rut = Auth::user()->rut;
     $boleta->save();
 
     foreach ($productos as $prodVendido)
@@ -172,12 +176,28 @@ class BoletaController extends BaseController {
   {
     View::share('titulo', "Detalle del pedido");
     $detalles = DetalleBoleta::where('cod_documento', '=', $cod_documento);
-    $this->layout->content = View::make('boleta.pedido');
-     JavaScript::put([
-        'detalles' => $detalles->with("producto")->with("producto.laboratorio")->get(),
+    $this->layout->content = View::make('boleta.pedido')->withDocumento(Documento::find($cod_documento));
+    JavaScript::put([
+      'detalles' => $detalles->with("producto")->with("producto.laboratorio")->get(),
+      'envio' => Documento::find($cod_documento)->boleta->metodo_costo
     ]);
-    
-    
-    
+  }
+  public function historial(){
+    View::share('titulo', "Historial de ventas");
+    $this->layout->content = View::make('boleta.historial');
+    JavaScript::put([
+      'boletas' => Documento::where('tipo_documento','=', 'boleta')->orWhere('tipo_documento', 'aceptado')->orWhere('tipo_documento', 'rechazado')
+      ->with('boleta')->with('boleta.cliente')->get()
+    ]);
+  }
+  public function detalle($cod_documento)
+  {
+    View::share('titulo', "Detalle del pedido");
+    $detalles = DetalleBoleta::where('cod_documento', '=', $cod_documento);
+    $this->layout->content = View::make('boleta.detalle')->withDocumento(Documento::find($cod_documento));
+    JavaScript::put([
+      'detalles' => $detalles->with("producto")->with("producto.laboratorio")->get(),
+      'envio' => (Documento::find($cod_documento)->boleta->metodo_costo != null) ? Documento::find($cod_documento)->boleta->metodo_costo : 0
+    ]);
   }
 }  

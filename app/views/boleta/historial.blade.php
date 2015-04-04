@@ -6,11 +6,11 @@
 
 
 <div class="col-md-9 col-sm-9">
-  <h3>Pedidos de internet</h3>
+  <h3>Historial de ventas</h3>
 
 
   <div id="table-responsive" class="table-responsive">
-    <table class="table table-bordered table-hover" id="pedidoTable" width="100%">
+    <table class="table table-bordered table-hover" id="boletasTable" width="100%">
       <thead align="center">
         <th>Codigo documento</th>
         <th>Fecha y hora</th>
@@ -31,5 +31,5 @@
       
 @section('extra-js')
   {{ HTML::script('js/dataTables/jquery.dataTables.min.js') }}
-  {{ HTML::script('js/listadoPedido.js') }}
+  {{ HTML::script('js/boletaHistorial.js') }}
 @stop()

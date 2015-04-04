@@ -20,7 +20,6 @@ $(document).ready(function() {
         data: null,
         render: function ( data, type, row ) {
           return  MoneyFormat(data);
-
         },
         targets: [ 3 ]
       },
@@ -28,7 +27,6 @@ $(document).ready(function() {
         data: null,
         render: function ( data, type, row ) {
           return  MoneyFormat(data);
-
         },
         targets: [ 5 ]
       }
@@ -121,10 +119,11 @@ $(document).ready(function() {
     $.ajax({
       type: "POST",
       url: "/venta/local/crear",
-      data: { 'codigoB' : $('input[name=codigoB]').val(),
+      data: { //'codigoB' : $('input[name=codigoB]').val(),
              //'codigoB' : $( "input[name='codigoB']" ).val(),
-             'cantidad' : $('input[name=cantidad]').val(),
+             //'cantidad' : $('input[name=cantidad]').val(),
              //'cantidad' : $("input[name='cantidad']").val(),
+             'rutCliente' : $("input[name='rut']").val(),
              'productos' : $('#boletaTable').DataTable().rows().data().toArray()
             },
     })

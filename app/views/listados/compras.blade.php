@@ -16,6 +16,7 @@
         <th>Código</th>
         <th>Fecha compra</th>
         <th>Rut Proveedor</th>
+        <th>Nombre Proveedor</th>
         <th>N° productos</th>
         <th>Total Compra</th>
       </thead>

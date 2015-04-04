@@ -1,9 +1,11 @@
+var suma =0;
+var monto_envio;
 $(document).ready(function() {
   var compras;
   if (localStorage.compras !== undefined)
     compras = JSON.parse(localStorage.compras);
   else 
-    compras = null
+    compras = null;
   $('#carroTable').DataTable({
     // Lista de productos
     data: compras,
@@ -27,7 +29,7 @@ $(document).ready(function() {
         {
           data: null,
           render: function ( data, type, row ) {
-            return  "$ " + FormatNumberBy3(data);
+            return  MoneyFormat(data);
 
           },
           targets: [ 4 ]
@@ -57,7 +59,7 @@ $(document).ready(function() {
         $.ajax({
       type: "POST",
       url: "/venta/pedido",
-      data: { 'productos' : $('#carroTable').DataTable().rows().data().toArray() },
+      data: { 'productos' : $('#carroTable').DataTable().rows().data().toArray(), 'cod_metodo' : $( "#metodo" ).val() },
     })
     .done(function () {
       delete localStorage.compras;
@@ -77,7 +79,20 @@ $(document).ready(function() {
       });
     });
   });
-} );
+  
+  
+  $(metodos).each(function(index, val){
+    if (val.cod_metodo == $( "#metodo" ).val())
+      monto_envio = val.costo;
+  });
+  
+  $(compras).each(function(index, compra) {
+    suma += compra.precio_venta * compra.cantidadComprada;
+  });
+  $("#suma").html(MoneyFormat(suma));
+  $("#total").html(MoneyFormat(suma + monto_envio));
+});
+
 rem = function (e)
 {
   compras = JSON.parse(localStorage.compras);
@@ -92,3 +107,13 @@ rem = function (e)
   localStorage.compras = JSON.stringify(compras);
   window.location.assign("/listado/carroCompras")
 };
+
+$( "#metodo" ).change(function() {
+  $(metodos).each(function(index, val){
+    if (val.cod_metodo == $( "#metodo" ).val())
+      monto_envio = val.costo;
+  });
+  
+  $("#suma").html(MoneyFormat(suma));
+  $("#total").html(MoneyFormat(suma + monto_envio));
+}); 

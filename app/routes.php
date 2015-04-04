@@ -99,8 +99,6 @@ Route::get('/cliente/eliminar', ['uses' => 'ClientesController@eliminar', 'befor
 Route::any('/cliente/eliminando/{rut}', ['uses' => 'ClientesController@eliminando', 'before' => 'vendedor']);
 
 
-
-Route::get('/listado/ventas', ['uses' => 'ListadoController@ventas', 'before' => 'administrador']);
 Route::get('/listado/productos', ['uses' => 'ListadoController@productos', 'before' => 'vendedor']);
 Route::get('/listado/eliminados', ['uses' => 'ListadoController@eliminados', 'before' => 'administrador']);
 Route::get('/listado/proveedores', ['uses' => 'ListadoController@proveedores', 'before' => 'administrador']);
@@ -124,6 +122,9 @@ Route::get('/cosulta/laboratorios', ['uses' => 'ConsultasController@consultaLab'
 Route::any('/boleta/aceptarPedido/{cod_documento}', ['uses' => 'BoletaController@aceptarPedido', 'before' => 'vendedor']);
 Route::any('/boleta/rechazarPedido/{cod_documento}', ['uses' => 'BoletaController@rechazarPedido', 'before' => 'vendedor']);
 Route::get('/boleta/pedido/{cod_documento}', ['uses' => 'BoletaController@pedido', 'before' => 'vendedor']);
+Route::get('/boleta/historial', ['uses' => 'BoletaController@historial', 'before' => 'administrador']);
+Route::get('/boleta/{cod_documento}', ['uses' => 'BoletaController@detalle', 'before' => 'administrador']);
+
 Route::post('/venta/pedido', ['uses' => 'BoletaController@crearPedido', 'before' => 'auth']);
 Route::get('/venta/local', ['uses' => 'BoletaController@ventaLocal', 'before' => 'vendedor']);
 Route::post('/venta/local/crear', ['uses' => 'BoletaController@crearboleta', 'before' => 'vendedor']);
@@ -138,8 +139,8 @@ Route::get('/sesion', ['uses' => function() {
   if (Auth::user()->tipo_usuario == "administrador")
     return Redirect::to('/sesion/administrador'); 
   else if (Auth::user()->tipo_usuario == "cliente")
-    //return Redirect::to('/sesion/cliente'); 
-    return Redirect::to('/'); 
+    return Redirect::to('/sesion/cliente'); 
+    //return Redirect::to('/'); 
   if (Auth::user()->tipo_usuario == "vendedor")
     return Redirect::to('/sesion/vendedor'); 
   

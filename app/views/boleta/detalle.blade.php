@@ -11,15 +11,16 @@
   <div class="row confirm">
     <div class="col-md-15">
       <hr>
-
+      @if ($documento->boleta->rut != null)
       <div class="form-group col-md-12">
         <label class="col-md-5 control-label">Rut Cliente</label>
         <div class="col-md-7">
 
-          <label class="col-md-7 control-label">{{$documento->boleta->cliente->rut}}</label>
+          <label class="col-md-7 control-label">{{$documento->boleta->rut}}</label>
         </div>
       </div>
-
+      @endif
+      @if ($documento->boleta->cliente != null)
       <div class="form-group col-md-12">
         <label class="col-md-5 control-label">Nombre Cliente</label>
         <div class="col-md-7">
@@ -74,14 +75,25 @@
         </div>
       </div>
 
-            
-      <div class="form-group col-md-12">
-        <label class="col-md-5 control-label">Método de envío</label>
-        <div class="col-md-7">
-          <h3 class="col-sm-10 control-label hPrecio">{{$documento->boleta->metodo_nombre}}</h3>
+        @if($documento->boleta->metodo_nombre != null)
+        <div class="form-group col-md-12">
+          <label class="col-md-5 control-label">Método de envío</label>
+          <div class="col-md-7">
+            <h3 class="col-sm-10 control-label hPrecio">{{$documento->boleta->metodo_nombre}}</h3>
+          </div>
         </div>
+        @else
+      <div class="form-group col-md-12">
+
+        <label class="col-md-7 control-label">Compra directa en local.</label>
+        </div>
+        @endif
+      @else
+      <div class="form-group col-md-12">
+
+        <label class="col-md-7 control-label">Cliente no registrado en el sistema</label>
       </div>
-      
+      @endif
     </div>
   </div>
 
@@ -122,7 +134,7 @@
       <label class="col-sm-5 control-label">Envío</label>
       <div class="col-sm-4">
         <div class="pull-right">
-          <input type="text" name="envio" class="form-control" value="+ {{$documento->boleta->metodoCostoF}}" readonly >
+          <input type="text" name="envio" class="form-control" value="+ @if($documento->boleta->metodoCostoF != null) {{$documento->boleta->metodoCostoF}} @else 0 @endif" readonly >
         </div> 
       </div>
       <label class="col-sm-5 control-label">Total a cobrar</label>
@@ -135,7 +147,7 @@
   </div>
 
 
-
+<!--
   <hr>
   <div class="row ">
     <div class="col-sm-2 pull-left">
@@ -145,6 +157,7 @@
       <a href="/venta/internet/{{$documento->cod_documento}}"><button type="button" class="btn btn-success">Pedido pagado</button></a>
     </div>
   </div>
+-->
 </div>
 @stop
 

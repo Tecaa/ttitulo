@@ -63,7 +63,7 @@
 -->
           </ul>
         </li>
-        @if (Auth::check() && Auth::user()->tipo_usuario != "cliente")
+        @if (Auth::check())
         <li><a href="/sesion">Menu</a></li>
         @endif
         @unless (Auth::check())
@@ -83,7 +83,7 @@
 
 
 
-        <li><a href="/listado/carroCompras">Compras</a></li>
+        <li><a href="/listado/carroCompras">Mis compras</a></li>
       </ul>
 
     </div><!-- /.navbar-collapse -->

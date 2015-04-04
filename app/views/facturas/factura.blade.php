@@ -11,24 +11,21 @@
       <form class="form-horizontal" role="form" action="/compra/factura/crear" method="POST">
 
         <hr>
-        <div class="form-group">
-          <label class="col-sm-5 control-label">Rut Proveedor (*)</label>
-          <div class="col-sm-7">
-            <input type="text" name="rutProveedor" class="form-control" pattern="\d{3,8}-[\d|kK]{1}" placeholder="Ej.: 11222333-k " required>
-          </div>
-        </div>
-        
-        <div class="form-group">
+         <div class="form-group">
           <label class="col-sm-5 control-label">Nombre Proveedor (*)</label>
           <div class="col-sm-7">
-            <input type="text" name="nombre" class="form-control" placeholder="Ej: Aura Vitalis " required>
+            <select class="form-control" id="proveedor" name="proveedor" required>
+              @foreach ($proveedores as $prov)
+              <option value="{{ $prov->cod_proveedor }}">{{ $prov->nom_proveedor}}</option>
+              @endforeach
+            </select>
           </div>
         </div>
         
         <div class="form-group">
           <label class="col-sm-5 control-label">Código Factura (*)</label>
           <div class="col-sm-7">
-            <input type="number" name="codFactura" class="form-control" placeholder="Ej: 12345 " required>
+            <input type="text" name="codFactura" class="form-control" placeholder="Ej: 12345 " required>
           </div>
         </div>
         
@@ -50,14 +47,14 @@
         <div class="form-group">
           <label class="col-sm-5 control-label">Cantidad (*)</label>
           <div class="col-sm-7">
-            <input id="cantidad" type="number" class="form-control" placeholder="Ej.: 3 " required>
+            <input id="cantidad" type="number" class="form-control" placeholder="Ej.: 3 " min=1 max=5000 required>
           </div>
         </div>
 
                 <div class="form-group">
           <label class="col-sm-5 control-label">Precio (*)</label>
           <div class="col-sm-7">
-            <input id="precio" type="number" name="precio" class="form-control" placeholder="Ej.: 3000 " required>
+            <input id="precio" type="number" name="precio" class="form-control" placeholder="Ej.: 3000 " min=1 max=10000000 required>
           </div>
         </div>
         

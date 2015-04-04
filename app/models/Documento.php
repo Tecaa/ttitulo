@@ -21,6 +21,21 @@ class Documento extends Eloquent {
     return $this->hasMany('DetalleFac', 'cod_documento');
   }
   
+  public function boleta()
+    {
+    return $this->hasOne('Boleta', 'cod_documento');
+  }
+   public function factura()
+    {
+    return $this->hasOne('Factura', 'cod_documento');
+  }
+  
+  public function vendedor()
+    {
+    
+    return $this->belongsTo('Usuario', 'rut');
+  }
+  
 
   public function getPrecioTotalFAttribute()
   {

@@ -423,7 +423,8 @@ h4,
 h5,
 .h5,
 h6,
-.h6 {
+.h6,
+.hPrecio {
   margin-top: 10px;
   margin-bottom: 10px;
 }

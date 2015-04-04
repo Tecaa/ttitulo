@@ -5,7 +5,8 @@ class FacturaController extends BaseController {
 
   public function factura(){
     View::share('titulo', "Ingresar Compra");
-    $this->layout->content = View::make('facturas.factura');
+    $proveedores = Proveedor::get();
+    $this->layout->content = View::make('facturas.factura')->withProveedores($proveedores);
   }
 
   public function crearFactura(){
@@ -15,7 +16,7 @@ class FacturaController extends BaseController {
     $productos = Input::get('productos');
 
     $documento = new Documento();
-    $documento->rut = Input::get('rutProveedor');
+    $documento->rut = Auth::user()->rut;
     $documento->tipo_documento = 'factura';
 
 
@@ -34,7 +35,7 @@ class FacturaController extends BaseController {
 
     $factura = new Factura();
     $factura->cod_documento = $documento->cod_documento;
-    $factura->cod_proveedor = Input::get('rutProveedor');
+    $factura->cod_proveedor = Input::get('cod_proveedor');
     $factura->cod_factura = Input::get('codFactura');
     $factura->save();
 
@@ -55,8 +56,8 @@ class FacturaController extends BaseController {
         $producto->save();
         $detfactura->save();
       } 
-
-      return Redirect::to('/listado/compras'); 
     }
+    
+   return Redirect::to('/listado/compras'); 
   }
 }

@@ -29,14 +29,7 @@
                         <input type="password" name="pass" class="form-control" placeholder="******** " required>
                       </div>
                     </div>
-
-                    <div class="form-group">
-                      <label class="col-sm-5 control-label">Dirección (*)</label>
-                      <div class="col-sm-7">
-                        <input type="text" name="direccion" class="form-control" placeholder="Ej.: Los Maitenes 1400 " required>
-                      </div>
-                    </div>
-
+                    
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Ciudad (*)</label>
                       <div class="col-sm-7">
@@ -46,7 +39,15 @@
                           @endforeach
                         </select>
                       </div>
-                    </div>                    
+                    </div>   
+                    
+                    <div class="form-group">
+                      <label class="col-sm-5 control-label">Dirección (*)</label>
+                      <div class="col-sm-7">
+                        <input type="text" name="direccion" class="form-control" placeholder="Ej.: Los Maitenes 1400 " required>
+                      </div>
+                    </div>
+                 
 
                     <div class="form-group">
                       <label class="col-sm-5 control-label">fecha de nacimiento</label>

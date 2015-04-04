@@ -1,5 +1,6 @@
 <?php
-
+use Carbon\Carbon;
+  
 class ProductoController extends BaseController {
   protected $layout = "layouts.admin";
 
@@ -48,6 +49,16 @@ class ProductoController extends BaseController {
   
   public function consultar($codigo_producto){
     $producto = Producto::find($codigo_producto);
+    if(!Auth::user() || Auth::user()->tipo_usuario == "cliente")
+    {
+      $p = Session::get($producto->codigo_producto, 'false');
+      if ($p === 'false' || $p->addHour() <= Carbon::now())
+      {
+        $producto->visitas += 1;
+        $producto->save();
+        Session::put($producto->codigo_producto, Carbon::now());
+      }
+    }
     View::share('titulo', "Consultar Producto");
     JavaScript::put([
         'producto' => $producto,

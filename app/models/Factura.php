@@ -7,18 +7,23 @@ class Factura extends Eloquent {
 	 *
 	 * @var string
 	 */
-	protected $table = 'factura';
+  protected $table = 'factura';
   protected $primaryKey = 'cod_documento';
-  
 
-    public function laboratorio()
+
+  public function laboratorio()
   {
     return $this->belongsTo('Laboratorio', 'cod_laboratorio');
   }
-  
-         public function detallefac()
+
+  public function detallefac()
   {
     return $this->belongsTo('DetalleFac', 'cod_documento');
   }
   
+  public function proveedor()
+    {
+    return $this->belongsTo('Proveedor', 'cod_proveedor');
+  }
+
 }

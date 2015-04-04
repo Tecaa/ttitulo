@@ -9,10 +9,25 @@ class Boleta extends Eloquent {
 	 */
 	protected $table = 'boleta';
   protected $primaryKey = 'cod_documento';
+    protected $appends = array('metodoCostoF');
   
   public function detalle_boleta()
   {
     return $this->hasMany('DetalleBoleta', 'cod_documento');
   }
+  /*
+  public function metodoEnvio()
+  {
+      return $this->belongsTo('MetodoEnvio', 'cod_metodo');  
+  }*/
+  public function cliente()
+  {
+      return $this->belongsTo('Usuario', 'rut');  
+  }
 
+  public function getMetodoCostoFAttribute()
+  {
+    return "$ ". number_format($this->metodo_costo, 0, ",", ".");
+  }
+  
 }

@@ -15,7 +15,8 @@
           @endif
         </a>
         <div class="caption-details">
-          <h3>{{$prod->nombre_producto}}</h3>
+          <h3>{{$prod->nombre_producto}} @if($prod->contenido != null) ({{$prod->contenido}}) @endif</h3>
+          <label>{{$prod->laboratorio->nom_laboratorio}}</label>
           <span class="price">{{$prod->precioVentaF}}</span>
         </div>
       </div>

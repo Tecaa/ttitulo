@@ -3,12 +3,13 @@ $(document).ready(function() {
       language: {
             "url": "/js/dataTables/Spanish.json"
         },
-      
+      order: [[1, 'desc']],
       data: compras, 
       columns: [
             { "data": "cod_documento" },
             { "data": "created_at" },
-            { "data": "rut" },
+            { "data": "factura.cod_proveedor" },
+            { "data": "factura.proveedor.nom_proveedor" },
             { "data": "cantidad_total" },
             { "data": "precio_total" }
         ],
@@ -18,10 +19,10 @@ $(document).ready(function() {
       {
           data: null,
           render: function ( data, type, row ) {
-            return  "$ " + FormatNumberBy3(data);
+            return  MoneyFormat(data);
 
           },
-          targets: [ 4 ]
+          targets: [ 5 ]
         },
       
       ]

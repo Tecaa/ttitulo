@@ -14,7 +14,7 @@ $(document).ready(function() {
       {
           data: null,
           render: function ( data, type, row ) {
-            return  "$ " + FormatNumberBy3(data);
+            return  MoneyFormat(data);
 
           },
           targets: [ 3 ]
@@ -22,7 +22,7 @@ $(document).ready(function() {
       {
           data: null,
           render: function ( data, type, row ) {
-            return  "$ " + FormatNumberBy3(row.cantidad * row.precio_venta);
+            return  MoneyFormat(row.cantidad * row.precio_venta);
 
           },
           targets: [ 4 ]

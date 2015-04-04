@@ -44,7 +44,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informes <i class="fa fa-caret-down icon-dropdown"></i></a>
           <ul class="dropdown-menu sub-menu">
             <li><a href="/listado/compras">Informe de Compras</a></li>
-            <li><a href="/listado/ventas">Informe de Ventas</a></li>
+            <li><a href="/boleta/historial">Informe de Ventas</a></li>
             <li><a href="/listado/eliminados">Productos eliminados</a></li>
           </ul>
         </li>

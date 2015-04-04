@@ -58,31 +58,31 @@ $(document).ready(function() {
      //Aqui buscaremos el nuevo producto a ingresar para saber si ya existe en la tabla, en caso de que
     // exista le modificaremos su cantidad comprada y su subtotal y estableceremos encontrado=true.
     // Si no lo encontramos no se hara nada y encontrado quedara como false.
+    totalProductos = 0;
+    totalVenta = 0;
     f.rows().indexes().each( function (idx) {
-        var element = f.row( idx ).data();
+      var element = f.row( idx ).data();
       if (element === undefined)
-         return false;
+        return false;
       console.log(element);
-        if (element.codigo_barras == $('#codigoB').val())
-       {
-         
-         element.cantidadComprada = parseInt(element.cantidadComprada) +  parseInt($('#cantidad').val());
-        
-         actualizarTotales(element.cantidadVendida, element.precio_venta);
-         element.precio_compra = parseInt($('#precio').val());
-         
-         element.subtotal = parseInt(element.cantidadComprada) * parseInt(element.precio_compra);
-         f.row( idx ).data( element );
-         encontrado = true;
-         // Redibujamos la tabla visual en caso de que se hayan echo cambios encontrando el producto
-         f.draw();
-         
-         return false; // break;
-       }
-        
+      if (element.codigo_barras == $('#codigoB').val())
+      {
+
+        element.cantidadComprada = parseInt(element.cantidadComprada) +  parseInt($('#cantidad').val());
+        element.precio_compra = parseInt($('#precio').val());
+
+        element.subtotal = parseInt(element.cantidadComprada) * parseInt(element.precio_compra);
+        f.row( idx ).data( element );
+        encontrado = true;
+        // Redibujamos la tabla visual en caso de que se hayan echo cambios encontrando el producto
+        f.draw();
+
+      }
+
+        actualizarTotales(element.cantidadComprada, element.precio_compra);
     } );
 
-    
+
 
     //Si no encontramos el producto anteriormente en la tabla visual entonces debemos usar ajax para obtener
     // sus datos de la db e ingresarlo a la tabla por primera vez.
@@ -112,7 +112,7 @@ $(document).ready(function() {
     $.ajax({
       type: "POST",
       url: "/compra/factura/crear",
-      data: { 'rutProveedor' : $( "input[name='rutProveedor']" ).val(),
+      data: { 'cod_proveedor' : $( "#proveedor" ).val(),
              'nombre' : $("input[name='nombre']").val(),
              'codFactura' : $("input[name='codFactura']").val(),
              'fecha' : $("input[name='fecha']").val(),
@@ -155,5 +155,5 @@ actualizarTotales = function(cantidad, precioUnitario)
   totalProductos += cantidad;
   totalVenta +=  cantidad * precioUnitario;
   $("input[name=cantidad").val(FormatNumberBy3(totalProductos));
-  $("input[name=total").val("$ " + FormatNumberBy3(totalVenta));
+  $("input[name=total").val(MoneyFormat(totalVenta));
 };

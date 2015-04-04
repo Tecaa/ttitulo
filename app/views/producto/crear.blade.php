@@ -7,7 +7,7 @@
 
         <hr>
         
-            <div class="form-group">
+        <div class="form-group">
           <label class="col-sm-5 control-label">Laboratorio (*)</label>
           <div class="col-sm-7">
             <select class="form-control" name="laboratorio" required>

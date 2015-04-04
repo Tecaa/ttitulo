@@ -1,3 +1,5 @@
+var totalProductos = 0;
+var totalVenta = 0;
 $(document).ready(function() {
   $('#detalleTable').DataTable({
     language: {
@@ -9,14 +11,14 @@ $(document).ready(function() {
       { "data": "producto.nombre_producto" },
       { "data": "producto.laboratorio.nom_laboratorio" },
       { "data": "producto.cantidad" },
-      { "data": "producto.precio_venta" },
+      { "data": "precio_venta" },
       { "data": "cantidad" }
     ],
     columnDefs: [
       {
         data: null,
         render: function ( data, type, row ) {
-          return  data.cantidad * data.precio_venta;
+          return  MoneyFormat(data.cantidad * data.precio_venta);
 
         },
         targets: [ 6 ]
@@ -24,13 +26,25 @@ $(document).ready(function() {
       {
         data: null,
         render: function ( data, type, row ) {
-          return  "$ " + FormatNumberBy3(data);
+          return  MoneyFormat(data);
 
         },
         targets: [ 4 ]
       }
     ]
   });
+  $(detalles).each(function(index, value){
+    actualizarTotales(value.cantidad, value.precio_venta);
+  });
 
+});
 
-} );
+actualizarTotales = function(cantidad, precioUnitario)
+{
+  //Suma total
+  totalProductos += cantidad;
+  totalVenta +=  cantidad * precioUnitario;
+  $("input[name=cantidadTotal").val(FormatNumberBy3(totalProductos));
+  $("input[name=subtotal").val(MoneyFormat(totalVenta));
+  $("input[name=total").val(MoneyFormat(totalVenta + envio));
+};
