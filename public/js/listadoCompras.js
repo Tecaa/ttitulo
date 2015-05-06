@@ -1,31 +1,39 @@
 $(document).ready(function() {
-    $('#comprasTable').DataTable({
-      language: {
-            "url": "/js/dataTables/Spanish.json"
-        },
-      order: [[1, 'desc']],
-      data: compras, 
-      columns: [
-            { "data": "cod_documento" },
-            { "data": "created_at" },
-            { "data": "factura.cod_proveedor" },
-            { "data": "factura.proveedor.nom_proveedor" },
-            { "data": "cantidad_total" },
-            { "data": "precio_total" }
-        ],
-      
+  $('#comprasTable').DataTable({
+    language: {
+      "url": "/js/dataTables/Spanish.json"
+    },
+    order: [[1, 'desc']],
+    data: compras, 
+    columns: [
+      { "data": "cod_documento" },
+      { "data": "created_at" },
+      { "data": "factura.cod_proveedor" },
+      { "data": "factura.proveedor.nom_proveedor" },
+      { "data": "cantidad_total" },
+      { "data": "precio_total" }
+    ],
 
-      columnDefs: [
+
+    columnDefs: [
       {
-          data: null,
-          render: function ( data, type, row ) {
-            return  MoneyFormat(data);
+        data: null,
+        render: function ( data, type, row ) {
+          return  MoneyFormat(data);
 
-          },
-          targets: [ 5 ]
         },
-      
-      ]
-      
-    });
+        targets: [ 5 ]
+      },
+      {
+        data: null,
+        render: function ( data, type, row ) {
+          return " <a class='btn btn-warning' href=/facturas/" + data.cod_documento +
+            "><i class='glyphicon glyphicon-search icon-white'></i></a>";
+
+        },
+        targets: [ 6 ]
+      }
+    ]
+
+  });
 } );

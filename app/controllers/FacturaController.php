@@ -57,7 +57,16 @@ class FacturaController extends BaseController {
         $detfactura->save();
       } 
     }
-    
-   return Redirect::to('/listado/compras'); 
+
+    return Redirect::to('/listado/compras'); 
+  }
+  public function detalle($cod_documento)
+  {
+    View::share('titulo', "Detalle de la factura");
+    $detalles = DetalleFac::where('cod_documento', '=', $cod_documento);
+    $this->layout->content = View::make('facturas.detalle')->withDocumento(Documento::find($cod_documento));
+    JavaScript::put([
+      'detalles' => $detalles->with("producto")->with("producto.laboratorio")->get()
+    ]);
   }
 }

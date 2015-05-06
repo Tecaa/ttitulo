@@ -124,6 +124,7 @@ Route::any('/boleta/rechazarPedido/{cod_documento}', ['uses' => 'BoletaControlle
 Route::get('/boleta/pedido/{cod_documento}', ['uses' => 'BoletaController@pedido', 'before' => 'vendedor']);
 Route::get('/boleta/historial', ['uses' => 'BoletaController@historial', 'before' => 'administrador']);
 Route::get('/boleta/{cod_documento}', ['uses' => 'BoletaController@detalle', 'before' => 'administrador']);
+Route::get('/facturas/{cod_documento}', ['uses' => 'FacturaController@detalle', 'before' => 'administrador']);
 
 Route::post('/venta/pedido', ['uses' => 'BoletaController@crearPedido', 'before' => 'auth']);
 Route::get('/venta/local', ['uses' => 'BoletaController@ventaLocal', 'before' => 'vendedor']);

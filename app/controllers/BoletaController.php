@@ -9,6 +9,9 @@ class BoletaController extends BaseController {
   
   public function ventaLocal(){
     View::share('titulo', "Realizar Venta");
+    JavaScript::put([
+      'productos' => Producto::where('activo', true)->with('laboratorio')->with('catProducto')->get()
+    ]);
     $this->layout->content = View::make('boleta.ventaLocal');
   }
 

@@ -2,6 +2,7 @@
 
 @section('extra-css')
     {{ HTML::style('css/dataTables/jquery.dataTables.min.css') }}
+{{ HTML::style('css/jquery-autocomplete/styles.css') }}
 @stop()
 
 <div class="col-md-9 col-sm-9">
@@ -36,6 +37,10 @@
           <div class="col-sm-7">
             <input type="text" pattern="[0-9]*" name="codigoB" class="form-control" onKeyPress="return submitenter(this,event)" required> 
           </div>
+        </div>
+        
+        <div style="position: relative; height: 80px;" class="autocomplete">
+          <input class="input-ac" type="text" name="country" id="autocomplete-products" style="position: absolute; z-index: 2; background: transparent;"/>
         </div>
         
         <div class="form-group">
@@ -104,4 +109,8 @@
 @section('extra-js')
   {{ HTML::script('js/dataTables/jquery.dataTables.min.js') }}
   {{ HTML::script('js/boleta.js') }}
+{{ HTML::script('js/jquery-autocomplete/jquery.autocomplete.js') }}
+{{ HTML::script('js/jquery-autocomplete/jquery.mockjax.js') }}
+{{ HTML::script('js/jquery-autocomplete/countries.js') }}
+{{ HTML::script('js/jquery-autocomplete/demo.js') }}
 @stop()

@@ -75,7 +75,10 @@ $(document).ready(function() {
               window.location.assign("/listado/carroCompras");
             }
           }
-        ]
+        ],
+        onhide: function(dialogRef){
+          window.location.assign("/listado/carroCompras");
+        },
       });
     });
   });

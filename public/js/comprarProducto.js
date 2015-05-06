@@ -7,51 +7,86 @@ $(document).ready(function() {
       window.location.reload();
       return;
     }
+
     var encontrado = false;
+    var sobreStock = false;
     if (localStorage.compras === null || localStorage.compras === undefined)
-      {
-        compras = [];
-      }
+    {
+      compras = [];
+    }
     else
-      {
-        compras = JSON.parse(localStorage.compras);
-        $(compras).each(function(index, val) {
-          if (val.codigo_producto == producto.codigo_producto)
-            {
-              producto.cantidadComprada = parseInt(val.cantidadComprada, 10) + producto.cantidadComprada;
-              producto.subtotal = producto.cantidadComprada * producto.precio_venta;
-              compras[index] = producto;
-              encontrado = true;
-              return false;
-            }
-        })
-      }
+    {
+      compras = JSON.parse(localStorage.compras);
+      $(compras).each(function(index, val) {
+        if (val.codigo_producto == producto.codigo_producto)
+        {
+          if (producto.cantidadComprada +  parseInt(val.cantidadComprada) > producto.cantidad)
+          {
+           sobreStockMessage(producto.cantidad, producto.cantidadComprada, parseInt(val.cantidadComprada));
+            sobreStock = true;
+            return false;
+          }
+
+          producto.cantidadComprada = parseInt(val.cantidadComprada, 10) + producto.cantidadComprada;
+          producto.subtotal = producto.cantidadComprada * producto.precio_venta;
+          compras[index] = producto;
+          encontrado = true;
+          return false;
+        }
+      })
+    }
+    if (sobreStock === true)
+      return;
     if (encontrado === false)
-      {
-       producto.subtotal = producto.cantidadComprada * producto.precio_venta;
+    {
+      if (producto.cantidadComprada > producto.cantidad)
+        {
+          sobreStockMessage(producto.cantidad, producto.cantidadComprada, 0);
+          return;
+        }
+      producto.subtotal = producto.cantidadComprada * producto.precio_venta;
       compras.push(producto);
-      }
+    }
     localStorage.compras = JSON.stringify(compras);
     BootstrapDialog.show({
-          type: BootstrapDialog.TYPE_SUCCESS,
-          title: 'Producto agregado',
-          message: 'Producto agregado al carro de compras correctamente, haga click en Ver Carro para ir su carro de compras.',
-          buttons: [
-            {
-              label: 'Seguir viendo productos',
-              cssClass: 'btn-default',
-              action: function(dialogRef){
-                dialogRef.close();
-              }
-            },
-            {
-              label: 'Ver carro',
-              cssClass: 'btn-primary',
-              action: function(dialogRef){
-                window.location.assign("/listado/carroCompras")
-              }
-            }
-          ]
-        });
+      type: BootstrapDialog.TYPE_SUCCESS,
+      title: 'Producto agregado',
+      message: 'Producto agregado al carro de compras correctamente, haga click en Ver Carro para ir su carro de compras.',
+      buttons: [
+        {
+          label: 'Seguir viendo productos',
+          cssClass: 'btn-default',
+          action: function(dialogRef){
+            dialogRef.close();
+          }
+        },
+        {
+          label: 'Ver carro',
+          cssClass: 'btn-primary',
+          action: function(dialogRef){
+            window.location.assign("/listado/carroCompras")
+          }
+        }
+      ]
+    });
   });
 } );
+sobreStockMessage = function(disponible, solicitado, enCarro)
+{
+  BootstrapDialog.show({
+    type: BootstrapDialog.TYPE_WARNING,
+    title: 'No hay suficientes unidades',
+              message: 'No se ha agregado el producto al carro de compras debido a que no hay suficientes unidades disponibles.'
+              +'<br/><br/>Unidades disponibles: ' + disponible
+              +'<br/>Unidades solicitadas: ' + solicitado + ' + ' +  enCarro + ' ya en carro.',
+               buttons: [
+      {
+        label: 'Aceptar',
+        cssClass: 'btn-primary',
+        action: function(dialogRef){
+          dialogRef.close();
+        }
+      }
+    ]
+  });
+}

@@ -49,6 +49,7 @@
       @if($producto->ingredientes != null)
       <p>Componentes: {{$producto->ingredientes}}</p>
       @endif
+      <p>Unidades: {{$producto->cantidad}} <em>(Solo referencial, al realizar el pedido se le confirmará el stock)</em></p>
       <h4>{{$producto->precioVentaF}}</h4>
 
       <hr>

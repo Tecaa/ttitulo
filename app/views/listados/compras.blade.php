@@ -19,6 +19,7 @@
         <th>Nombre Proveedor</th>
         <th>N° productos</th>
         <th>Total Compra</th>
+        <th>Acciones</th>
       </thead>
       <tbody>
         

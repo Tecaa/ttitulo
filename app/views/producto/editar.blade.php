@@ -44,6 +44,18 @@
           </div>
         </div>
 
+       <div class="form-group">
+          <label class="col-sm-5 control-label">Contenido </label>
+          <div class="col-sm-7">
+            <input type="text" name="contenido" class="form-control" value="{{$producto->contenido}}" placeholder="Ej: 1 lt, 100 grs, 2 kg, 3 unid.">
+          </div>
+        </div>
+       <div class="form-group">
+          <label class="col-sm-5 control-label">Componentes </label>
+          <div class="col-sm-7">
+            <input type="text" name="ingredientes" class="form-control" value="{{$producto->ingredientes}}" placeholder="Ej: Miel, agua, azúcar, nueces molidas y pasas.">
+          </div>
+        </div>
       <div class="form-group">
         <label class="col-sm-5 control-label">Precio (*)</label>
         <div class="col-sm-7">

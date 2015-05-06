@@ -37,14 +37,27 @@ $(document).ready(function() {
   var f = $("#boletaTable").DataTable();
   $('#ingresar').click(function (event) {
     if ($('input[name=cantidad]').val()   === '' || $('input[name=codigoB]').val() === "" || $('input[name=codigoB]').val() === "0" || $('input[name=cantidad]').val() === "0"
-        || $('input[name=cantidad]').val()   === undefined || $('input[name=codigoB]').val()   === undefined) 
+        || $('input[name=cantidad]').val()   === undefined || $('input[name=codigoB]').val()   === undefined || parseInt($('input[name=cantidad]').val()) <= 0) 
     {
-      alert ('Debe completar el código y la cantidad.');
+       BootstrapDialog.show({
+          type: BootstrapDialog.TYPE_DANGER,
+          title: 'Problema',
+          message: 'Debe completar el código y la cantidad correctamente',
+          buttons: [
+            {
+              label: 'Aceptar',
+              cssClass: 'btn-primary',
+              action: function(dialogRef){
+                dialogRef.close();
+              }
+            }
+          ]
+        });
       return;
     }
 
     var encontrado = false;
-
+    var sobreStock = false;
 
     f.rows().indexes().each( function (idx) {
       var element = f.row( idx ).data();
@@ -53,9 +66,15 @@ $(document).ready(function() {
       console.log(element);
       if (element.codigo_barras == $('input[name=codigoB]').val())
       {
+        
+        if (parseInt(element.cantidadVendida) +  parseInt($('input[name=cantidad]').val()) > element.cantidad)
+        {
+          sobreStockMessage(element.cantidad, parseInt($('input[name=cantidad]').val()), element.cantidadVendida);
+          sobreStock = true;
+          return false;
+        }
 
         element.cantidadVendida = parseInt(element.cantidadVendida) +  parseInt($('input[name=cantidad]').val());
-
         actualizarTotales(parseInt($('input[name=cantidad]').val()), parseInt(element.precio_venta));
 
         // se debe rescatar el precio de venta desde la tabla producto
@@ -69,11 +88,15 @@ $(document).ready(function() {
         encontrado = true;
         f.draw();
         $('input[name=codigoB]').val("");
+        $('input[name=cantidad]').val("1");
         return false; // break;
       }
 
-    } );
-
+  } );
+    if (sobreStock === true)
+    {
+      return;
+    }
 
     if (encontrado === false)
     {
@@ -84,14 +107,20 @@ $(document).ready(function() {
       })
         .done(function (producto) {
         var productoVendido = producto;
-        productoVendido.cantidadVendida = parseInt($("input[name='cantidad']").val(), 10);
+        productoVendido.cantidadVendida = parseInt($("input[name='cantidad']").val());
         productoVendido.subtotal =   productoVendido.cantidadVendida * productoVendido.precio_venta;
-
+        if (productoVendido.cantidadVendida > productoVendido.cantidad)
+        {
+          sobreStockMessage(productoVendido.cantidad, parseInt($('input[name=cantidad]').val()), 0);
+          return;
+        }
+        
         f.row.add(producto).draw();
         //Suma total
         actualizarTotales(productoVendido.cantidadVendida, productoVendido.precio_venta);
 
         $('input[name=codigoB]').val("");
+        $('input[name=cantidad]').val("1");
       })
         .error(function() {
 
@@ -104,7 +133,6 @@ $(document).ready(function() {
               label: 'Aceptar',
               cssClass: 'btn-primary',
               action: function(dialogRef){
-
                 $('input[name=codigoB]').val("");
                 dialogRef.close();
               }
@@ -152,7 +180,23 @@ $(document).ready(function() {
     } );
   */
 } );
-
+sobreStockMessage = function(disponible, solicitado, enCarro)
+{
+  BootstrapDialog.show({
+    type: BootstrapDialog.TYPE_DANGER,
+    title: 'No hay suficiente stock',
+    message: 'Disponible: ' + disponible + "<br />Solicitado: " + solicitado + " + " + enCarro + " ya en boleta",
+    buttons: [
+      {
+        label: 'Aceptar',
+        cssClass: 'btn-primary',
+        action: function(dialogRef){
+          dialogRef.close();
+        }
+      }
+    ]
+  });
+}
 actualizarTotales = function(cantidad, precioUnitario)
 {
   //Suma total
