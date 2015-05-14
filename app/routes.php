@@ -93,10 +93,19 @@ Route::get('/cliente/registrarse', ['uses' => 'ClientesController@registrar']);
 Route::any('/cliente/creando', ['uses' => 'ClientesController@creando', 'before' => 'vendedor']);
 Route::any('/cliente/registrando', ['uses' => 'ClientesController@registrando']);
 Route::get('/cliente/consultar', ['uses' => 'ClientesController@consultar']);
-Route::get('/cliente/editar/{rut}', ['uses' => 'ClientesController@editar', 'before' => 'vendedor']);
-Route::any('/cliente/editando/{rut}', ['uses' => 'ClientesController@editando', 'before' => 'vendedor']);
+Route::get('/cliente/editar/{rut}', ['uses' => 'ClientesController@editar']);
+Route::any('/cliente/editando/{rut}', ['uses' => 'ClientesController@editando']);
 Route::get('/cliente/eliminar', ['uses' => 'ClientesController@eliminar', 'before' => 'vendedor']);
 Route::any('/cliente/eliminando/{rut}', ['uses' => 'ClientesController@eliminando', 'before' => 'vendedor']);
+//Route::get('/micuenta/editar/{rut}', ['uses' => 'ClientesController@modificarcuenta']);
+Route::get('/cliente/micuenta', ['uses' => 'ClientesController@micuenta']);
+
+Route::get('/envio/crear', ['uses' => 'EnviosController@crear', 'before' => 'vendedor']);
+Route::any('/envio/creando', ['uses' => 'EnviosController@creando', 'before' => 'vendedor']);
+Route::get('/envio/editar/{cod_metodo}', ['uses' => 'EnviosController@editar', 'before' => 'vendedor']);
+Route::any('/envio/editando/{cod_metodo}', ['uses' => 'EnviosController@editando', 'before' => 'vendedor']);
+Route::get('/envio/eliminar/', ['uses' => 'EnviosController@eliminar', 'before' => 'vendedor']);
+Route::any('/envio/eliminando/{cod_metodo}', ['uses' => 'EnviosController@eliminando', 'before' => 'vendedor']);
 
 
 Route::get('/listado/productos', ['uses' => 'ListadoController@productos', 'before' => 'vendedor']);
@@ -116,6 +125,7 @@ Route::get('/listado/ciudades', ['uses' => 'ListadoController@listadoCiudades', 
 //Route::get('/listado/listarCat', ['uses' => 'ListadoController@listarCat', 'before' => 'administrador']);
 //Route::get('/listado/listarLab', ['uses' => 'ListadoController@listarLab', 'before' => 'administrador']);
 Route::get('/listado/ajustes', ['uses' => 'ListadoController@ajustes', 'before' => 'administrador']);
+Route::get('/listado/metodos/envios', ['uses' => 'ListadoController@metodos', 'before' => 'administrador']);
 
 Route::get('/cosulta/laboratorios', ['uses' => 'ConsultasController@consultaLab']);
 

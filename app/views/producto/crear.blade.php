@@ -38,6 +38,21 @@
             <input type="text" name="descripcion" class="form-control" placeholder="Ej.: Producto para el cabello " >
           </div>
         </div>
+        
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Contenido </label>
+          <div class="col-sm-7">
+            <input type="text" name="contenido" class="form-control" placeholder="Ej.: 100 grs " >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Ingredientes </label>
+          <div class="col-sm-7">
+            <input type="text" name="ingredientes" class="form-control" placeholder="Ej.: aceite de almendras, agua " >
+          </div>
+        </div>
+
 
         <div class="form-group">
           <label class="col-sm-5 control-label">Precio (*)</label>

@@ -6,35 +6,35 @@
          
               <div class="row confirm">
                 <div class="col-md-15">
-                  <form class="form-horizontal" role="form" method="post" action="/cliente/editando/{{$cliente->rut}}" onlyread>
+                  <form class="form-horizontal" role="form" action="/cliente/micuenta/{{$cliente->rut}}" method="post"  disabled>
 
                     <hr>
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Rut (*)</label>
-                      <div class="col-sm-7">
-                        <input type="text" name="rut"class="form-control" pattern="\d{3,8}-[\d|kK]{1}" placeholder="Rut : " value="{{$cliente->rut}}" disabled>
-                      </div>
+                      <label class="col-sm-5 control-label">Rut </label>
+                      
+                      <label class="col-sm-7 control-label">{{$cliente->rut}}</label>
                     </div>
 
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Nombre (*)</label>
+                      <label class="col-sm-5 control-label">Nombre </label>
                       <div class="col-sm-7">
-                        <input type="text" name="nombre" class="form-control" placeholder="Nombre : " value="{{$cliente->nom_usuario}}" required>
+                        <input type="text" name="nombre" class="form-control" placeholder="Nombre : " value="{{$cliente->nom_usuario}}" disabled>
                       </div>
                     </div>
 
+
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Dirección (*)</label>
+                      <label class="col-sm-5 control-label">Dirección </label>
                       <div class="col-sm-7">
-                        <input type="text" name="direccion"class="form-control" placeholder="Ej : " value="{{$cliente->direccion}}" required>
+                        <input type="text" name="direccion"class="form-control" placeholder="Ej : " value="{{$cliente->direccion}}" disabled>
                       </div>
                     </div>
 
                     
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Ciudad (*)</label>
+                      <label class="col-sm-5 control-label">Ciudad </label>
                       <div class="col-sm-7">
-                        <select class="form-control" name="ciudad" required>
+                        <select class="form-control" name="ciudad" disabled>
                           @foreach ($ciudad as $cdd)
                             <option value="{{ $cdd->cod_ciudad }}"
                                     @if ($cliente->cod_ciudad === $cdd->cod_ciudad)
@@ -51,14 +51,14 @@
                     <div class="form-group">
                       <label class="col-sm-5 control-label">fecha de nacimiento</label>
                       <div class="col-sm-7">
-                        <input type="date" name="fnac"class="form-control" placeholder="Precio : " required value="{{$cliente->fecha_nacimiento}}">
+                        <input type="date" name="fnac"class="form-control" placeholder="Precio : " required value="{{$cliente->fecha_nacimiento}}" disabled>
                       </div>
                     </div>
                     
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Sexo</label>
                       <div class="col-sm-7">
-                        <select class="form-control" name="sexo" required>
+                        <select class="form-control" name="sexo" disabled>
                           <option value="Femenino" @if($cliente->sexo == "femenino") selected  @endif >Femenino</option>
                           <option value="Masculino" @if($cliente->sexo == "masculino") selected @endif > Masculino</option>
                         </select>
@@ -68,26 +68,23 @@
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Teléfono</label>
                       <div class="col-sm-7">
-                        <input type="number" name="fono" class="form-control" placeholder="Precio : " value="{{$cliente->fono}}" required>
+                        <input type="number" name="fono" class="form-control" placeholder="Precio : " value="{{$cliente->fono}}" disabled>
                       </div>
                     </div>
                     
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Correo electrónico</label>
                       <div class="col-sm-7">
-                        <input type="mail" name="mail" class="form-control" placeholder="Precio : " value="{{$cliente->mail}}" required>
+                        <input type="mail" name="mail" class="form-control" placeholder="Precio : " value="{{$cliente->mail}}" disabled>
                       </div>
                     </div>
 
+                   <br>
+                    <div class="pull-right">
+                        <a class="btn btn-primary" href="/cliente/editar/{{$cliente->rut}}" role="button">Modificar datos</a>
+                    </div>
                     
-
-                    <div class="form-group">
-                      <div class="col-sm-offset-3 col-sm-10">
-                        <div class="pull-right">
-                        <button type="submit" class="btn btn-purple">Editar</button>
-                        </div>  
-                      </div>
-                    </div>
+                    
                   </form>
                 </div>
               </div>

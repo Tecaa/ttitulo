@@ -71,8 +71,7 @@ View::share('titulo', "Registrando Cliente");
   
 
   
-  
-  
+ 
   public function editar($rut){
     $ciudad = Ciudad::get();
     $cliente = Usuario::find($rut);
@@ -110,4 +109,15 @@ View::share('titulo', "Registrando Cliente");
     $cliente->delete();
     return Redirect::to('/listado/clientes');
   }
+  
+  public function micuenta(){
+    View::share('titulo', "Mi Cuenta");
+    $ciudad = Ciudad::get();
+   
+    $cliente = Auth::user();
+    $this->layout->content = View::make('clientes.micuenta')->withCiudad($ciudad)->withCliente($cliente);
+
+  }
+    
+  
 }

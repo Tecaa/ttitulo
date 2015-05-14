@@ -31,8 +31,16 @@ class ProductoController extends BaseController {
     $producto->codigo_barras = Input::get('codigoB');
     $producto->cod_laboratorio = Input::get('laboratorio');
     $producto->descripcion = Input::get('descripcion');
+    $producto->contenido = Input::get('contenido');
+    $producto->ingredientes = Input::get('ingredientes');
     $producto->precio_venta = Input::get('precio');
+    
+    if (Input::file('imagen') != null) {
     $producto->imagen = base64_encode(file_get_contents(Input::file('imagen')));
+    }
+    else      
+      $producto->imagen = null;
+      
     //$producto->imagen = base64_encode(file_get_contents(Input::file('imagen')->resize(510, 588)));
     $producto->save();
     

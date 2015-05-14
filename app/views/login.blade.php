@@ -41,8 +41,12 @@
                       </div>
                     </div>
 
-                   
-
+                    @if ($errors->count() > 0)
+                    <div class="alert alert-danger">
+                      {{ $errors->first() }}
+                    </div>
+                    @endif
+                     
                     <div class="form-group">
                       <div class="col-sm-offset-3 col-sm-10">
                         <div class="pull-right">

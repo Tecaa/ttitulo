@@ -9,7 +9,7 @@
       <div class="thumbnail">
         <a href="/producto/consultar/{{$prod->codigo_producto}}"> 
           @if($prod->imagen == null)
-            {{ HTML::image("img/manuk.jpg", "Foto 2", array('class' => 'img-responsive imagenListada'))  }}
+            {{ HTML::image("img/nodisponible.jpg", "Foto 2", array('class' => 'img-responsive imagenListada'))  }}
           @else
             <img class="img-responsive imagenListada" src='data:image/jpeg;base64,{{ $prod->imagen }}' />
           @endif

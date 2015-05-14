@@ -1,5 +1,4 @@
 <?php
-
 class HomeController extends BaseController {
   protected $layout = "layouts.default";
 	/*
@@ -103,9 +102,9 @@ class HomeController extends BaseController {
   }
   
   
-   public function login(){
+   public function login($message = ""){
      View::share('titulo', "Login");
-    $this->layout->content = View::make('login');
+    $this->layout->content = View::make('login')->withMessage($message);
   }
   
   public function logout(){
@@ -141,7 +140,12 @@ class HomeController extends BaseController {
       
     }
     else
-      return Redirect::to('/login');
+    {
+       $error = "Combinación de rut y contraseña inválido.";
+      return Redirect::back()->withErrors($error)->withInput(Input::except('pass')); // redirect back to the login page, using ->withErrors($errors) you send the error created above
+  
+    }
+    //  return Redirect::to('/login')->withMessage("Combinación de usuario y contraseña incorrectas");
   }
   
 }

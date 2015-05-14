@@ -190,4 +190,14 @@ class ListadoController extends BaseController {
       'ajuste' => Ajuste::get()
     ]);
   }   
+  
+    public function metodos(){
+    View::share('titulo', "Métodos de Envío");
+    $this->layout->content = View::make('listados.metodosEnvio'); 
+
+    JavaScript::put([
+      'metodos' => MetodoEnvio::get()
+    ]);
+  }
+  
 }  

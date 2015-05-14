@@ -17,6 +17,7 @@
             <li><a href="/listado/proveedores">Proveedores</a></li>
             <li><a href="/listado/bancos">Bancos</a></li>
             <li><a href="/listado/ciudades">Ciudades</a></li>
+            <li><a href="/listado/metodos/envios">Métodos Envío</a></li>
           </ul>
         </li>
         <!--

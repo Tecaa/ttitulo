@@ -6,7 +6,7 @@
 
       <h3>Menú</h3>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="cliente/editar">Mi Cuenta</a></li> 
+        <li><a href="/cliente/micuenta">Mi Cuenta</a></li> 
         <li><a href="/listado/carroCompras">Carro de Compras</a></li> 
         <!--
         <li><a href="product.html">Pedidos Anteriores</a></li>  
