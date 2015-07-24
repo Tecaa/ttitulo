@@ -24,7 +24,6 @@ class ClientesController extends BaseController {
     $cliente->nom_usuario = Input::get('nombre');
     $cliente->contrasena = Hash::make(Input::get('pass'));
     $cliente->direccion = Input::get('direccion');
- 
     $cliente->fecha_nacimiento = Input::get('fnac');
  
     $cliente->cod_ciudad = Input::get('ciudad');
@@ -32,6 +31,7 @@ class ClientesController extends BaseController {
     $cliente->mail = Input::get('mail');
     $cliente->fono = Input::get('fono');
     $cliente-> tipo_usuario = 'cliente';  
+    $cliente-> activo = 1;
     $cliente->save();
     
     return Redirect::to('/listado/clientes');
@@ -64,6 +64,7 @@ View::share('titulo', "Registrando Cliente");
     $cliente->mail = Input::get('mail');
     $cliente->fono = Input::get('fono');
     $cliente-> tipo_usuario = 'cliente';  
+    $cliente-> activo = 1;
     $cliente->save();
     
     return Redirect::to('/login');
@@ -83,9 +84,9 @@ View::share('titulo', "Registrando Cliente");
   {
     View::share('titulo', "Editando Cliente");
     $cliente = Usuario::find($rut);
-    $cliente->rut = Input::get('rut');
+    //$cliente->rut = Input::get('rut');
     $cliente->nom_usuario = Input::get('nombre');
-    $cliente->contrasena = Hash::make(Input::get('pass'));
+   // $cliente->contrasena = Hash::make(Input::get('pass'));
     $cliente->direccion = Input::get('direccion');
     $cliente->fecha_nacimiento = Input::get('fnac');
     $cliente->cod_ciudad = Input::get('ciudad');
@@ -118,6 +119,44 @@ View::share('titulo', "Registrando Cliente");
     $this->layout->content = View::make('clientes.micuenta')->withCiudad($ciudad)->withCliente($cliente);
 
   }
+  
+  public function modificar(){
+    $ciudad = Ciudad::get();
+    $cliente = Auth::user();
+    View::share('titulo', "Modificar Datos");
+    $this->layout->content = View::make('clientes.modificar')->withCiudad($ciudad)->withCliente($cliente);
+  }  
+  
+  public function modificando()
+  {
+    View::share('titulo', "Modificando Datos");
+    $cliente = Auth::user();
+    $cliente->nom_usuario = Input::get('nombre');
+   // $cliente->contrasena = Hash::make(Input::get('pass'));
+    $cliente->direccion = Input::get('direccion');
+    $cliente->fecha_nacimiento = Input::get('fnac');
+    $cliente->cod_ciudad = Input::get('ciudad');
+    $cliente->sexo = Input::get('sexo');
+    $cliente->mail = Input::get('mail');
+    $cliente->fono = Input::get('fono');
+    $cliente-> tipo_usuario = 'cliente';  
+    $cliente->save();
     
+    return Redirect::to('/micuenta');
+  }
+  
+   public function modificarpass(){
+
+    $cliente = Auth::user();
+    View::share('titulo', "Modificar Contraseña");
+    $this->layout->content = View::make('clientes.modificarpass')->withCliente($cliente);
+  }  
+  
+  public function modificandopass(){
+    View::share('titulo', "Modificando Contraseña");
+    $cliente = Auth::user();
+    $cliente = Input::get('pass');
+    $cliente->contrasena = Hash::make(Input::get('nueva2'));
+  }  
   
 }

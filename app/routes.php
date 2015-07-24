@@ -17,6 +17,7 @@ Route::get('/login', ['uses' => 'HomeController@login']);
 Route::get('/logout', ['uses' => 'HomeController@logout', 'before' => 'auth']);
 Route::post('/logeando', ['uses' => 'HomeController@logeando']);
 
+
 Route::get('/producto/crear', ['uses' => 'ProductoController@crear', 'before' => 'administrador']);
 Route::get('/producto/consultar/{codigo_producto}', ['uses' => 'ProductoController@consultar']);
 Route::get('/producto/editar/{codigo_producto}', ['uses' => 'ProductoController@editar', 'before' => 'administrador']);
@@ -88,6 +89,8 @@ Route::any('/vendedor/editando/{rut}', ['uses' => 'VendedoresController@editando
 Route::get('/vendedor/eliminar', ['uses' => 'VendedoresController@eliminar', 'before' => 'administrador']);
 Route::any('/vendedor/eliminando/{rut}', ['uses' => 'VendedoresController@eliminando', 'before' => 'administrador']);
 
+Route::any('/vendedor/activando/{rut}', ['uses' => 'VendedoresController@activando', 'before' => 'administrador']);
+
 Route::get('/cliente/crear', ['uses' => 'ClientesController@crear', 'before' => 'vendedor']);
 Route::get('/cliente/registrarse', ['uses' => 'ClientesController@registrar']);
 Route::any('/cliente/creando', ['uses' => 'ClientesController@creando', 'before' => 'vendedor']);
@@ -97,8 +100,11 @@ Route::get('/cliente/editar/{rut}', ['uses' => 'ClientesController@editar']);
 Route::any('/cliente/editando/{rut}', ['uses' => 'ClientesController@editando']);
 Route::get('/cliente/eliminar', ['uses' => 'ClientesController@eliminar', 'before' => 'vendedor']);
 Route::any('/cliente/eliminando/{rut}', ['uses' => 'ClientesController@eliminando', 'before' => 'vendedor']);
-//Route::get('/micuenta/editar/{rut}', ['uses' => 'ClientesController@modificarcuenta']);
-Route::get('/cliente/micuenta', ['uses' => 'ClientesController@micuenta']);
+
+Route::get('/micuenta', ['uses' => 'ClientesController@micuenta']);
+Route::get('/micuenta/modificar', ['uses' => 'ClientesController@modificar']);
+Route::any('/micuenta/modificando', ['uses' => 'ClientesController@modificando']);
+Route::any('/micuenta/modificar/pass', ['uses' => 'ClientesController@modificarpass']);
 
 Route::get('/envio/crear', ['uses' => 'EnviosController@crear', 'before' => 'vendedor']);
 Route::any('/envio/creando', ['uses' => 'EnviosController@creando', 'before' => 'vendedor']);
@@ -126,6 +132,7 @@ Route::get('/listado/ciudades', ['uses' => 'ListadoController@listadoCiudades', 
 //Route::get('/listado/listarLab', ['uses' => 'ListadoController@listarLab', 'before' => 'administrador']);
 Route::get('/listado/ajustes', ['uses' => 'ListadoController@ajustes', 'before' => 'administrador']);
 Route::get('/listado/metodos/envios', ['uses' => 'ListadoController@metodos', 'before' => 'administrador']);
+Route::get('/listado/vendedores/desactivados', ['uses' => 'ListadoController@desactivados', 'before' => 'administrador']);
 
 Route::get('/cosulta/laboratorios', ['uses' => 'ConsultasController@consultaLab']);
 

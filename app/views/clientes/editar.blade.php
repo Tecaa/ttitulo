@@ -1,3 +1,8 @@
+@section('extra-css')
+  {{ HTML::style('js/jQuery-ui/jquery-ui.min.css') }}
+{{ HTML::style('js/jQuery-ui/jquery-ui.theme.min.css') }}
+@stop()
+
 @section('content')        
         <!-- begin:product-content -->
 
@@ -49,9 +54,10 @@
                     </div> 
                     
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">fecha de nacimiento</label>
+                      <label class="col-sm-5 control-label">Fecha de nacimiento (*)</label>
                       <div class="col-sm-7">
-                        <input type="date" name="fnac"class="form-control" placeholder="Precio : " required value="{{$cliente->fecha_nacimiento}}">
+                        <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " required>
+                        <input type="hidden" name="fnac" id="fnac" required> 
                       </div>
                     </div>
                     
@@ -94,3 +100,26 @@
             </div>
 
 @stop
+
+@section('extra-js')
+  {{ HTML::script('js/jQuery-ui/jquery-ui.min.js') }}
+  {{ HTML::script('js/jQuery-ui/jquery-ui-es.js') }}
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      dateFormat: "dd/mm/yy",
+      altFormat: "yy-mm-dd",
+      altField: "#fnac",
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "-100:c"
+      //showOn: "button",
+     // buttonImage: "images/calendar.gif",
+     // buttonImageOnly: true,
+     // buttonText: "Select date"
+    });
+  });
+</script>
+
+@stop()

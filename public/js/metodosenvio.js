@@ -6,7 +6,7 @@ $(document).ready(function() {
     
      data: metodos, 
       columns: [
-            { "data": "cod_metodo" },
+            
             { "data": "nombre" },
             { "data": "costo" }
         
@@ -21,8 +21,18 @@ $(document).ready(function() {
               + "><i class='glyphicon glyphicon-remove icon-white'></i></a>";
 
           },
-          targets: [ 3 ]
-        }
+          targets: [ 2 ]
+        },
+      
+      {
+        data: null,
+        render: function ( data, type, row ) {
+          return  MoneyFormat(data);
+
+        },
+        targets: [ 1 ]
+      }
+      
       ]
   });
 } );

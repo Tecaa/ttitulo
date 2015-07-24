@@ -23,6 +23,7 @@ class VendedoresController extends BaseController {
     $vendedor->mail = Input::get('mail');
     $vendedor->fono = Input::get('fono');
     $vendedor->tipo_usuario = 'vendedor';  
+    $vendedor->activo = true;
     $vendedor->save();
     
     return Redirect::to('/listado/vendedores');
@@ -43,16 +44,16 @@ class VendedoresController extends BaseController {
   {
     View::share('titulo', "Editando Vendedor");
     $vendedor = Usuario::find($rut);
-    $vendedor->rut = Input::get('rut');
+  //  $vendedor->rut = Input::get('rut');
     $vendedor->nom_usuario = Input::get('nombre');
-    $vendedor->contrasena = Hash::make(Input::get('pass'));
+   // $vendedor->contrasena = Hash::make(Input::get('pass'));
     $vendedor->direccion = Input::get('direccion');
     $vendedor->fecha_nacimiento = Input::get('fnac');
     $vendedor->cod_ciudad = Input::get('ciudad');
     $vendedor->sexo = Input::get('sexo');
     $vendedor->mail = Input::get('mail');
     $vendedor->fono = Input::get('fono');
-    $vendedor-> tipo_usuario = 'vendedor';  
+    $vendedor-> tipo_usuario = 'vendedor';
     $vendedor->save();
     
     return Redirect::to('/listado/vendedores');
@@ -66,7 +67,17 @@ class VendedoresController extends BaseController {
   public function eliminando($rut){
     View::share('titulo', "Eliminar Vendedor");
     $vendedor = Usuario::find($rut);
-    $vendedor->delete();
+    $vendedor -> activo = false; 
+    $vendedor->save();
+    return Redirect::to('/listado/vendedores');
+  }
+  
+
+    public function activando($rut){
+    View::share('titulo', "Activar Vendedor");
+    $vendedor = Usuario::find($rut);
+    $vendedor->activo = true;
+    $vendedor->save();
     return Redirect::to('/listado/vendedores');
   }
 }

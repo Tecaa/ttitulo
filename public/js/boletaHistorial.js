@@ -7,6 +7,7 @@ $(document).ready(function() {
     order: [[1, 'asc']],
     columns: [
       { "data": "cod_documento" },
+      { "data": "tipo_documento"},
       { "data": null },
       { "data": null },
       { "data": null },
@@ -20,7 +21,7 @@ $(document).ready(function() {
           return  DateTimeFormat(data.created_at);
 
         },
-        targets: [ 1 ]
+        targets: [ 2 ]
       },
       {
         data: null,
@@ -28,7 +29,7 @@ $(document).ready(function() {
           return  (data.boleta.rut != null) ? data.boleta.rut : '';
 
         },
-        targets: [ 2 ]
+        targets: [ 3 ]
       },
       {
         data: null,
@@ -36,7 +37,7 @@ $(document).ready(function() {
           return  (data.boleta.cliente != null) ? data.boleta.cliente.nom_usuario : '';
 
         },
-        targets: [ 3 ]
+        targets: [ 4 ]
       },
       {
         data: null,
@@ -44,7 +45,7 @@ $(document).ready(function() {
           return  MoneyFormat(data);
 
         },
-        targets: [ 5 ]
+        targets: [ 6 ]
       },
       {
         data: null,
@@ -53,7 +54,7 @@ $(document).ready(function() {
             "><i class='glyphicon glyphicon-search icon-white'></i></a>";
 
         },
-        targets: [ 6 ]
+        targets: [ 7 ]
       }
     ]
   });

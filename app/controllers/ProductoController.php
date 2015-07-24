@@ -181,10 +181,11 @@ class ProductoController extends BaseController {
   
    public function stockCritico(){
      View::share('titulo', "Stock Crítico");
-    $this->layout->content = View::make('producto.stock');
+     $this->layout->content = View::make('producto.stock');
     
     JavaScript::put([
-        'productos' => Producto::where('activo', '=', true)->where('cantidad','<=',3)->with('laboratorio')->get()
+        'productos' => Producto::where('activo', '=', true)->whereRaw('cantidad <= ceil(ultima_compra/3)')->with('laboratorio')->get()    
+        //'productos' => Producto::where('activo', '=', true)->where('cantidad','<=',ceil('ultima_compra'/3))->with('laboratorio')->get()
     ]);
   }
   public function listarCategoria($codigo_categoria, $page =1){

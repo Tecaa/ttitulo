@@ -131,6 +131,8 @@ class BoletaController extends BaseController {
     
     }
      return 'true';
+     
+    
   }
   public function aceptarPedido($cod_documento)
   {

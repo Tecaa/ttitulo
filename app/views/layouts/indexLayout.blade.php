@@ -15,6 +15,7 @@
     <!-- Custom styles for this template -->
     {{ HTML::style('css/style.css') }}
     {{ HTML::style('css/responsive.css') }}
+    {{ HTML::style('css/listarProductos.css') }}
     @yield('extra-css')
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

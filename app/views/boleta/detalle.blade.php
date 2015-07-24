@@ -6,11 +6,35 @@
 
 
 <div class="col-md-9 col-sm-9">
-  <h3>Detalle del pedido de Internet</h3>
+  <h3>Detalle de la venta #{{$documento->cod_documento}}</h3>
 
   <div class="row confirm">
     <div class="col-md-15">
       <hr>
+      <div class="form-group col-md-12">
+        <label class="col-md-5 control-label">Tipo de venta</label>
+        <div class="col-md-7">
+
+          <label class="col-md-7 control-label">
+            @if($documento->tipo_documento == "boleta")
+              Venta en local
+            @else
+              Venta en internet
+            @endif
+          </label>
+        </div>
+      </div>
+      @if($documento->tipo_documento != "boleta" && $documento->tipo_documento != "factura")
+      <div class="form-group col-md-12">
+        <label class="col-md-5 control-label">Estado venta</label>
+        <div class="col-md-7">
+
+          <label class="col-md-7 control-label">
+            {{$documento->tipo_documento}}
+          </label>
+        </div>
+      </div>
+      @endif
       @if ($documento->boleta->rut != null)
       <div class="form-group col-md-12">
         <label class="col-md-5 control-label">Rut Cliente</label>

@@ -69,8 +69,8 @@
         @unless (Auth::check())
         <!-- <li><a href="/login">Iniciar sesión</a></li> -->
 
-        <li>              
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Registrarse/Sesion <i class="fa fa-caret-down icon-dropdown"></i></a>
+        <li class="dropdown">            
+          <a href="" class="dropdown-toggle" data-toggle="dropdown">Mi cuenta <b class="caret"></b></a>
           <ul class="dropdown-menu sub-menu">
             <li><a href="/login">Iniciar Sesion</a></li>
             <li><a href="/cliente/registrarse">Registrarse</a></li>
@@ -83,7 +83,12 @@
 
 
 
-        <li><a href="/listado/carroCompras">Mis compras</a></li>
+        <li><a href="/listado/carroCompras"> 
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+        </a></li>
+        
+        
+        
       </ul>
 
     </div><!-- /.navbar-collapse -->

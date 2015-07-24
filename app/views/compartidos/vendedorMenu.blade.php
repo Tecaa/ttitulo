@@ -19,10 +19,27 @@
           <ul class="dropdown-menu sub-menu">
             <li><a href="/venta/local">Local</a></li>
             <li><a href="/listado/pedidos">Internet</a></li>
-
-
           </ul>
         </li>
+
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi Cuenta<i class="fa fa-caret-down icon-dropdown"></i></a>
+          <ul class="dropdown-menu sub-menu">
+            <li><a href="/micuenta">Mi Cuenta</a></li>
+            <li><a href="/micuenta/modificar">Modificar Datos</a></li>
+            <li><a href="/micuenta/modificar/pass">Cambiar Contraseña</a></li>
+          </ul>
+        </li>
+        
+        <li><a href="/listado/pedidos">
+        
+            <span class="sr-only">Error:</span>
+              Pedidos pendientes
+            <span class="badge">{{$numpedidos}}</span>
+         
+         </a>
+        </li>
+          
       </ul>
 
       <br>

@@ -122,7 +122,7 @@ class ListadoController extends BaseController {
     $this->layout->content = View::make('listados.vendedores'); 
 
     JavaScript::put([
-      'vendedor' => Usuario::where('tipo_usuario','=', 'vendedor')->with('ciudad')->get()
+      'vendedor' => Usuario::where('tipo_usuario','=', 'vendedor')->where('activo', '=', 1)->with('ciudad')->get()
     ]);
 
   }
@@ -192,12 +192,22 @@ class ListadoController extends BaseController {
   }   
   
     public function metodos(){
-    View::share('titulo', "Métodos de Envío");
-    $this->layout->content = View::make('listados.metodosEnvio'); 
+      View::share('titulo', "Métodos de Envío");
+      $this->layout->content = View::make('listados.metodosEnvio'); 
 
-    JavaScript::put([
-      'metodos' => MetodoEnvio::get()
+      JavaScript::put([
+        'metodos' => MetodoEnvio::get()
+      ]);
+  }
+  
+    public function desactivados(){
+      View::share('titulo', "Vendedores Desactivados");
+      $this->layout->content = View::make('listados.desactivados');
+      JavaScript::put([
+        'vendedor' => Usuario::where('tipo_usuario', '=', 'vendedor')->where('activo', '=', 0)->with('ciudad')->get()
     ]);
   }
+  
+   
   
 }  

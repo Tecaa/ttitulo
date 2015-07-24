@@ -10,51 +10,50 @@
 
                     <hr>
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Rut </label>
+                      <label class="col-sm-5 control-label">Rut :</label>
+                      <label class="col-sm-5 control-label">{{$cliente->rut}}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">Nombre :</label>
+                        <label class="col-sm-5 control-label"> {{$cliente->nom_usuario}} </label>
+                      </div>
+                    
+
+
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">Dirección :</label>
+                        <label class="col-sm-5 control-label"> {{$cliente->direccion}} </label>
+                    </div>
+                    
+                    <!--
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label">Ciudad :</label>
+                        <label class="col-sm-5 control-label">  
+                          
+                           </label>
+                    </div> -->
+                    
+                    <div class="form-group">
                       
-                      <label class="col-sm-7 control-label">{{$cliente->rut}}</label>
-                    </div>
-
-                    <div class="form-group">
-                      <label class="col-sm-5 control-label">Nombre </label>
-                      <div class="col-sm-7">
-                        <input type="text" name="nombre" class="form-control" placeholder="Nombre : " value="{{$cliente->nom_usuario}}" disabled>
-                      </div>
-                    </div>
-
-
-                    <div class="form-group">
-                      <label class="col-sm-5 control-label">Dirección </label>
-                      <div class="col-sm-7">
-                        <input type="text" name="direccion"class="form-control" placeholder="Ej : " value="{{$cliente->direccion}}" disabled>
-                      </div>
-                    </div>
-
-                    
-                    <div class="form-group">
                       <label class="col-sm-5 control-label">Ciudad </label>
-                      <div class="col-sm-7">
-                        <select class="form-control" name="ciudad" disabled>
-                          @foreach ($ciudad as $cdd)
-                            <option value="{{ $cdd->cod_ciudad }}"
-                                    @if ($cliente->cod_ciudad === $cdd->cod_ciudad)
-                          selected 
-                          @endif
-                          >
-                          {{$cdd->nom_ciudad}}
-                          </option>
-                          @endforeach
-                        </select>
-                      </div>
-                    </div> 
+                        <label class="col-sm-5 control-label">@if($cliente->ciudad != null) {{$cliente->ciudad->nom_ciudad}} @endif</label>
+                    </div>  
+                    
                     
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">fecha de nacimiento</label>
-                      <div class="col-sm-7">
-                        <input type="date" name="fnac"class="form-control" placeholder="Precio : " required value="{{$cliente->fecha_nacimiento}}" disabled>
-                      </div>
+                        <label class="col-sm-5 control-label">fecha de nacimiento :</label>
+                        <label class="col-sm-5 control-label">{{$cliente->fecha_nacimiento}} </label>
                     </div>
                     
+                    
+                    <div class="form-group">
+                      <label class="col-sm-5 control-label">Sexo :</label>
+                        <label class="col-sm-5 control-label">{{$cliente->sexo}} </label>
+                    </div>
+                    
+                    
+                    <!--
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Sexo</label>
                       <div class="col-sm-7">
@@ -64,24 +63,23 @@
                         </select>
                       </div>
                     </div>
+-->
                     
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Teléfono</label>
-                      <div class="col-sm-7">
-                        <input type="number" name="fono" class="form-control" placeholder="Precio : " value="{{$cliente->fono}}" disabled>
-                      </div>
+                      <label class="col-sm-5 control-label">Teléfono :</label>
+                        <label class="col-sm-5 control-label">{{$cliente->fono}} </label>
                     </div>
                     
+                    
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Correo electrónico</label>
-                      <div class="col-sm-7">
-                        <input type="mail" name="mail" class="form-control" placeholder="Precio : " value="{{$cliente->mail}}" disabled>
-                      </div>
+                      <label class="col-sm-5 control-label">Correo electrónico :</label>
+                        <label class="col-sm-5 control-label">{{$cliente->mail}} </label>
+                    </div>
                     </div>
 
-                   <br>
+                   <br> <br>
                     <div class="pull-right">
-                        <a class="btn btn-primary" href="/cliente/editar/{{$cliente->rut}}" role="button">Modificar datos</a>
+                        <a class="btn btn-primary" href="/micuenta/modificar" role="button">Modificar datos</a>
                     </div>
                     
                     

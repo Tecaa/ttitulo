@@ -51,6 +51,14 @@
         </li>
 
         <li><a href="/agendaProveedores">Agenda proveedores</a></li>
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi Cuenta<i class="fa fa-caret-down icon-dropdown"></i></a>
+          <ul class="dropdown-menu sub-menu">
+            <li><a href="/micuenta">Mi Cuenta</a></li>
+            <li><a href="/micuenta/modificar">Modificar Datos</a></li>
+            <li><a href="/micuenta/modificar/pass">Cambiar Contraseña</a></li>
+          </ul>
+        </li>
       </ul>
 
 

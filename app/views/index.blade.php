@@ -87,7 +87,7 @@
 							<i class="fa fa-heart-o"></i>
 						</div>
 						<h3>Cuidamos su salud</h3>
-						<p>Los productos ofrecidos por nosotros son naturales cuidando su saludo.</p>
+						<p>Los productos ofrecidos por nosotros no poseen aditivos químicos, cuidando su salud.</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4">
@@ -110,12 +110,33 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="heading-title">
-						<h2>Más buscados</h2>
-						<p>Los productos más buscados de este último tiempo.</p>
+						<h2>Más populares</h2>
+						<p>Los productos más populares de este último tiempo.</p>
 					</div>	
 				</div>
 			</div>
+      
+
 			<div class="row">
+        @foreach ($productos as $prod)
+          <div class="col-md-3 col-sm-3">
+             <div class="thumbnail">
+            <a href="/producto/consultar/{{$prod->codigo_producto}}"> 
+              @if($prod->imagen == null)
+                {{ HTML::image("img/nodisponible.jpg", "Foto 2", array('class' => 'img-responsive imagenListada'))  }}
+              @else
+                <img class="img-responsive imagenListada" src='data:image/jpeg;base64,{{ $prod->imagen }}' />
+              @endif
+            </a>
+            <div class="caption-details">
+              <h3>{{$prod->nombre_producto}} @if($prod->contenido != null) ({{$prod->contenido}}) @endif</h3>
+              <label>{{$prod->laboratorio->nom_laboratorio}}</label>
+              <span class="price">{{$prod->precioVentaF}}</span>
+            </div>
+          </div>
+          </div>
+          @endforeach
+        <!--
 				<div class="col-md-3 col-sm-4 col-xs-12">
 					<div class="thumbnail">
 					  <div class="caption-img" style="background: url(img/manuk.jpg);"></div>
@@ -196,6 +217,7 @@
 					  <a href="detail.html"><div class="caption-link"><i class="fa fa-plus"></i></div></a>
 					</div>
 				</div>
+        -->
 			</div>
 		</div>
 	</div>
@@ -207,7 +229,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="testimoni-icon"><i class="fa fa-quote-left"></i></div>
-					<h3>Our Testimonials</h3>
+					<h3>¿Por qué escoger productos naturales?</h3>
 				</div>
 			</div>
 			<div class="row">
@@ -215,16 +237,16 @@
 					<div id="testi" class="carousel slide" data-ride="carousel">
 				      <div class="carousel-inner">
 				        <div class="item active">
-				           <p class="testimoni-item">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-							<h4>&#8212; John doe, Scriptlabs &#8212;</h4>
+				           <p class="testimoni-item"> Son más saludables porque están libres de sustancias nocivas para la piel y la salud.</p>
+							<h4>&#8212; Cuidan la salud &#8212;</h4>
 				        </div>
 				        <div class="item">
-				           <p class="testimoni-item">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-							<h4>&#8212; John doe, Scriptlabs &#8212;</h4>
+				           <p class="testimoni-item">Son elaborados con ingredientes que provienen de la naturaleza, extraídos principalmente de plantas, hierbas, frutas, flores, etc.</p>
+							<h4>&#8212; Elaboración &#8212;</h4>
 				        </div>
 				        <div class="item">
-				           <p class="testimoni-item">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-							<h4>&#8212; John doe, Scriptlabs &#8212;</h4>
+				           <p class="testimoni-item">Uno de los fundamentos principales es respetar el medio ambiente, evitando la contaminación de la tierra, el agua y el aire.</p>
+							<h4>&#8212; Protrgen el medio ambiente &#8212;</h4>
 				        </div>
 				      </div>
 				      <a class="left carousel-control" href="#testi" data-slide="prev">&lsaquo;</a>

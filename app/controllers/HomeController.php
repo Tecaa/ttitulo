@@ -27,11 +27,17 @@ class HomeController extends BaseController {
 
   public function index(){
     View::share('titulo', "Inicio");
-    $this->layout->content = View::make('index');
+    
+    $producto = Producto::orderBy('visitas', 'desc')->take(8)->get();
+    
+    $this->layout->content = View::make('index')->withProductos($producto);
   } 
   
   public function quienesSomos(){
-    View::share('titulo', "Quienes somos");
+    View::share('titulo', "
+    
+    
+    Quienes somos");
     $this->layout->content = View::make('quienesSomos');
   }
   
@@ -122,6 +128,12 @@ class HomeController extends BaseController {
       'password'=> Input::get('pass'),
     );
     
+    if(!Usuario::find($userdata["rut"])->activo)
+      {
+      $error = "No tienes permiso para entrar al sistema.";
+      return Redirect::back()->withErrors($error)->withInput(Input::except('pass')); // redirect back to the login page, using ->withErrors($errors) you send the error created above
+  
+  }
     if(Auth::attempt($userdata))
     {
         

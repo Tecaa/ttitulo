@@ -52,6 +52,7 @@ class FacturaController extends BaseController {
 
       $producto = Producto::find($detfactura->codigo_producto);
       $producto->cantidad = $producto->cantidad + $detfactura->cantidad;
+      $producto->ultima_compra = $producto->cantidad;
       if ($producto->cantidad >= 0){
         $producto->save();
         $detfactura->save();

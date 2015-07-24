@@ -1,6 +1,9 @@
 @section('extra-css')
     {{ HTML::style('css/dataTables/jquery.dataTables.min.css') }}
+    {{ HTML::style('js/jQuery-ui/jquery-ui.min.css') }}
+    {{ HTML::style('js/jQuery-ui/jquery-ui.theme.min.css') }}
 @stop()
+
 
 @section('content')
 
@@ -27,12 +30,22 @@
           </div>
         </div>
         
+        <!--
         <div class="form-group">
           <label class="col-sm-5 control-label">Fecha de pago (*)</label>
           <div class="col-sm-7">
             <input type="date" name="fecha"class="form-control" placeholder="DD/MM/AA : " required>
           </div>
         </div>
+-->
+        
+                            <div class="form-group">
+                      <label class="col-sm-5 control-label">Fecha de pago (*)</label>
+                      <div class="col-sm-7">
+                        <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " required>
+                        <input type="hidden" name="fecha" id="fnac" required> 
+                      </div>
+                    </div>
         
         <div class="form-group">
           <label class="col-sm-5 control-label">Hora de pago (*)</label>
@@ -130,4 +143,25 @@
 @section('extra-js')
   {{ HTML::script('js/dataTables/jquery.dataTables.min.js') }}
   {{ HTML::script('js/ventaInternet.js') }}
+
+  {{ HTML::script('js/jQuery-ui/jquery-ui.min.js') }}
+  {{ HTML::script('js/jQuery-ui/jquery-ui-es.js') }}
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      dateFormat: "dd/mm/yy",
+      altFormat: "yy-mm-dd",
+      altField: "#fnac",
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "-100:c"
+      //showOn: "button",
+     // buttonImage: "images/calendar.gif",
+     // buttonImageOnly: true,
+     // buttonText: "Select date"
+    });
+  });
+</script>
+
 @stop()

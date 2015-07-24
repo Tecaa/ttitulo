@@ -22,6 +22,7 @@
 				</div>
 			</div>
 			
+      <br><br>
 			<div class="row padd20-top-btm">
 				<div class="col-md-4 col-sm-4">
 					<img src="img/img02.jpg" class="img-responsive img-rounded" alt="dodolan manuk catalog template">
@@ -32,6 +33,7 @@
 				</div>
 			</div>
 			
+      <br>
 			<div class="row padd20-top-btm">
 				<div class="col-md-12 text-center">
 					<h3>Nosotros</h3>

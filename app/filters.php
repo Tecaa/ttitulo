@@ -29,6 +29,11 @@ Route::filter('administrador', function()
 });
 Route::filter('vendedor', function()
 {
+  if (Auth::user() && !Auth::user()->activo)
+  {
+      Auth::logout();
+      return Redirect::to('/');
+  }
   if (Auth::user() == null || (Auth::user()->tipo_usuario != "vendedor" && Auth::user()->tipo_usuario != "administrador"))
     return Redirect::guest('/');
 });
@@ -52,6 +57,7 @@ Route::filter('auth', function()
 {
 	if (Auth::guest())
 	{
+  
 		if (Request::ajax())
 		{
 			return Response::make('Unauthorized', 401);

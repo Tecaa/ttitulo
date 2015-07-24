@@ -1,3 +1,9 @@
+@section('extra-css')
+  {{ HTML::style('js/jQuery-ui/jquery-ui.min.css') }}
+{{ HTML::style('js/jQuery-ui/jquery-ui.theme.min.css') }}
+@stop()
+
+
 @section('content')
         
         <!-- begin:product-content -->
@@ -23,14 +29,14 @@
                         <input type="text" name="nombre" class="form-control" placeholder="Nombre : "  value="{{$vendedor->nom_usuario}}" required>
                       </div>
                     </div>
-
+<!--
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Contraseña (*)</label>
                       <div class="col-sm-7">
                         <input type="password" name="pass"class="form-control" placeholder="********** " value="{{$vendedor->contrasena}}" required>
                       </div>
                     </div>
-
+-->
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Dirección (*)</label>
                       <div class="col-sm-7">
@@ -56,13 +62,14 @@
                     </div> 
                     
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">fecha de nacimiento (*)</label>
+                      <label class="col-sm-5 control-label">Fecha de nacimiento (*)</label>
                       <div class="col-sm-7">
-                        <input type="date" name="fnac" class="form-control" placeholder="DD/MM/AAAA : " value="{{$vendedor->fecha_nacimiento}}" required>
+                        <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " required>
+                        <input type="hidden" name="fnac" id="fnac" required>
                       </div>
                     </div>
                     
-                                       <div class="form-group">
+                    <div class="form-group">
                       <label class="col-sm-5 control-label">Sexo (*)</label>
                       <div class="col-sm-7">
                         <select class="form-control" name="sexo" required>
@@ -99,3 +106,26 @@
             </div>
 
 @stop
+
+@section('extra-js')
+  {{ HTML::script('js/jQuery-ui/jquery-ui.min.js') }}
+  {{ HTML::script('js/jQuery-ui/jquery-ui-es.js') }}
+
+<script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+      dateFormat: "dd/mm/yy",
+      altFormat: "yy-mm-dd",
+      altField: "#fnac",
+      changeMonth: true,
+      changeYear: true,
+      yearRange: "-100:c"
+      //showOn: "button",
+     // buttonImage: "images/calendar.gif",
+     // buttonImageOnly: true,
+     // buttonText: "Select date"
+    });
+  });
+</script>
+
+@stop()
