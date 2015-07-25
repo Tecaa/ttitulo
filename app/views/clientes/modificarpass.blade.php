@@ -6,9 +6,22 @@
          
               <div class="row confirm">
                 <div class="col-md-15">
-                  <form class="form-horizontal" role="form" method="post" action="/micuenta/modificar/pass" onlyread>
+                  <form class="form-horizontal" role="form" method="post" action="/micuenta/modificando/pass">
 
                     <hr>
+                 
+                    @if ($errors->count() > 0)
+                    <div class="alert alert-danger">
+                      {{ $errors->first() }}
+                    </div>
+                    @endif
+                    
+                    @if (Session::get('msg'))
+                    <div class="alert alert-success">
+                      {{Session::get('msg')}}
+                    </div>
+                    @endif
+                    
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Contraseña actual</label>
                       <div class="col-sm-7">
@@ -33,7 +46,7 @@
                       </div>
                     </div>
 
-
+           
                     <div class="form-group">
                       <div class="col-sm-offset-3 col-sm-10">
                         <div class="pull-right">

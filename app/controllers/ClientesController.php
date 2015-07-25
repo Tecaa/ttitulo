@@ -2,12 +2,12 @@
 
 class ClientesController extends BaseController {
   protected $layout = "layouts.admin";
-  
+
   public function __construct()
   {
     if (Request::is("cliente/registrarse"))
     {
-        $this->layout = "layouts.page-content";
+      $this->layout = "layouts.page-content";
     }
   }
   public function crear(){
@@ -15,7 +15,7 @@ class ClientesController extends BaseController {
     View::share('titulo', "Crear Cliente");
     $this->layout->content = View::make('clientes.crear')->withCiudad($ciudad);
   }
-  
+
   public function creando()
   {
     View::share('titulo', "Creando Cliente");
@@ -25,7 +25,7 @@ class ClientesController extends BaseController {
     $cliente->contrasena = Hash::make(Input::get('pass'));
     $cliente->direccion = Input::get('direccion');
     $cliente->fecha_nacimiento = Input::get('fnac');
- 
+
     $cliente->cod_ciudad = Input::get('ciudad');
     $cliente->sexo = Input::get('sexo');
     $cliente->mail = Input::get('mail');
@@ -33,44 +33,79 @@ class ClientesController extends BaseController {
     $cliente-> tipo_usuario = 'cliente';  
     $cliente-> activo = 1;
     $cliente->save();
-    
+
     return Redirect::to('/listado/clientes');
   }
-  
+
   public function consultar(){
     $this->layout->content = View::make('clientes.consultar');
   }
-  
-    public function registrar(){
-      View::share('titulo', "Registro de Cliente");
+
+  public function registrar(){
+    View::share('titulo', "Registro de Cliente");
     $ciudad = Ciudad::get();
     $this->layout->content = View::make('clientes.registrar')->withCiudad($ciudad);
   }
-  
+
   public function registrando()
   {
-View::share('titulo', "Registrando Cliente");
-    
-    $cliente = new Usuario();
-    $cliente->rut = Input::get('rut');
-    $cliente->nom_usuario = Input::get('nombre');
-    $cliente->contrasena = Hash::make(Input::get('pass'));
-    $cliente->direccion = Input::get('direccion');
- 
-    $cliente->fecha_nacimiento = Input::get('fnac');
- 
-    $cliente->cod_ciudad = Input::get('ciudad');
-    $cliente->sexo = Input::get('sexo');
-    $cliente->mail = Input::get('mail');
-    $cliente->fono = Input::get('fono');
-    $cliente-> tipo_usuario = 'cliente';  
-    $cliente-> activo = 1;
-    $cliente->save();
-    
-    return Redirect::to('/login');
+    View::share('titulo', "Registrando Cliente");
+
+    if ($this->validarRut(Input::get('rut')))
+    {
+      $cliente = new Usuario();
+      $cliente->rut = Input::get('rut');
+      $cliente->nom_usuario = Input::get('nombre');
+      $cliente->contrasena = Hash::make(Input::get('pass'));
+      $cliente->direccion = Input::get('direccion');
+      $cliente->fecha_nacimiento = Input::get('fnac');
+      $cliente->cod_ciudad = Input::get('ciudad');
+      $cliente->sexo = Input::get('sexo');
+      $cliente->mail = Input::get('mail');
+      $cliente->fono = Input::get('fono');
+      $cliente->tipo_usuario = 'cliente';  
+      $cliente->activo = 1;
+      $cliente->save();
+      return Redirect::to('/login');
+    }
+    else
+    {
+      $error = "Rut ingresado incorrecto.";
+      return Redirect::to('/login')->withErrors($error)->withInput(Input::except('pass'));
+    }
   }
   
-
+  public function validarRut($rut)
+  {
+    $m = 2;
+    $suma = 0;
+	
+    for($i=strlen($rut)-3; $i>=0; --$i)
+    { 
+      $suma += intval($rut[$i])*$m;
+      if(++$m==8)
+        $m = 2;
+    }
+    $dv = $suma % 11;
+    $dv = 11 - $dv;
+    switch($dv)
+    {
+      case 11:
+        $dv = "0";
+        break;
+      case 10:
+        $dv = "K";
+        break;
+      default:
+        $dv = (string)$dv;
+        break;
+    }
+	
+    if ($dv == $rut[strlen($rut)-1])
+      return true;
+    else
+      return false;
+  }
   
  
   public function editar($rut){
@@ -147,14 +182,37 @@ View::share('titulo', "Registrando Cliente");
 
     $cliente = Auth::user();
     View::share('titulo', "Modificar Contraseña");
-    $this->layout->content = View::make('clientes.modificarpass')->withCliente($cliente);
+    $this->layout->content = View::make('clientes.modificarpass');//->withCliente($cliente);
   }  
   
   public function modificandopass(){
     View::share('titulo', "Modificando Contraseña");
     $cliente = Auth::user();
-    $cliente = Input::get('pass');
-    $cliente->contrasena = Hash::make(Input::get('nueva2'));
+    $userdata = array(
+      'rut' => $cliente->rut,
+      'password'=> Input::get('pass'),
+    );
+    
+    if(Auth::attempt($userdata))
+    {
+      if (Input::get('nueva') == Input::get('nueva2'))
+      {
+        $cliente->contrasena = Hash::make(Input::get('nueva2'));
+        $cliente->save();
+        $msg = "La contraseña se ha actualizado correctamente.";
+        return Redirect::back()->with("msg", $msg);
+      }
+      else
+      {
+        $error = "Las contraseñas nuevas no coinciden.";
+        return Redirect::back()->withErrors($error)->withInput(Input::except('pass|nueva|nueva2'));
+      }
+    }
+    else
+    {
+        $error = "La contraseña antigua no es la correcta.";
+        return Redirect::back()->withErrors($error)->withInput(Input::except('pass|nueva|nueva2'));
+    }
   }  
   
 }

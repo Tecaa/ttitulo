@@ -65,7 +65,7 @@ class HomeController extends BaseController {
     $rules = array (
       'nombre' => 'required|alpha',
       'email' => 'required|email',
-      'mensaje' => 'required|min:25',
+      'mensaje' => 'required|min:10',
       'asunto' => 'required|min:5'
     );
 

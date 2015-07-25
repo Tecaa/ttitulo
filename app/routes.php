@@ -105,6 +105,7 @@ Route::get('/micuenta', ['uses' => 'ClientesController@micuenta']);
 Route::get('/micuenta/modificar', ['uses' => 'ClientesController@modificar']);
 Route::any('/micuenta/modificando', ['uses' => 'ClientesController@modificando']);
 Route::any('/micuenta/modificar/pass', ['uses' => 'ClientesController@modificarpass']);
+Route::any('/micuenta/modificando/pass', ['uses' => 'ClientesController@modificandopass']);
 
 Route::get('/envio/crear', ['uses' => 'EnviosController@crear', 'before' => 'vendedor']);
 Route::any('/envio/creando', ['uses' => 'EnviosController@creando', 'before' => 'vendedor']);
