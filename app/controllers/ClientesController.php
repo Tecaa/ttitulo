@@ -50,29 +50,54 @@ class ClientesController extends BaseController {
   public function registrando()
   {
     View::share('titulo', "Registrando Cliente");
+    //Get all the data and store it inside Store Variable
+    $data = Input::all();
 
-    if ($this->validarRut(Input::get('rut')))
-    {
-      $cliente = new Usuario();
-      $cliente->rut = Input::get('rut');
-      $cliente->nom_usuario = Input::get('nombre');
-      $cliente->contrasena = Hash::make(Input::get('pass'));
-      $cliente->direccion = Input::get('direccion');
-      $cliente->fecha_nacimiento = Input::get('fnac');
-      $cliente->cod_ciudad = Input::get('ciudad');
-      $cliente->sexo = Input::get('sexo');
-      $cliente->mail = Input::get('mail');
-      $cliente->fono = Input::get('fono');
-      $cliente->tipo_usuario = 'cliente';  
-      $cliente->activo = 1;
-      $cliente->save();
-      return Redirect::to('/login');
+    //Validation rules
+    $rules = array (
+      'rut' => 'required|unique:usuario,rut',
+      'nombre' => 'required|alpha',
+      'pass' => 'required|min:4',
+      'direccion' => 'required|min:5',
+      'ciudad' => 'required',
+      'fechaDeNacimiento' => 'required',
+      'sexo' => 'required',
+      'email' => 'required|email|unique:usuario,mail',
+      'fono' => 'required|numeric'
+    );
+
+    //Validate data
+    $validator  = Validator::make ($data, $rules);
+
+    //If everything is correct than run passes.
+    if ($validator -> passes()){
+
+      if ($this->validarRut(Input::get('rut')))
+      {
+        $cliente = new Usuario();
+        $cliente->rut = Input::get('rut');
+        $cliente->nom_usuario = Input::get('nombre');
+        $cliente->contrasena = Hash::make(Input::get('pass'));
+        $cliente->direccion = Input::get('direccion');
+        $cliente->fecha_nacimiento = Input::get('fechaDeNacimiento');
+        $cliente->cod_ciudad = Input::get('ciudad');
+        $cliente->sexo = Input::get('sexo');
+        $cliente->mail = Input::get('email');
+        $cliente->fono = Input::get('fono');
+        $cliente->tipo_usuario = 'cliente';  
+        $cliente->activo = 1;
+        $cliente->save();
+        $message = "Cliente registrado satisfactoriamente, por favor ingrese a nuestra página con los datos registrados.";
+        return Redirect::to('/login')->withMessage($message);;
+      }
+      else
+      {
+        $error = "Rut ingresado incorrecto.";
+        return Redirect::to("cliente/registrarse")->withInput()->withErrors($error);
+      }
     }
     else
-    {
-      $error = "Rut ingresado incorrecto.";
-      return Redirect::to('/login')->withErrors($error)->withInput(Input::except('pass'));
-    }
+      return Redirect::to("cliente/registrarse")->withInput()->withErrors($validator);
   }
   
   public function validarRut($rut)

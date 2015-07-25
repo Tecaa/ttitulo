@@ -27,6 +27,12 @@
                   <form class="form-horizontal" role="form" action="/logeando" method="POST">
 
                     <hr>
+                     @if (Session::get("message"))
+                    <div class="alert alert-success">
+                      {{ Session::get("message") }}
+                    </div>
+                    @endif
+                    
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Rut:</label>
                       <div class="col-sm-7">

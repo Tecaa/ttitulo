@@ -12,6 +12,16 @@
               <div class="row confirm">
                 <div class="col-md-15">
                   <form class="form-horizontal" role="form" action="/cliente/registrando" method="POST">
+                
+                    @if ($errors->count() > 0)
+                    <div class="alert alert-danger">
+                      <ul class="errors">
+                        @foreach($errors->all('<li>:message</li>') as $message)
+                        {{ $message }}
+                        @endforeach
+                      </ul>
+                    </div>
+                    @endif
 
                     <hr>
                     <div class="form-group">
@@ -57,7 +67,7 @@
                       <label class="col-sm-5 control-label">Fecha de nacimiento (*)</label>
                       <div class="col-sm-7">
                         <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " required>
-                        <input type="hidden" name="fnac" id="fnac" required>
+                        <input type="hidden" name="fechaDeNacimiento" id="fnac" required>
                         
                       </div>
                     </div>
@@ -82,7 +92,7 @@
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Correo electrónico (*)</label>
                       <div class="col-sm-7">
-                        <input type="email" name="mail" class="form-control" placeholder="Ej.: micorreo@correo.com " required>
+                        <input type="email" name="email" class="form-control" placeholder="Ej.: micorreo@correo.com " required>
                       </div>
                     </div>
 

@@ -157,7 +157,6 @@ class HomeController extends BaseController {
       return Redirect::back()->withErrors($error)->withInput(Input::except('pass')); // redirect back to the login page, using ->withErrors($errors) you send the error created above
   
     }
-    //  return Redirect::to('/login')->withMessage("Combinación de usuario y contraseña incorrectas");
   }
   
 }
