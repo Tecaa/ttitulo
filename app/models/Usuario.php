@@ -16,7 +16,7 @@ class Usuario extends Eloquent implements UserInterface, RemindableInterface {
 	 */
   protected $table = 'usuario';
   protected $primaryKey = 'rut';
-    protected $appends = array('edad');
+    protected $appends = array('edad', 'fechaNacimientoF');
 
   public function ciudad()
   {
@@ -45,5 +45,9 @@ class Usuario extends Eloquent implements UserInterface, RemindableInterface {
     $now = new DateTime();
     $interval = $now->diff($date);
     return $interval->y;
+  }
+    public function getFechaNacimientoFAttribute()
+  { 
+    return date('d/m/Y', strtotime($this->fecha_nacimiento));
   }
 }  

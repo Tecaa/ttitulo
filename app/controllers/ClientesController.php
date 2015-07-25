@@ -122,9 +122,9 @@ View::share('titulo', "Registrando Cliente");
   
   public function modificar(){
     $ciudad = Ciudad::get();
-    $cliente = Auth::user();
+    $user = Auth::user();
     View::share('titulo', "Modificar Datos");
-    $this->layout->content = View::make('clientes.modificar')->withCiudad($ciudad)->withCliente($cliente);
+    $this->layout->content = View::make('clientes.modificar')->withCiudad($ciudad)->withUser($user);
   }  
   
   public function modificando()
@@ -132,14 +132,12 @@ View::share('titulo', "Registrando Cliente");
     View::share('titulo', "Modificando Datos");
     $cliente = Auth::user();
     $cliente->nom_usuario = Input::get('nombre');
-   // $cliente->contrasena = Hash::make(Input::get('pass'));
     $cliente->direccion = Input::get('direccion');
     $cliente->fecha_nacimiento = Input::get('fnac');
     $cliente->cod_ciudad = Input::get('ciudad');
     $cliente->sexo = Input::get('sexo');
     $cliente->mail = Input::get('mail');
     $cliente->fono = Input::get('fono');
-    $cliente-> tipo_usuario = 'cliente';  
     $cliente->save();
     
     return Redirect::to('/micuenta');

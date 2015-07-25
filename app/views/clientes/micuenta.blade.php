@@ -43,7 +43,7 @@
                     
                     <div class="form-group">
                         <label class="col-sm-5 control-label">fecha de nacimiento :</label>
-                        <label class="col-sm-5 control-label">{{$cliente->fecha_nacimiento}} </label>
+                        <label class="col-sm-5 control-label">{{$cliente->FechaNacimientoF}} </label>
                     </div>
                     
                     

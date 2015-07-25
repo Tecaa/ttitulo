@@ -17,21 +17,21 @@
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Rut (*)</label>
                       <div class="col-sm-7">
-                        <input type="text" name="rut"class="form-control" pattern="\d{3,8}-[\d|kK]{1}" placeholder="Rut : " value="{{$cliente->rut}}" disabled>
+                        <input type="text" name="rut"class="form-control" pattern="\d{3,8}-[\d|kK]{1}" placeholder="Rut : " value="{{$user->rut}}" disabled>
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Nombre (*)</label>
                       <div class="col-sm-7">
-                        <input type="text" name="nombre" class="form-control" placeholder="Nombre : " value="{{$cliente->nom_usuario}}" required>
+                        <input type="text" name="nombre" class="form-control" placeholder="Nombre : " value="{{$user->nom_usuario}}" required>
                       </div>
                     </div>
 
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Dirección (*)</label>
                       <div class="col-sm-7">
-                        <input type="text" name="direccion"class="form-control" placeholder="Ej : " value="{{$cliente->direccion}}" required>
+                        <input type="text" name="direccion"class="form-control" placeholder="Ej : " value="{{$user->direccion}}" required>
                       </div>
                     </div>
 
@@ -42,7 +42,7 @@
                         <select class="form-control" name="ciudad" required>
                           @foreach ($ciudad as $cdd)
                             <option value="{{ $cdd->cod_ciudad }}"
-                                    @if ($cliente->cod_ciudad === $cdd->cod_ciudad)
+                                    @if ($user->cod_ciudad === $cdd->cod_ciudad)
                           selected 
                           @endif
                           >
@@ -56,7 +56,7 @@
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Fecha de nacimiento (*)</label>
                       <div class="col-sm-7">
-                        <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " required>
+                        <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " value="{{$user->fechaNacimientoF}}" required>
                         <input type="hidden" name="fnac" id="fnac" required> 
                       </div>
                     </div>
@@ -65,8 +65,8 @@
                       <label class="col-sm-5 control-label">Sexo</label>
                       <div class="col-sm-7">
                         <select class="form-control" name="sexo" required>
-                          <option value="Femenino" @if($cliente->sexo == "femenino") selected  @endif >Femenino</option>
-                          <option value="Masculino" @if($cliente->sexo == "masculino") selected @endif > Masculino</option>
+                          <option value="Femenino" @if($user->sexo == "femenino") selected  @endif >Femenino</option>
+                          <option value="Masculino" @if($user->sexo == "masculino") selected @endif > Masculino</option>
                         </select>
                       </div>
                     </div>
@@ -74,14 +74,14 @@
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Teléfono</label>
                       <div class="col-sm-7">
-                        <input type="number" name="fono" class="form-control" placeholder="Precio : " value="{{$cliente->fono}}" required>
+                        <input type="number" name="fono" class="form-control" placeholder="Precio : " value="{{$user->fono}}" required>
                       </div>
                     </div>
                     
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Correo electrónico</label>
                       <div class="col-sm-7">
-                        <input type="mail" name="mail" class="form-control" placeholder="Precio : " value="{{$cliente->mail}}" required>
+                        <input type="mail" name="mail" class="form-control" placeholder="Precio : " value="{{$user->mail}}" required>
                       </div>
                     </div>
 
