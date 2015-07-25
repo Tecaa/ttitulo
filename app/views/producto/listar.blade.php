@@ -17,7 +17,7 @@
         <div class="caption-details">
           <h3>{{$prod->nombre_producto}} @if($prod->contenido != null) ({{$prod->contenido}}) @endif</h3>
           <label>{{$prod->laboratorio->nom_laboratorio}}</label>
-          <span class="price">{{$prod->precioVentaF}}</span>
+          <a href="/producto/consultar/{{$prod->codigo_producto}}"> <span class="price">{{$prod->precioVentaF}}</span></a>
         </div>
       </div>
     </li>
