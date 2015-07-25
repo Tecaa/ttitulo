@@ -128,7 +128,7 @@ class HomeController extends BaseController {
       'password'=> Input::get('pass'),
     );
     
-    if(!Usuario::find($userdata["rut"])->activo)
+    if(Usuario::find($userdata["rut"]) && !Usuario::find($userdata["rut"])->activo)
       {
       $error = "No tienes permiso para entrar al sistema.";
       return Redirect::back()->withErrors($error)->withInput(Input::except('pass')); // redirect back to the login page, using ->withErrors($errors) you send the error created above

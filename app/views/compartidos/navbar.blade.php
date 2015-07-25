@@ -24,15 +24,15 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav nav-left">
-        <li class="active"><a href="/">Inicio</a></li>
-        <li><a href="/quienesSomos">Quienes somos</a></li>
-        <li><a href="/contacto">Contacto</a></li>
+        <li class="{{HTML::isActive('/')}}"><a href="/">Inicio</a></li>
+        <li class="{{HTML::isActive('quienesSomos')}}"><a href="/quienesSomos">Quienes somos</a></li>
+        <li class="{{HTML::isActive('contacto')}}"><a href="/contacto">Contacto</a></li>
       </ul>
       <a href="#" class="logo visible-lg visible-md">{{ HTML::image("img/logo.jpg", "Logo") }}</a>
       <div id="brand" class="visible-lg visible-md">&nbsp;</div>
       <ul class="nav navbar-nav nav-right">
 
-        <li class="dropdown">
+        <li class="dropdown {{HTML::isActive('producto/categoria/*')}} {{HTML::isActive('producto/consultar/*')}}">
           <a href="#" class="dropdown-toggle" href="" data-toggle="dropdown">Productos <b class="caret"></b></a>
           <ul class="dropdown-menu">
             @foreach ($categorias as $categoria)
@@ -64,15 +64,15 @@
           </ul>
         </li>
         @if (Auth::check())
-        <li><a href="/sesion">Menu</a></li>
+        <li class="{{HTML::isActive('sesion/*')}} {{HTML::isActive('micuenta')}} {{HTML::isActive('micuenta/*')}}"><a href="/sesion">Menu</a></li>
         @endif
         @unless (Auth::check())
         <!-- <li><a href="/login">Iniciar sesión</a></li> -->
 
-        <li class="dropdown">            
+        <li class="dropdown {{HTML::isActive('cliente/registrarse')}} {{HTML::isActive('cuenta/login')}}">
           <a href="" class="dropdown-toggle" data-toggle="dropdown">Mi cuenta <b class="caret"></b></a>
           <ul class="dropdown-menu sub-menu">
-            <li><a href="/login">Iniciar Sesion</a></li>
+            <li><a href="/cuenta/login">Iniciar Sesion</a></li>
             <li><a href="/cliente/registrarse">Registrarse</a></li>
           </ul>
         </li>
@@ -83,7 +83,7 @@
 
 
 
-        <li><a href="/listado/carroCompras"> 
+        <li class="{{HTML::isActive('listado/carroCompras')}}"><a href="/listado/carroCompras"> 
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
         </a></li>
         

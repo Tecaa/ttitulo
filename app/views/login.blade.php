@@ -33,6 +33,12 @@
                     </div>
                     @endif
                     
+                      @if ($errors->count() > 0)
+                    <div class="alert alert-danger">
+                      {{ $errors->first() }}
+                    </div>
+                    @endif
+                    
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Rut:</label>
                       <div class="col-sm-7">
@@ -47,11 +53,7 @@
                       </div>
                     </div>
 
-                    @if ($errors->count() > 0)
-                    <div class="alert alert-danger">
-                      {{ $errors->first() }}
-                    </div>
-                    @endif
+                  
                      
                     <div class="form-group">
                       <div class="col-sm-offset-3 col-sm-10">

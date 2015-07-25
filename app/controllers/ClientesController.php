@@ -88,7 +88,7 @@ class ClientesController extends BaseController {
         $cliente->activo = 1;
         $cliente->save();
         $message = "Cliente registrado satisfactoriamente, por favor ingrese a nuestra página con los datos registrados.";
-        return Redirect::to('/login')->withMessage($message);;
+        return Redirect::to('/cuenta/login')->withMessage($message);;
       }
       else
       {

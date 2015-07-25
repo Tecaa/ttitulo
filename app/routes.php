@@ -13,7 +13,7 @@
 
 
 Route::get('/', ['uses' => 'HomeController@index']);
-Route::get('/login', ['uses' => 'HomeController@login']);
+Route::get('/cuenta/login', ['uses' => 'HomeController@login']);
 Route::get('/logout', ['uses' => 'HomeController@logout', 'before' => 'auth']);
 Route::post('/logeando', ['uses' => 'HomeController@logeando']);
 
