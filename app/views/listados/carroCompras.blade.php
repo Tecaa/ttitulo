@@ -57,7 +57,7 @@
         @if (Auth::check())
         <a class="btn btn-success pull-right col-sm-8" id="pedido" role="button">Realizar pedido</a>
         @else
-        <a class="btn btn-success pull-right" href="/login" role="button">Iniciar sesión para pagar</a>
+        <a class="btn btn-success pull-right" href="/cuenta/login" role="button">Iniciar sesión para pagar</a>
         @endif
       </div>
     </div>
