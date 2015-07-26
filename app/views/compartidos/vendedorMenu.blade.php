@@ -32,8 +32,6 @@
         </li>
         
         <li><a href="/listado/pedidos">
-        
-            <span class="sr-only">Error:</span>
               Pedidos pendientes
             <span class="badge">{{$numpedidos}}</span>
          

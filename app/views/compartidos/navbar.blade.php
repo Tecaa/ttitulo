@@ -84,6 +84,7 @@
 
 
         <li class="{{HTML::isActive('listado/carroCompras')}}"><a href="/listado/carroCompras"> 
+            <span id="totalCompras" class="badge alert-danger"></span>
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
         </a></li>
         

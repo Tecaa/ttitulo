@@ -40,7 +40,8 @@
     {{ HTML::script('http://maps.google.com/maps/api/js?sensor=false&amp;language=en') }}
     {{ HTML::script('js/gmap3.js') }}
     {{ HTML::script('js/script.js') }}
-{{ HTML::script('js/numberFormater.js') }}
+    {{ HTML::script('js/numberFormater.js') }}
+    {{ HTML::script('js/carritoComprasCounter.js') }}
     @yield('extra-js')
   </body>
 </html>

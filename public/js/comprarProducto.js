@@ -48,6 +48,8 @@ $(document).ready(function() {
       compras.push(producto);
     }
     localStorage.compras = JSON.stringify(compras);
+    actualizarCarroNavBar();
+    
     BootstrapDialog.show({
       type: BootstrapDialog.TYPE_SUCCESS,
       title: 'Producto agregado',

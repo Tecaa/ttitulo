@@ -7,3 +7,6 @@ View::composer('compartidos.navbar', function($view) {
 View::composer('compartidos.vendedorMenu', function($view) {
     $view->with('numpedidos', Documento::where('tipo_documento', '=', 'pedido')->count());
 });
+View::composer('compartidos.adminMenu', function($view) {
+    $view->with('numpedidos', Documento::where('tipo_documento', '=', 'pedido')->count());
+});

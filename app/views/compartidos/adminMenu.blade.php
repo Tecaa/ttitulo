@@ -31,13 +31,9 @@
 </ul>
 </li>
 -->
-        <li>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ventas <i class="fa fa-caret-down icon-dropdown"></i></a>
-          <ul class="dropdown-menu sub-menu">
-            <li><a href="/venta/local">Realizar Venta Local</a></li>
-            <li><a href="/listado/pedidos">Realizar Venta Internet</a></li>
-          </ul>
-        </li>
+        <li><a href="/venta/local">Realizar Venta Local</a></li>
+        <li><a href="/listado/pedidos">Realizar Venta Internet <span class="badge">{{$numpedidos}}</span></a></li>
+        
         <li><a href="/compra/factura">Compras</a></li>
         <li><a href="/producto/stockCritico">Bajo stock</a></li>
 

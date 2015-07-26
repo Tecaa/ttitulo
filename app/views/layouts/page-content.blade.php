@@ -63,7 +63,8 @@
     {{ HTML::script('js/gmap3.js') }}
     {{ HTML::script('js/script.js') }}
     {{ HTML::script('js/numberFormater.js') }}
-{{ HTML::script('js/bootstrap-dialog/bootstrap-dialog.js') }}
+    {{ HTML::script('js/bootstrap-dialog/bootstrap-dialog.js') }}
+    {{ HTML::script('js/carritoComprasCounter.js') }}
     @yield('extra-js')
   </body>
 </html>
