@@ -3,7 +3,7 @@
 class BoletaController extends BaseController {
   protected $layout = "layouts.admin";
   
-   public function __construct()
+  public function __construct()
   {
   }
   

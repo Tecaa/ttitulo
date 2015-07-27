@@ -59,77 +59,45 @@
     </div>
 
   </div>
-
-
-</div>
-<!-- end:product-content -->
-
-<!-- begin:product-sidebar -->
-<!--
-<div class="col-md-3 col-sm-3">
-<div class="row sidebar">
-<div class="col-md-12">
-<h3>Quick Search</h3>
-<div class="quick-search">
-<h5>Select Category</h5>
-<select name="cat" class="form-control">
-<option value="Canary">Canary</option>
-<option value="Emprit">Emprit</option>
-<option value="Parkit">Parkit</option>
-<option value="Doro">Doro</option>
-<option value="Pitik">Pitik</option>
-<option value="Jalak">Jalak</option>
-<option value="Cucak Rowo">Cucak Rowo</option>
-<option value="Gemak">Gemak</option>
-<option value="Deruk">Deruk</option>
-<option value="Kutut">Kutut</option>
-<option value="Tilang">Tilang</option>
-</select>
-<h5>Select Color</h5>
-<select name="cat" class="form-control">
-<option value="Yellow">Yellow</option>
-<option value="Blue">Blue</option>
-<option value="Green">Green</option>
-<option value="Red">Red</option>
-<option value="Orange">Orange</option>
-<option value="Black">Black</option>
-<option value="Grey">Grey</option>
-</select>
-<h5>Select Min - Max Price</h5>
-<div class="col-md-6">
-<select name="cat" class="form-control">
-<option value="Yellow">$10</option>
-<option value="Blue">$45</option>
-<option value="Green">$70</option>
-<option value="Red">$125</option>
-<option value="Orange">$200</option>
-<option value="Black">$235</option>
-<option value="Grey">$300</option>
-</select>
-</div>
-<div class="col-md-6">
-<select name="cat" class="form-control">
-<option value="Yellow">$15</option>
-<option value="Blue">$45</option>
-<option value="Green">$70</option>
-<option value="Red">$125</option>
-<option value="Orange">$200</option>
-<option value="Black">$235</option>
-<option value="Grey">$300</option>
-</select>
-</div>
-<input type="submit" class="btn btn-purple btn-block" name="submit" value="Search">
-</div>
+  
+  @if(isset($producto->imagen360))
+  <div class="rotContainer">
+    <div>
+      <img id="img360" width="480" height="480" draggable="true">
+    </div>
+  </div>
+  @endif
+  
 
 </div>
-</div>
-</div>
--->
-<!-- end:product-sidebar -->
-
 
 @stop
 
 @section('extra-js')
 {{ HTML::script('js/comprarProducto.js') }}
+{{ HTML::script('js/jquery.Threesixty/jquery.threesixty.js') }}
+
+<script>
+  var arr = [];
+  $(function() {
+    if (imagen360 == null)
+      return;
+
+    arr.push(imagen360.d0);
+    arr.push(imagen360.d45);
+    arr.push(imagen360.d90);
+    arr.push(imagen360.d135);
+    arr.push(imagen360.d180);
+    arr.push(imagen360.d225);
+    arr.push(imagen360.d270);
+    arr.push(imagen360.d315);
+
+
+    $("#img360").threesixty({images:arr, method:'click', autoscrollspeed:200, 'cycle':3, direction:"backward", base64:true});
+    //$("#click").threesixty({images:arr2, method:'click', 'cycle':1, 'resetMargin': 10});
+    //$("#auto").threesixty({images:arr2, method:'auto', autoscrollspeed:100});
+
+  });
+</script>
+
 @stop()

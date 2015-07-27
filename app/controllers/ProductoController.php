@@ -69,8 +69,9 @@ class ProductoController extends BaseController {
     }
     View::share('titulo', "Consultar Producto");
     JavaScript::put([
-        'producto' => $producto,
-       'producto.laboratorio' =>$producto->laboratorio
+      'producto' => $producto,
+      'producto.laboratorio' =>$producto->laboratorio,
+      'imagen360' => $producto->imagen360
     ]);
     $this->layout->content = View::make('producto.consultar')->withProducto($producto)->with("laboratorio");
     
@@ -104,19 +105,46 @@ class ProductoController extends BaseController {
     $producto->contenido = Input::get('contenido');
     $producto->ingredientes = Input::get('ingredientes');
     if (Input::file('imagen') != null)
-      {
+    {
       //$producto->imagen = base64_encode(file_get_contents(Input::file('imagen')));
       $producto->imagen = base64_encode(Image::make(Input::file('imagen'))->resize(336, 387)->encode('jpg', 40));
     }
     $producto->save();
-   
+    
+    
+    
+    $img360 = Imagen360::find($codigo_producto);
+    if ($img360 == null)
+    {
+      $img360 = new Imagen360();
+      $img360->codigo_producto = $codigo_producto;
+    }
+    if (Input::file('img0') != null)
+      $img360->d0  = base64_encode(Image::make(Input::file('img0'))->resize(336, 387)->encode('jpg', 100));
+    if (Input::file('img45') != null)
+      $img360->d45  = base64_encode(Image::make(Input::file('img45'))->resize(336, 387)->encode('jpg', 100));
+    if (Input::file('img90') != null)
+      $img360->d90  = base64_encode(Image::make(Input::file('img90'))->resize(336, 387)->encode('jpg', 100));
+    if (Input::file('img135') != null)
+      $img360->d135  = base64_encode(Image::make(Input::file('img135'))->resize(336, 387)->encode('jpg', 100));
+    if (Input::file('img180') != null)
+      $img360->d180  = base64_encode(Image::make(Input::file('img180'))->resize(336, 387)->encode('jpg', 100));
+    if (Input::file('img225') != null)
+      $img360->d225  = base64_encode(Image::make(Input::file('img225'))->resize(336, 387)->encode('jpg', 100));
+    if (Input::file('img270') != null)
+      $img360->d270 = base64_encode(Image::make(Input::file('img270'))->resize(336, 387)->encode('jpg', 100));
+    if (Input::file('img315') != null)
+      $img360->d315  = base64_encode(Image::make(Input::file('img315'))->resize(336, 387)->encode('jpg', 100));
+    $img360->save();
+    
+    
     CatProducto::where('codigo_producto', '=', $producto->codigo_producto)->delete();
     foreach(Input::get('idsCategorias') as $categoria){
-    $catpro = new CatProducto();
-    $catpro->codigo_producto = $producto->codigo_producto;
-    $catpro->cod_categoria = $categoria;
-     $catpro->save();
-  }
+      $catpro = new CatProducto();
+      $catpro->codigo_producto = $producto->codigo_producto;
+      $catpro->cod_categoria = $categoria;
+      $catpro->save();
+    }
     return Redirect::to('/listado/productos');
   }
 

@@ -82,12 +82,62 @@
         </div>
 
       <div class="form-group">
-        <label class="col-sm-5 control-label">Subir imágen</label>
+        <label class="col-sm-5 control-label">Subir imágen de presentación</label>
         <div class="col-sm-7">
           <input type="file" name="imagen" class="form-control" method="post" accept="image/*">
         </div>
       </div>
+      <hr>
+      <hr>
 
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Subir imágen 0</label>
+        <div class="col-sm-7">
+          <input type="file" name="img0" class="form-control" method="post" accept="image/*">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Subir imágen 45</label>
+        <div class="col-sm-7">
+          <input type="file" name="img45" class="form-control" method="post" accept="image/*">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Subir imágen 90</label>
+        <div class="col-sm-7">
+          <input type="file" name="img90" class="form-control" method="post" accept="image/*">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Subir imágen 135</label>
+        <div class="col-sm-7">
+          <input type="file" name="img135" class="form-control" method="post" accept="image/*">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Subir imágen 180</label>
+        <div class="col-sm-7">
+          <input type="file" name="img180" class="form-control" method="post" accept="image/*">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Subir imágen 225</label>
+        <div class="col-sm-7">
+          <input type="file" name="img225" class="form-control" method="post" accept="image/*">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Subir imágen 270</label>
+        <div class="col-sm-7">
+          <input type="file" name="img270" class="form-control" method="post" accept="image/*">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Subir imágen 315</label>
+        <div class="col-sm-7">
+          <input type="file" name="img315" class="form-control" method="post" accept="image/*">
+        </div>
+      </div>
 
       <div class="form-group">
         <div class="col-sm-offset-3 col-sm-10">

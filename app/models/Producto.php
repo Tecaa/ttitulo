@@ -21,6 +21,11 @@ class Producto extends Eloquent {
     return $this->hasMany('CatProducto', 'codigo_producto');
   }
 
+  public function imagen360()
+  {
+    return $this->hasOne('Imagen360', 'codigo_producto');
+  }
+  
   public function getPrecioCompraFAttribute()
   {
     return "$ ". number_format($this->precio_compra, 0, ",", ".");
