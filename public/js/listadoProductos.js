@@ -13,9 +13,22 @@ $(document).ready(function() {
       {
         data: null,
         render: function ( data, type, row ) {
-          return MoneyFormat(data);  
+          if(row.precio_venta_oferta == null)
+            return MoneyFormat(data);
+          else
+            return "<strike>" + MoneyFormat(data) + "</strike>";
         },
         targets: [ 4 ]
+      },
+      {
+        data: null,
+        render: function ( data, type, row ) {
+          if (data != null)
+            return MoneyFormat(data);
+          else
+            return "";
+        },
+        targets: [ 5 ]
       },
       {
         data: null,
@@ -30,7 +43,7 @@ $(document).ready(function() {
 
         },
         width: "17%",
-        targets: [ 6 ]
+        targets: [ 7 ]
       }
     ];
   }
@@ -43,7 +56,28 @@ $(document).ready(function() {
           return MoneyFormat(data);  
         },
         targets: [ 3 ]
-      }];
+      },
+    {
+        data: null,
+        render: function ( data, type, row ) {
+          if(row.precio_venta_oferta == null)
+            return MoneyFormat(data);
+          else
+            return "<strike>" + MoneyFormat(data) + "</strike>";
+        },
+        targets: [ 4 ]
+      },
+    {
+        data: null,
+        render: function ( data, type, row ) {
+          if (data != null)
+            return MoneyFormat(data);
+          else
+            return "";
+        },
+        targets: [ 5 ]
+      }
+    ];
   }
   productosTable = $('#productosTable').DataTable(
     { 
@@ -57,6 +91,7 @@ $(document).ready(function() {
         { "data": "cantidad" },
         { "data": "precio_compra" },
         { "data": "precio_venta" },
+        { "data": "precio_venta_oferta" },
         { "data": "codigo_barras" }
       ],
       columnDefs: column

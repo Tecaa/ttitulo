@@ -10,18 +10,21 @@
           <ul class="dropdown-menu sub-menu">
             <li><a href="/listado/productos">Productos</a></li>
             <li><a href="/listado/categorias">Categorías</a></li>
-            <li><a href="/listado/laboratorios">Laboratorios</a></li>                    
+            <li><a href="/listado/proveedores">Proveedores</a></li>                    
           </ul>
         </li>
 
         <li>
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Realizar Venta<i class="fa fa-caret-down icon-dropdown"></i></a>
-          <ul class="dropdown-menu sub-menu">
-            <li><a href="/venta/local">Local</a></li>
-            <li><a href="/listado/pedidos">Internet</a></li>
-          </ul>
+          <a href="/venta/local">Realizar venta en local</a>
         </li>
 
+        <li><a href="/listado/pedidos">Realizar venta de internet
+          @if($numpedidos != 0)
+          <span class="badge">{{$numpedidos}}</span>
+          @endif
+          </a>
+        </li>
+        
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mi Cuenta<i class="fa fa-caret-down icon-dropdown"></i></a>
           <ul class="dropdown-menu sub-menu">
@@ -31,12 +34,7 @@
           </ul>
         </li>
         
-        <li><a href="/listado/pedidos">
-              Pedidos pendientes
-            <span class="badge">{{$numpedidos}}</span>
-         
-         </a>
-        </li>
+        
           
       </ul>
 

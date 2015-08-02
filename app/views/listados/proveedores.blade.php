@@ -19,17 +19,20 @@
         <th>Ciudad</th>
         <th>Teléfono</th>
         <th>Email</th>
+         @if(Auth::user()->tipo_usuario == "administrador")
         <th>Acciones</th>
+         @endif
        </tr>  
       </thead>  
       <tbody>
        
       </tbody>
     </table>
+    @if(Auth::user()->tipo_usuario == "administrador")
    <br> 
  
     <a class="btn btn-primary" href="/proveedores/crear" role="button">Agregar proveedor</a>
-
+    @endif
     
   </div>
 </div>

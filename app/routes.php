@@ -118,7 +118,7 @@ Route::any('/envio/eliminando/{cod_metodo}', ['uses' => 'EnviosController@elimin
 
 Route::get('/listado/productos', ['uses' => 'ListadoController@productos', 'before' => 'vendedor']);
 Route::get('/listado/eliminados', ['uses' => 'ListadoController@eliminados', 'before' => 'administrador']);
-Route::get('/listado/proveedores', ['uses' => 'ListadoController@proveedores', 'before' => 'administrador']);
+Route::get('/listado/proveedores', ['uses' => 'ListadoController@proveedores', 'before' => 'vendedor']);
 Route::get('/agendaProveedores', ['uses' => 'ListadoController@agendaProveedores', 'before' => 'administrador']);
 Route::get('/listado/categorias', ['uses' => 'ListadoController@categorias', 'before' => 'vendedor']);
 Route::get('/listado/laboratorios', ['uses' => 'ListadoController@laboratorios', 'before' => 'vendedor']);

@@ -1,4 +1,21 @@
 $(document).ready(function() {
+  column = null;
+  if (tipo_usuario == "administrador")
+  {
+    column = [
+        {
+          data: null,
+          render: function ( data, type, row ) {
+            return  " <a class='btn btn-warning' href=/proveedores/editar/" + data.cod_proveedor +
+              "><i class='glyphicon glyphicon-pencil icon-white'></i></a>"
+              + " <a class='btn btn-danger' data-cod-proveedor=" + data.cod_proveedor + " onclick='eliminarProveedor(this)'"             
+              + "><i class='glyphicon glyphicon-remove icon-white'></i></a>";
+
+          },
+          targets: [ 6 ]
+        }
+      ];
+  }
   $('#proveedoresTable').DataTable({
     language: {
             "url": "/js/dataTables/Spanish.json"
@@ -15,19 +32,7 @@ $(document).ready(function() {
 
         ],
     
-    columnDefs: [
-        {
-          data: null,
-          render: function ( data, type, row ) {
-            return  " <a class='btn btn-warning' href=/proveedores/editar/" + data.cod_proveedor +
-              "><i class='glyphicon glyphicon-pencil icon-white'></i></a>"
-              + " <a class='btn btn-danger' data-cod-proveedor=" + data.cod_proveedor + " onclick='eliminarProveedor(this)'"             
-              + "><i class='glyphicon glyphicon-remove icon-white'></i></a>";
-
-          },
-          targets: [ 6 ]
-        }
-      ]
+    columnDefs: column
   });
 } );
 

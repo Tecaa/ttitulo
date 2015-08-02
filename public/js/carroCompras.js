@@ -10,22 +10,21 @@ $(document).ready(function() {
     // Lista de productos
     data: compras,
     columns: [
+      { "data": "codigo_barras" },
             { "data": "nombre_producto" },
-            { "data": "proveedor.nom_proveedor" },
             { "data": "cantidadComprada" },
-            { "data": "precioVentaF" },
+            { "data": "precioVentaFinalF" },
       { "data": "subtotal" }
         ],
     columnDefs: [
         {
           data: null,
           render: function ( data, type, row ) {
-            return  " <a class='btn btn-danger' data-cod='" + row.codigo_producto +"' onclick='rem(this)'><i class='glyphicon glyphicon-remove icon-white'></i></a>";
-
+            return  " <a class='btn btn-danger' data-cod='" + row.codigo_producto +"' onclick='rem(this)'><i class='glyphicon glyphicon-remove icon-white'></i></a>"
+                    +"<a class='btn btn-warning' href='/producto/consultar/" + row.codigo_producto +"'><i class='glyphicon glyphicon-search icon-white'></i></a>";
           },
           targets: [ 5 ]
         },
-      
         {
           data: null,
           render: function ( data, type, row ) {
@@ -90,7 +89,7 @@ $(document).ready(function() {
   });
   
   $(compras).each(function(index, compra) {
-    suma += compra.precio_venta * compra.cantidadComprada;
+    suma += compra.precioVentaFinal * compra.cantidadComprada;
   });
   $("#suma").html(MoneyFormat(suma));
   $("#total").html(MoneyFormat(suma + monto_envio));

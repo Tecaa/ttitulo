@@ -112,6 +112,8 @@ class ProductoController extends BaseController {
     $producto->precio_venta = Input::get('precio');
     $producto->contenido = Input::get('contenido');
     $producto->ingredientes = Input::get('ingredientes');
+    if (Input::get("precio_venta_oferta") != null && Input::get("precio_venta_oferta") != 0)
+    $producto->precio_venta_oferta = Input::get('precio_venta_oferta');
     if (Input::file('imagen') != null)
     {
       //$producto->imagen = base64_encode(file_get_contents(Input::file('imagen')));

@@ -32,7 +32,11 @@
 </li>
 -->
         <li><a href="/venta/local">Realizar Venta Local</a></li>
-        <li><a href="/listado/pedidos">Realizar Venta Internet <span class="badge">{{$numpedidos}}</span></a></li>
+        <li><a href="/listado/pedidos">Realizar Venta Internet 
+          @if($numpedidos != 0)
+          <span class="badge">{{$numpedidos}}</span>
+          @endif
+          </a></li>
         
         <li><a href="/compra/factura">Compras</a></li>
         <li><a href="/producto/stockCritico">Bajo stock</a></li>

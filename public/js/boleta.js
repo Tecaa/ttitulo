@@ -12,6 +12,7 @@ $(document).ready(function() {
       { "data": "proveedor.nom_proveedor" },
       { "data": "cantidad" },
       { "data": "precio_venta" },
+      { "data": "precioVentaFinal" },
       { "data": "cantidadVendida" },
       { "data": "subtotal" }
     ],
@@ -28,7 +29,14 @@ $(document).ready(function() {
         render: function ( data, type, row ) {
           return  MoneyFormat(data);
         },
-        targets: [ 5 ]
+        targets: [ 4 ]
+      },
+      {
+        data: null,
+        render: function ( data, type, row ) {
+          return  MoneyFormat(data);
+        },
+        targets: [ 6 ]
       }
     ]
   });
@@ -75,12 +83,12 @@ $(document).ready(function() {
         }
 
         element.cantidadVendida = parseInt(element.cantidadVendida) +  parseInt($('input[name=cantidad]').val());
-        actualizarTotales(parseInt($('input[name=cantidad]').val()), parseInt(element.precio_venta));
+        actualizarTotales(parseInt($('input[name=cantidad]').val()), parseInt(element.precioVentaFinal));
 
         // se debe rescatar el precio de venta desde la tabla producto
         //element.precio_venta = (producto.precio_venta);
         //para el subtotal se necesita el precio de venta que se saca de la tabla producto
-        element.subtotal = parseInt(element.cantidadVendida) * parseInt(element.precio_venta);
+        element.subtotal = parseInt(element.cantidadVendida) * parseInt(element.precioVentaFinal);
         // element.subtotal = parseInt(element.cantidadVendida, 10) * precio_venta;
 
         console.log(element);
@@ -108,7 +116,7 @@ $(document).ready(function() {
         .done(function (producto) {
         var productoVendido = producto;
         productoVendido.cantidadVendida = parseInt($("input[name='cantidad']").val());
-        productoVendido.subtotal =   productoVendido.cantidadVendida * productoVendido.precio_venta;
+        productoVendido.subtotal =   productoVendido.cantidadVendida * productoVendido.precioVentaFinal;
         if (productoVendido.cantidadVendida > productoVendido.cantidad)
         {
           sobreStockMessage(productoVendido.cantidad, parseInt($('input[name=cantidad]').val()), 0);
@@ -117,7 +125,7 @@ $(document).ready(function() {
         
         f.row.add(producto).draw();
         //Suma total
-        actualizarTotales(productoVendido.cantidadVendida, productoVendido.precio_venta);
+        actualizarTotales(productoVendido.cantidadVendida, productoVendido.precioVentaFinal);
 
         $('input[name=codigoB]').val("");
         $('input[name=cantidad]').val("1");

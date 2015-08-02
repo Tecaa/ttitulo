@@ -67,7 +67,7 @@ class BoletaController extends BaseController {
       $detboleta->cod_documento = $documento->cod_documento;
       $detboleta->codigo_producto = intval ($prodVendido["codigo_producto"]);
       $detboleta->cantidad = intval( $prodVendido["cantidadVendida"]);
-      $detboleta->precio_venta = intval ($prodVendido ["precio_venta"]);
+      $detboleta->precio_venta = intval ($prodVendido ["precioVentaFinal"]);
       $detboleta->precio_compra = intval ($prodVendido ["precio_compra"]);
       $detboleta->save();
     }
@@ -105,7 +105,8 @@ class BoletaController extends BaseController {
     foreach ($productos as $detBoleta)
     {
       $total = $total+ intval($detBoleta["cantidadComprada"]); 
-      $precio_total = $precio_total + intval($detBoleta["subtotal"]);
+      $p = Producto::where('codigo_barras', '=', $detBoleta["codigo_barras"])->first();
+      $precio_total = $precio_total + $p->precioVentaFinal *intval($detBoleta["cantidadComprada"]);
     }
 
     $documento->precio_total = $precio_total + $metodo->costo;
@@ -121,12 +122,13 @@ class BoletaController extends BaseController {
 
     foreach ($productos as $prodVendido)
     {
+      $p = Producto::where('codigo_barras', '=', $detBoleta["codigo_barras"])->first();
       $detboleta = new DetalleBoleta();
       $detboleta->cod_documento = $documento->cod_documento;
       $detboleta->codigo_producto = intval ($prodVendido["codigo_producto"]);
       $detboleta->cantidad = intval( $prodVendido["cantidadComprada"]);
-      $detboleta->precio_compra = intval ($prodVendido ["precio_compra"]);
-      $detboleta->precio_venta = intval ($prodVendido ["precio_venta"]);
+      $detboleta->precio_compra = $p->precio_compra;
+      $detboleta->precio_venta = $p->precioVentaFinal;
       $detboleta->save();
     
     }

@@ -13,9 +13,8 @@
   <div id="table-responsive" class="table-responsive">
     <table class="table table-bordered table-hover" id="carroTable" width="100%">
       <thead align="center">
-        
+        <th>Código</th>
         <th>Nombre</th>
-        <th>Proveedor</th>
         <th>Cantidad comprada</th>
         <th>Precio unitario</th>
         <th>Subtotal</th>

@@ -9,7 +9,7 @@ class Producto extends Eloquent {
 	 */
 	protected $table = 'producto';
   protected $primaryKey = 'codigo_producto';
-  protected $appends = array('precioCompraF', 'precioVentaF');
+  protected $appends = array('precioCompraF', 'precioVentaF', 'precioVentaOfertaF', 'precioVentaFinal', 'precioVentaFinalF');
   
   public function proveedor()
   {
@@ -34,6 +34,23 @@ class Producto extends Eloquent {
   public function getPrecioVentaFAttribute()
   {
     return "$ ". number_format($this->precio_venta, 0, ",", ".");
+  }
+  
+  public function getPrecioVentaOfertaFAttribute()
+  {
+    return "$ ". number_format($this->precio_venta_oferta, 0, ",", ".");
+  }
+  
+  public function getPrecioVentaFinalAttribute()
+  {
+    if ($this->precio_venta_oferta == null)
+      return $this->precio_venta;
+    else
+      return $this->precio_venta_oferta;
+  }
+  public function getPrecioVentaFinalFAttribute()
+  {
+    return "$ ". number_format($this->precioVentaFinal, 0, ",", ".");
   }
 	/**
 	 * The attributes excluded from the model's JSON form.

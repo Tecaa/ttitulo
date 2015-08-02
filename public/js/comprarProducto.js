@@ -28,7 +28,7 @@ $(document).ready(function() {
           }
 
           producto.cantidadComprada = parseInt(val.cantidadComprada, 10) + producto.cantidadComprada;
-          producto.subtotal = producto.cantidadComprada * producto.precio_venta;
+          producto.subtotal = producto.cantidadComprada * producto.precioVentaFinal;
           compras[index] = producto;
           encontrado = true;
           return false;
@@ -44,7 +44,7 @@ $(document).ready(function() {
           sobreStockMessage(producto.cantidad, producto.cantidadComprada, 0);
           return;
         }
-      producto.subtotal = producto.cantidadComprada * producto.precio_venta;
+      producto.subtotal = producto.cantidadComprada * producto.precioVentaFinal;
       compras.push(producto);
     }
     localStorage.compras = JSON.stringify(compras);

@@ -70,6 +70,7 @@
         <th>Proveedor</th>
         <th>Stock</th>
         <th>Precio</th>
+        <th>Oferta</th>
         <th>Cantidad</th>
         <th>SubTotal</th>
         <!--<th>Acción</th>-->

@@ -74,6 +74,13 @@
       </div>
 
       <div class="form-group">
+        <label class="col-sm-5 control-label">Precio OFERTA (Opcional)</label>
+        <div class="col-sm-7">
+          <input type="number" min=0 name="precio_venta_oferta" value="{{ $producto->precio_venta_oferta}}" class="form-control" placeholder="Precio : ">
+        </div>
+      </div>
+      
+      <div class="form-group">
           <label class="col-sm-5 control-label">Categorías</label>
           <div class="col-sm-7">
             @foreach ($categorias as $categoria)

@@ -66,7 +66,8 @@ class ListadoController extends BaseController {
     $this->layout->content = View::make('listados.proveedores');
 
     JavaScript::put([
-      'proveedor' => Proveedor::with('ciudad')->get()
+      'proveedor' => Proveedor::with('ciudad')->get(),
+      'tipo_usuario' => Auth::user()->tipo_usuario
     ]);
   }
 

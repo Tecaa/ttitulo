@@ -16,34 +16,46 @@
         </a>
         <div class="caption-details">
           <h3>{{$prod->nombre_producto}} @if($prod->contenido != null) ({{$prod->contenido}}) @endif</h3>
-          <label>{{$prod->proveedor->nom_proveedor}}</label>
-          <a href="/producto/consultar/{{$prod->codigo_producto}}"> <span class="price">{{$prod->precioVentaF}}</span></a>
+          <label><!--{{$prod->proveedor->nom_proveedor}}--></label>
+          <?php $oferta = false; ?>
+              @if($prod->precio_venta_oferta != null)
+                <?php $oferta = true; ?>
+              @endif
+              <a href="/producto/consultar/{{$prod->codigo_producto}}"> <span class="price">
+                @if($oferta)
+                <strike>
+                  @endif
+                {{$prod->precioVentaF}}
+                  @if ($oferta)
+                </strike>
+                {{$prod->precioVentaOfertaF}}
+                @endif
+                </span></a>
         </div>
       </div>
     </li>
-   
+
   </ul>
- @endforeach
+  @endforeach
   @if ($pages > 1)
-                 
+
   <ul class="pagination">
     <li class="disabled"><a href="#">Página {{$page}} de {{$pages}}</a></li>
     <li class="disabled"><a href="#">&laquo;</a></li>
-    
+
     @for ($i = 1; $i <= $pages; $i++)
-    <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-    <li
-        @if($page == $i)
-          class="active"
-        @endif
-        ><a href="/producto/categoria/{{$categoria->cod_categoria}}/{{$i}}/ ">{{ $i }} 
+  <li
       @if($page == $i)
-      <span class="sr-only">(current)</span>
-        @endif
-      </a></li>
-    @endfor
-    <li><a href="#">&raquo;</a></li>
-    
+      class="active"
+      @endif
+      ><a href="/producto/categoria/{{$categoria->cod_categoria}}/{{$i}}/ ">{{ $i }} 
+    @if($page == $i)
+    <span class="sr-only">(current)</span>
+    @endif
+    </a></li>
+  @endfor
+  <li><a href="#">&raquo;</a></li>
+
   </ul>
 @endif
 </div>

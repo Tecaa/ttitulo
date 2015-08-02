@@ -36,22 +36,34 @@
       </div>
     </div>
     <div class="col-md-7 col-sm-7">
-      <h3><strong>{{$producto->nombre_producto}}</strong> - {{$producto->proveedor->nom_proveedor}} 
+      <h3><strong>{{$producto->nombre_producto}}</strong><!-- - {{$producto->proveedor->nom_proveedor}} -->
       </h3>
       @if(Auth::user() && Auth::user()->tipo_usuario == "administrador") 
       <a class='btn btn-warning pull-right' href=/producto/editar/{{$producto->codigo_producto}}> <i class='glyphicon glyphicon-pencil icon-white'></i></a>
       @endif
       <span class="pull-right label label-warning">Código # {{$producto->codigo_barras}}</span>
       @if($producto->contenido != null)
-      <p>Contenido: {{$producto->contenido}}</p>
+      <p>Tamaño: {{$producto->contenido}}</p>
       @endif
       <p>{{$producto->descripcion}}</p>
       @if($producto->ingredientes != null)
       <p>Componentes: {{$producto->ingredientes}}</p>
       @endif
       <!--<p>Unidades: {{$producto->cantidad}} <em>(Solo referencial, al realizar el pedido se le confirmará el stock)</em></p>-->
-      <h4>{{$producto->precioVentaF}}</h4>
-
+      <?php $oferta = false; ?>
+      @if($producto->precio_venta_oferta != null)
+        <?php $oferta = true; ?>
+      @endif
+      <h4>
+        @if($oferta)
+        <strike>
+          @endif
+          {{$producto->precioVentaF}}
+          @if ($oferta)
+        </strike>
+        {{$producto->precioVentaOfertaF}}
+        @endif
+      </h4>
       <hr>
       <p><!--Cantidad a comprar: --><input type="hidden" name="cantidad" value=1 min=1 max=100> 
         <a id="comprar" class="btn btn-success btn-large" data-cod-producto={{$producto->codigo_producto}} ><i class="icon-shopping-cart"></i> Agregar al carro de compras</a>

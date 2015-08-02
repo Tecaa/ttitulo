@@ -130,8 +130,21 @@
             </a>
             <div class="caption-details">
               <h3>{{$prod->nombre_producto}} @if($prod->contenido != null) ({{$prod->contenido}}) @endif</h3>
-              <label>{{$prod->proveedor->nom_proveedor}}</label>
-              <a href="/producto/consultar/{{$prod->codigo_producto}}"> <span class="price">{{$prod->precioVentaF}}</span></a>
+              <label><!--{{$prod->proveedor->nom_proveedor}}--></label>
+              <?php $oferta = false; ?>
+              @if($prod->precio_venta_oferta != null)
+                <?php $oferta = true; ?>
+              @endif
+              <a href="/producto/consultar/{{$prod->codigo_producto}}"> <span class="price">
+                @if($oferta)
+                <strike>
+                  @endif
+                {{$prod->precioVentaF}}
+                  @if ($oferta)
+                </strike>
+                {{$prod->precioVentaOfertaF}}
+                @endif
+                </span></a>
             </div>
           </div>
           </div>

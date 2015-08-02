@@ -18,6 +18,7 @@
         <th>Cantidad</th>
         <th>$ Compra</th>
         <th>$ Venta</th>
+        <th>$ Oferta</th>
         <th>Código de barras</th>
         @if(Auth::user()->tipo_usuario == "administrador")
         <th>Acciones</th>
