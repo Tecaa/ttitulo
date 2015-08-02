@@ -145,7 +145,8 @@ class ProductoController extends BaseController {
       $img360->d270 = base64_encode(Image::make(Input::file('img270'))->resize(336, 387)->encode('jpg', 100));
     if (Input::file('img315') != null)
       $img360->d315  = base64_encode(Image::make(Input::file('img315'))->resize(336, 387)->encode('jpg', 100));
-    $img360->save();
+    if ($img360 != null)
+      $img360->save();
     
     
     CatProducto::where('codigo_producto', '=', $producto->codigo_producto)->delete();

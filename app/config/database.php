@@ -58,6 +58,7 @@ return array(
 			'database'  => 'ttitulo',
 			'username'  => 'laravel',
 			'password'  => 'f2498hf21',
+      //another user is : root:1123581321tka
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

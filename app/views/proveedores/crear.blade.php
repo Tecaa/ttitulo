@@ -45,16 +45,16 @@
 
                     
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Teléfono (*)</label>
+                      <label class="col-sm-5 control-label">Teléfono</label>
                       <div class="col-sm-7">
-                        <input type="text" name="fono"class="form-control" placeholder="Ej.: 90909090 " required>
+                        <input type="text" name="fono"class="form-control" placeholder="Ej.: 90909090 ">
                       </div>
                     </div>
                     
-                                        <div class="form-group">
-                      <label class="col-sm-5 control-label">Correo electrónico (*)</label>
+                    <div class="form-group">
+                      <label class="col-sm-5 control-label">Correo electrónico</label>
                       <div class="col-sm-7">
-                        <input type="email" name="mail"class="form-control" placeholder="Ej.: micoorreo@correo.com " required>
+                        <input type="email" name="mail"class="form-control" placeholder="Ej.: micoorreo@correo.com ">
                       </div>
                     </div>
 

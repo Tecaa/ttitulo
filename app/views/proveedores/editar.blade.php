@@ -49,16 +49,16 @@
 
                     
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Teléfono (*)</label>
+                      <label class="col-sm-5 control-label">Teléfono</label>
                       <div class="col-sm-7">
-                        <input type="number" name="fono"class="form-control" placeholder="Teléfono : " value="{{$proveedor->fono_prov}}" required>
+                        <input type="number" name="fono"class="form-control" placeholder="Teléfono : " value="{{$proveedor->fono_prov}}">
                       </div>
                     </div>
                     
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Correo electrónico (*)</label>
+                      <label class="col-sm-5 control-label">Correo electrónico</label>
                       <div class="col-sm-7">
-                        <input type="email" name="mail"class="form-control" placeholder="Correo electrónico : " value="{{$proveedor->mail_prov}}" required>
+                        <input type="email" name="mail"class="form-control" placeholder="Correo electrónico : " value="{{$proveedor->mail_prov}}">
                       </div>
                     </div>
 
