@@ -26,6 +26,7 @@ Route::get('/producto/eliminar', ['uses' => 'ProductoController@eliminar', 'befo
 Route::get('/producto/categoria/{codigo_categoria}/{page?}', ['uses' => 'ProductoController@listarCategoria']);
 Route::any('/producto/creando', ['uses' => 'ProductoController@creando', 'before' => 'administrador']);
 Route::post('/producto/obtener', ['uses' => 'ProductoController@obtener']);
+Route::post('/producto/obtener360', ['uses' => 'ProductoController@obtener360']);
 Route::any('/producto/editando/{codigo_producto}', ['uses' => 'ProductoController@editando', 'before' => 'administrador']);
 Route::any('/producto/eliminando/{codigo_producto}', ['uses' => 'ProductoController@eliminando', 'before' => 'administrador']);
 Route::any('/producto/activando/{codigo_producto}', ['uses' => 'ProductoController@activando', 'before' => 'administrador']);

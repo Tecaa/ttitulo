@@ -89,7 +89,7 @@ $(function () {
     var contenido = "";
     if (prod.contenido != null)
       contenido = "("+ prod.contenido+")";
-    prods.push({"value" : prod.nombre_producto + " " + contenido + " - " + prod.laboratorio.nom_laboratorio + " " + cats , "data": prod});
+    prods.push({"value" : prod.codigo_barras + " " + prod.nombre_producto + " " + contenido + " - " + prod.proveedor.nom_proveedor + " " + cats , "data": prod});
   });
   // Initialize autocomplete with custom appendTo:
     $('#autocomplete-products').autocomplete({

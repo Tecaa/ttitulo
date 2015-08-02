@@ -92,7 +92,7 @@
       <thead align="center">
         <th>ID producto</th>
         <th>Nombre</th>
-        <th>Laboratorio</th>
+        <th>Proveedor</th>
         <th>Stock</th>
         <th>Precio unitario</th>
         <th>Cantidad Pedida</th>

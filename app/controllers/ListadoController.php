@@ -36,7 +36,7 @@ class ListadoController extends BaseController {
     $this->layout->content = View::make('listados.productos');
 
     JavaScript::put([
-      'productos' => Producto::where('activo', '=', true)->with('laboratorio')->get(),
+      'productos' => Producto::where('activo', '=', true)->with('proveedor')->get(),
       'tipo_usuario' => Auth::user()->tipo_usuario
     ]);
 
@@ -48,7 +48,7 @@ class ListadoController extends BaseController {
     View::share('titulo', "Lista de Productos Eliminados");
     $this->layout->content = View::make('listados.eliminados');
     JavaScript::put([
-      'productos' => Producto::where('activo', '=', false)->with('laboratorio')->get()
+      'productos' => Producto::where('activo', '=', false)->with('proveedor')->get()
     ]);
   }
 

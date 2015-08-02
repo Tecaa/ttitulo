@@ -65,6 +65,7 @@
                       </div>
                     </div>
                   </form>
+                  <div>¿No tienes una cuenta? <a href="/cliente/registrarse" >Regístrate ahora</a></div>
                 </div>
               </div>
             </div>

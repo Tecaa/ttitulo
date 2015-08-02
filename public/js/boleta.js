@@ -9,7 +9,7 @@ $(document).ready(function() {
     data: null, 
     columns: [
       { "data": "nombre_producto" },
-      { "data": "laboratorio.nom_laboratorio" },
+      { "data": "proveedor.nom_proveedor" },
       { "data": "cantidad" },
       { "data": "precio_venta" },
       { "data": "cantidadVendida" },

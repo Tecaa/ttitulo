@@ -10,7 +10,7 @@ class BoletaController extends BaseController {
   public function ventaLocal(){
     View::share('titulo', "Realizar Venta");
     JavaScript::put([
-      'productos' => Producto::where('activo', true)->with('laboratorio')->with('catProducto')->get()
+      'productos' => Producto::where('activo', true)->with('proveedor')->with('catProducto')->get()
     ]);
     $this->layout->content = View::make('boleta.ventaLocal');
   }
@@ -83,7 +83,7 @@ class BoletaController extends BaseController {
      
     $detalles = DetalleBoleta::where('cod_documento', '=', $cod_documento);
      JavaScript::put([
-        'detalles' => $detalles->with("producto")->with("producto.laboratorio")->get(),
+        'detalles' => $detalles->with("producto")->with("producto.proveedor")->get(),
     ]);
   }
 /*
@@ -183,7 +183,7 @@ class BoletaController extends BaseController {
     $detalles = DetalleBoleta::where('cod_documento', '=', $cod_documento);
     $this->layout->content = View::make('boleta.pedido')->withDocumento(Documento::find($cod_documento));
     JavaScript::put([
-      'detalles' => $detalles->with("producto")->with("producto.laboratorio")->get(),
+      'detalles' => $detalles->with("producto")->with("producto.proveedor")->get(),
       'envio' => Documento::find($cod_documento)->boleta->metodo_costo
     ]);
   }
@@ -201,7 +201,7 @@ class BoletaController extends BaseController {
     $detalles = DetalleBoleta::where('cod_documento', '=', $cod_documento);
     $this->layout->content = View::make('boleta.detalle')->withDocumento(Documento::find($cod_documento));
     JavaScript::put([
-      'detalles' => $detalles->with("producto")->with("producto.laboratorio")->get(),
+      'detalles' => $detalles->with("producto")->with("producto.proveedor")->get(),
       'envio' => (Documento::find($cod_documento)->boleta->metodo_costo != null) ? Documento::find($cod_documento)->boleta->metodo_costo : 0
     ]);
   }

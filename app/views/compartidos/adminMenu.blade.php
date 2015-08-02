@@ -11,7 +11,7 @@
           <ul class="dropdown-menu sub-menu">
             <li><a href="/listado/productos">Productos</a></li>
             <li><a href="/listado/categorias">Categorías</a></li>
-            <li><a href="/listado/laboratorios">Laboratorios</a></li>
+            <!--<li><a href="/listado/laboratorios">Laboratorios</a></li>-->
             <li><a href="/listado/vendedores">Vendedores</a></li>
             <li><a href="/listado/clientes">Clientes</a></li>
             <li><a href="/listado/proveedores">Proveedores</a></li>

@@ -15,4 +15,10 @@ class Proveedor extends Eloquent {
     return $this->belongsTo('Ciudad', 'cod_ciudad');
   }
  
+  
+  public function productos()
+  {
+    return $this->hasMany('Producto', 'cod_laboratorio');
+  }
+  
 }  

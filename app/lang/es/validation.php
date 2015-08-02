@@ -90,6 +90,7 @@ return array(
   'custom' => array(
     'attribute-name' => array(
       'rule-name'  => 'custom-message',
+      "alpha_spaces"     => "El campo :attribute solo puede contener letras y espacios.",
     ),
   ),
   /*

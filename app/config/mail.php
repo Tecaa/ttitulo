@@ -15,8 +15,8 @@ return array(
 	|
 	*/
 
-	//'driver' => 'smtp',
-  'driver' => 'mail',
+	'driver' => 'smtp',
+  //'driver' => 'mail',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ return array(
 	*/
 
 	//'host' => 'smtp.mailgun.org',
-  'host' => '',
+  'host' => 'smtp.sendgrid.net',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -56,7 +56,9 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+  //'from' => array('address' => null, 'name' => null),
+
+	'from' => array('address' => "cnaturista@gmail.com", 'name' => "Masiel"),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -82,7 +84,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+	'username' => "fergushog@gmail.com",
 
 	/*
 	|--------------------------------------------------------------------------
@@ -95,7 +97,7 @@ return array(
 	|
 	*/
 
-	'password' => null,
+	'password' => "1123581321tka",
 
 	/*
 	|--------------------------------------------------------------------------
@@ -108,7 +110,7 @@ return array(
 	|
 	*/
 
-	'sendmail' => '/usr/sbin/sendmail -bs',
+	//'sendmail' => '/usr/sbin/sendmail -bs',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -121,6 +123,6 @@ return array(
 	|
 	*/
 
-	'pretend' => false,
+	//'pretend' => false,
 
 );

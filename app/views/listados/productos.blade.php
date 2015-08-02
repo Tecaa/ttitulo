@@ -14,8 +14,9 @@
       <thead align="center">
 
         <th>Nombre</th>
-        <th>Laboratorio</th>
+        <th>Proveedor</th>
         <th>Cantidad</th>
+        <th>$ Compra</th>
         <th>$ Venta</th>
         <th>Código de barras</th>
         @if(Auth::user()->tipo_usuario == "administrador")

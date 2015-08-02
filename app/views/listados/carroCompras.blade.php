@@ -15,7 +15,7 @@
       <thead align="center">
         
         <th>Nombre</th>
-        <th>Laboratorio</th>
+        <th>Proveedor</th>
         <th>Cantidad comprada</th>
         <th>Precio unitario</th>
         <th>Subtotal</th>

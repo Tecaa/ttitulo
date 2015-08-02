@@ -17,7 +17,7 @@ class ProductoController extends BaseController {
 
   }
   public function crear(){
-    $labs = Laboratorio::get();
+    $labs = Proveedor::get();
     $categorias = Categoria::get();
     View::share('titulo', "Crear Producto");
     $this->layout->content = View::make('producto.crear')->withLabs($labs)->withCategorias($categorias);
@@ -28,12 +28,14 @@ class ProductoController extends BaseController {
     View::share('titulo', "Creando Producto");
     $producto = new Producto();
     $producto->nombre_producto = Input::get('nombre');
-    $producto->codigo_barras = Input::get('codigoB');
-    $producto->cod_laboratorio = Input::get('laboratorio');
+    $producto->codigo_barras = strtoupper(Input::get('codigoB'));
+    $producto->cod_proveedor = Input::get('laboratorio');
     $producto->descripcion = Input::get('descripcion');
+    $producto->cantidad = Input::get('cantidad');
     $producto->contenido = Input::get('contenido');
     $producto->ingredientes = Input::get('ingredientes');
     $producto->precio_venta = Input::get('precio');
+    $producto->precio_compra = Input::get('precio_compra');
     
     if (Input::file('imagen') != null) {
     $producto->imagen = base64_encode(file_get_contents(Input::file('imagen')));
@@ -70,21 +72,26 @@ class ProductoController extends BaseController {
     View::share('titulo', "Consultar Producto");
     JavaScript::put([
       'producto' => $producto,
-      'producto.laboratorio' =>$producto->laboratorio,
-      'imagen360' => $producto->imagen360
+      'producto.laboratorio' =>$producto->proveedor/*,
+      'imagen360' => $producto->imagen360*/
     ]);
-    $this->layout->content = View::make('producto.consultar')->withProducto($producto)->with("laboratorio");
+    $this->layout->content = View::make('producto.consultar')->withProducto($producto)->with("proveedor");
     
   }
   
   public function obtener()
   {
     
-    return Producto::where('codigo_barras', '=', Input::get('codigo_barras'))->with('laboratorio')->first();
+    return Producto::where('codigo_barras', '=', Input::get('codigo_barras'))->with('proveedor')->first();
+  }
+  public function obtener360()
+  {
+    
+    return Producto::where('codigo_producto', '=', Input::get('codigo_producto'))->first()->imagen360;
   }
   
   public function editar($codigo_producto){
-    $labs = Laboratorio::get();
+    $labs = Proveedor::get();
     $producto = Producto::find($codigo_producto);
     $categorias = Categoria::get();
     $catsProducto = CatProducto::where('codigo_producto', '=', $producto->codigo_producto)->get();
@@ -98,9 +105,10 @@ class ProductoController extends BaseController {
     View::share('titulo', "Editando Producto");
     $producto = Producto::find($codigo_producto);
     $producto->nombre_producto = Input::get('nombre');
-    $producto->codigo_barras = Input::get('codigoB');
-    $producto->cod_laboratorio = Input::get('laboratorio');
+    $producto->codigo_barras = strtoupper(Input::get('codigoB'));
+    $producto->cod_proveedor = Input::get('laboratorio');
     $producto->descripcion = Input::get('descripcion');
+    $producto->precio_compra = Input::get('precio_compra');
     $producto->precio_venta = Input::get('precio');
     $producto->contenido = Input::get('contenido');
     $producto->ingredientes = Input::get('ingredientes');
@@ -139,11 +147,14 @@ class ProductoController extends BaseController {
     
     
     CatProducto::where('codigo_producto', '=', $producto->codigo_producto)->delete();
-    foreach(Input::get('idsCategorias') as $categoria){
-      $catpro = new CatProducto();
-      $catpro->codigo_producto = $producto->codigo_producto;
-      $catpro->cod_categoria = $categoria;
-      $catpro->save();
+    if (Input::get('idsCategorias')!= null)
+    {
+      foreach(Input::get('idsCategorias') as $categoria){
+        $catpro = new CatProducto();
+        $catpro->codigo_producto = $producto->codigo_producto;
+        $catpro->cod_categoria = $categoria;
+        $catpro->save();
+      }
     }
     return Redirect::to('/listado/productos');
   }
@@ -212,7 +223,7 @@ class ProductoController extends BaseController {
      $this->layout->content = View::make('producto.stock');
     
     JavaScript::put([
-        'productos' => Producto::where('activo', '=', true)->whereRaw('cantidad <= ceil(ultima_compra/3)')->with('laboratorio')->get()    
+        'productos' => Producto::where('activo', '=', true)->whereRaw('cantidad <= ceil(ultima_compra/3)')->with('proveedor')->get()    
         //'productos' => Producto::where('activo', '=', true)->where('cantidad','<=',ceil('ultima_compra'/3))->with('laboratorio')->get()
     ]);
   }

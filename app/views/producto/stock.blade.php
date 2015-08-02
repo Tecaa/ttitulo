@@ -16,7 +16,7 @@
        <tr> 
         <th>Código de barras</th> 
         <th>Nombre producto</th>
-        <th>Laboratotio</th>
+        <th>Proveedor</th>
         <th>Stock</th>
  
        </tr>  

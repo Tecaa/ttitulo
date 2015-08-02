@@ -26,7 +26,7 @@
         <div class="form-group">
           <label class="col-sm-5 control-label">Rut Cliente </label>
           <div class="col-sm-7">
-            <input type="text" name="rutCliente" class="form-control" value="{{$documento->rut}}" readonly>
+            <input type="text" name="rutCliente" class="form-control" value="{{$documento->boleta->rut}}" readonly>
           </div>
         </div>
         
@@ -38,14 +38,14 @@
           </div>
         </div>
 -->
-        
-                            <div class="form-group">
-                      <label class="col-sm-5 control-label">Fecha de pago (*)</label>
-                      <div class="col-sm-7">
-                        <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " required>
-                        <input type="hidden" name="fecha" id="fnac" required> 
-                      </div>
-                    </div>
+
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Fecha de pago (*)</label>
+          <div class="col-sm-7">
+            <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " required>
+            <input type="hidden" name="fecha" id="fnac" required> 
+          </div>
+        </div>
         
         <div class="form-group">
           <label class="col-sm-5 control-label">Hora de pago (*)</label>
@@ -92,7 +92,7 @@
     <table class="table table-bordered table-hover" id="ventasTable" width="100%">
       <thead align="center">
         <th>Nombre Producto</th>
-        <th>Laboratorio</th>
+        <th>Proveedor</th>
         <th>Cantidad</th>
         <th>Precio</th>
         <th>SubTotal</th>

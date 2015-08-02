@@ -11,9 +11,9 @@ class Producto extends Eloquent {
   protected $primaryKey = 'codigo_producto';
   protected $appends = array('precioCompraF', 'precioVentaF');
   
-  public function laboratorio()
+  public function proveedor()
   {
-    return $this->belongsTo('Laboratorio', 'cod_laboratorio');
+    return $this->belongsTo('Proveedor', 'cod_proveedor');
   }
   
   public function catProducto()

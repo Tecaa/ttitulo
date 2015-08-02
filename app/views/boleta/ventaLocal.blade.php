@@ -31,17 +31,21 @@
           </div>
         </div>
 
-
         <div class="form-group">
           <label class="col-sm-5 control-label">Código de barras (*)</label>
           <div class="col-sm-7">
-            <input type="text" pattern="[0-9]*" name="codigoB" class="form-control" onKeyPress="return submitenter(this,event)" required> 
+            <input type="text" name="codigoB" class="form-control" onKeyPress="return submitenter(this,event)" required> 
           </div>
         </div>
         
-        <div style="position: relative; height: 80px;" class="autocomplete">
-          <input class="input-ac" type="text" name="country" id="autocomplete-products" style="position: absolute; z-index: 2; background: transparent;"/>
+        <!--
+        <div class="form-group autocomplete">
+          <label class="col-sm-5 control-label">Código de barras (*)</label>
+          <div class="col-sm-7">
+            <input class="form-control" type="text" name="codigoB" id="autocomplete-products" onKeyPress="return submitenter(this,event)" required />
+          </div>
         </div>
+        -->
         
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-10">
@@ -63,7 +67,7 @@
       <thead align="center">
 
         <th>Nombre Producto</th>
-        <th>Laboratorio</th>
+        <th>Proveedor</th>
         <th>Stock</th>
         <th>Precio</th>
         <th>Cantidad</th>
@@ -102,15 +106,16 @@
     
   </div>
 </div>
-
+<!--
+{{ HTML::script('js/jquery-autocomplete/jquery.autocomplete.js') }}
+{{ HTML::script('js/jquery-autocomplete/jquery.mockjax.js') }}
+{{ HTML::script('js/jquery-autocomplete/countries.js') }}
+{{ HTML::script('js/jquery-autocomplete/demo.js') }}
+-->
 
 @stop
       
 @section('extra-js')
   {{ HTML::script('js/dataTables/jquery.dataTables.min.js') }}
   {{ HTML::script('js/boleta.js') }}
-{{ HTML::script('js/jquery-autocomplete/jquery.autocomplete.js') }}
-{{ HTML::script('js/jquery-autocomplete/jquery.mockjax.js') }}
-{{ HTML::script('js/jquery-autocomplete/countries.js') }}
-{{ HTML::script('js/jquery-autocomplete/demo.js') }}
 @stop()

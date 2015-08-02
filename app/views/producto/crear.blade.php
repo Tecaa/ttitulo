@@ -8,11 +8,11 @@
         <hr>
         
         <div class="form-group">
-          <label class="col-sm-5 control-label">Laboratorio (*)</label>
+          <label class="col-sm-5 control-label">Proveedor (*)</label>
           <div class="col-sm-7">
             <select class="form-control" name="laboratorio" required>
               @foreach ($labs as $lab)
-              <option value="{{ $lab->cod_laboratorio }}">{{ $lab->nom_laboratorio}}</option>
+              <option value="{{ $lab->cod_proveedor }}">{{ $lab->nom_proveedor}}</option>
               @endforeach
             </select>
           </div>
@@ -21,14 +21,22 @@
         <div class="form-group">
           <label class="col-sm-5 control-label">Código de barras</label>
           <div class="col-sm-7">
-            <input type="number" name="codigoB" class="form-control" placeholder="Ej.: 202030 ">
+            <input type="text" name="codigoB" class="form-control" placeholder="Ej.: 202030 ">
           </div>
         </div>
-
+        
+        
         <div class="form-group">
           <label class="col-sm-5 control-label">Nombre producto (*)</label>
           <div class="col-sm-7">
             <input type="text" name="nombre" class="form-control"  placeholder="Ej : Mi producto " required>
+          </div>
+        </div>
+        
+         <div class="form-group">
+          <label class="col-sm-5 control-label">Cantidad </label>
+          <div class="col-sm-7">
+            <input type="number" min=1 name="cantidad" class="form-control"  value=1 placeholder="Ej.: 1 " >
           </div>
         </div>
         
@@ -40,24 +48,30 @@
         </div>
         
         <div class="form-group">
-          <label class="col-sm-5 control-label">Contenido </label>
+          <label class="col-sm-5 control-label">Tamaño (anillos) </label>
           <div class="col-sm-7">
-            <input type="text" name="contenido" class="form-control" placeholder="Ej.: 100 grs " >
+            <input type="number" min=0 max=20 name="contenido" class="form-control" placeholder="Ej.: 8 " >
           </div>
         </div>
-
+<!--
         <div class="form-group">
           <label class="col-sm-5 control-label">Ingredientes </label>
           <div class="col-sm-7">
             <input type="text" name="ingredientes" class="form-control" placeholder="Ej.: aceite de almendras, agua " >
           </div>
         </div>
-
-
-        <div class="form-group">
-          <label class="col-sm-5 control-label">Precio (*)</label>
+-->
+      <div class="form-group">
+          <label class="col-sm-5 control-label">Precio de Compra(*)</label>
           <div class="col-sm-7">
             <input type="number" name="precio" class="form-control" placeholder="Ej.: 2990 " required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Precio de Venta(*)</label>
+          <div class="col-sm-7">
+            <input type="number" name="precio_compra" class="form-control" placeholder="Ej.: 2990 " required>
           </div>
         </div>
 

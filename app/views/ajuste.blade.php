@@ -17,7 +17,7 @@
         <div class="form-group">
           <label class="col-sm-5 control-label">Código de barras</label>
           <div class="col-sm-7">
-            <input type="number" class="form-control" placeholder="Codigo : " value="{{$producto->codigo_barras}}" readonly>
+            <input type="text" class="form-control" placeholder="Codigo : " value="{{$producto->codigo_barras}}" readonly>
           </div>
         </div>
 

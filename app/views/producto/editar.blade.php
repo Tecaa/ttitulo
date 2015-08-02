@@ -9,7 +9,7 @@
       <div class="form-group">
         <label class="col-sm-5 control-label">Código de barras</label>
         <div class="col-sm-7">
-          <input type="number" name="codigoB" value= "{{ $producto->codigo_barras}}" class="form-control" placeholder="Codigo : ">
+          <input type="text" name="codigoB" value= "{{ $producto->codigo_barras}}" class="form-control" placeholder="Codigo : ">
         </div>
       </div>
 
@@ -21,16 +21,16 @@
       </div>
 
       <div class="form-group">
-        <label class="col-sm-5 control-label">Laboratorio (*)</label>
+        <label class="col-sm-5 control-label">Proveedor (*)</label>
         <div class="col-sm-7">
           <select class="form-control" name="laboratorio"  required>
             @foreach ($labs as $lab)
-            <option value="{{ $lab->cod_laboratorio }}" 
-                    @if ($producto->cod_laboratorio === $lab->cod_laboratorio)
+            <option value="{{ $lab->cod_proveedor }}" 
+                    @if ($producto->cod_proveedor === $lab->cod_proveedor)
               selected
               @endif
               > 
-              {{ $lab->nom_laboratorio}}
+              {{ $lab->nom_proveedor}}
             </option>
             @endforeach
           </select>
@@ -45,19 +45,29 @@
         </div>
 
        <div class="form-group">
-          <label class="col-sm-5 control-label">Contenido </label>
+          <label class="col-sm-5 control-label">Tamaño (anillos) </label>
           <div class="col-sm-7">
-            <input type="text" name="contenido" class="form-control" value="{{$producto->contenido}}" placeholder="Ej: 1 lt, 100 grs, 2 kg, 3 unid.">
+            <input type="text" name="contenido" class="form-control" value="{{$producto->contenido}}" placeholder="Ej: 2.">
           </div>
         </div>
+      <!--
        <div class="form-group">
           <label class="col-sm-5 control-label">Componentes </label>
           <div class="col-sm-7">
             <input type="text" name="ingredientes" class="form-control" value="{{$producto->ingredientes}}" placeholder="Ej: Miel, agua, azúcar, nueces molidas y pasas.">
           </div>
         </div>
+     --> 
       <div class="form-group">
-        <label class="col-sm-5 control-label">Precio (*)</label>
+        <label class="col-sm-5 control-label">Precio de compra(*)</label>
+        <div class="col-sm-7">
+          <input type="number" name="precio_compra" value="{{ $producto->precio_compra}}" class="form-control" placeholder="Precio : " required>
+        </div>
+      </div>
+      
+      
+      <div class="form-group">
+        <label class="col-sm-5 control-label">Precio de venta(*)</label>
         <div class="col-sm-7">
           <input type="number" name="precio" value="{{ $producto->precio_venta}}" class="form-control" placeholder="Precio : " required>
         </div>

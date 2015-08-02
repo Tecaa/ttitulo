@@ -11,7 +11,7 @@ $(document).ready(function() {
     data: compras,
     columns: [
             { "data": "nombre_producto" },
-            { "data": "laboratorio.nom_laboratorio" },
+            { "data": "proveedor.nom_proveedor" },
             { "data": "cantidadComprada" },
             { "data": "precioVentaF" },
       { "data": "subtotal" }

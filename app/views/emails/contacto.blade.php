@@ -4,7 +4,7 @@
 $name = Input::get('name');
 $email = Input::get ('email');
 $asunto = Input::get ('asunto');
-$mensaje = Input::get ('mensage');
+$mensaje = Input::get ('mensaje');
 $date_time = date("F j, Y, g:i a");
 $userIpAddress = Request::getClientIp();
 ?> 

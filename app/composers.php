@@ -1,7 +1,7 @@
 <?php
 
 View::composer('compartidos.navbar', function($view) {
-    $view->with('categorias', Categoria::get());
+    $view->with('categorias', Categoria::orderBy("nom_categoria")->get());
 });
 
 View::composer('compartidos.vendedorMenu', function($view) {

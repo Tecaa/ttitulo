@@ -43,7 +43,7 @@ class ClientesController extends BaseController {
 
   public function registrar(){
     View::share('titulo', "Registro de Cliente");
-    $ciudad = Ciudad::get();
+    $ciudad = Ciudad::orderby("nom_ciudad")->get();
     $this->layout->content = View::make('clientes.registrar')->withCiudad($ciudad);
   }
 
@@ -56,7 +56,7 @@ class ClientesController extends BaseController {
     //Validation rules
     $rules = array (
       'rut' => 'required|unique:usuario,rut',
-      'nombre' => 'required|alpha',
+      'nombre' => 'required|alpha_spaces',
       'pass' => 'required|min:4',
       'direccion' => 'required|min:5',
       'ciudad' => 'required',

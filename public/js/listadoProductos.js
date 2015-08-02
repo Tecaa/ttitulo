@@ -13,6 +13,13 @@ $(document).ready(function() {
       {
         data: null,
         render: function ( data, type, row ) {
+          return MoneyFormat(data);  
+        },
+        targets: [ 4 ]
+      },
+      {
+        data: null,
+        render: function ( data, type, row ) {
 
           return "<a class='btn btn-primary' href=/producto/ajustar/" + data.codigo_producto +
             "><i class='glyphicon glyphicon-asterisk icon-white'></i></a>" +
@@ -23,7 +30,7 @@ $(document).ready(function() {
 
         },
         width: "17%",
-        targets: [ 5 ]
+        targets: [ 6 ]
       }
     ];
   }
@@ -46,8 +53,9 @@ $(document).ready(function() {
       data: productos, 
       columns: [
         { "data": "nombre_producto" },
-        { "data": "laboratorio.nom_laboratorio" },
+        { "data": "proveedor.nom_proveedor" },
         { "data": "cantidad" },
+        { "data": "precio_compra" },
         { "data": "precio_venta" },
         { "data": "codigo_barras" }
       ],
