@@ -26,6 +26,10 @@ class Usuario extends Eloquent implements UserInterface, RemindableInterface {
     {
     return $this->hasMany("Boleta", 'rut');
   }
+  public function ajustes()
+    {
+    return $this->hasMany("Ajuste", 'rut');
+  }
   
   protected $hidden = array('contrasena');
 

@@ -47,6 +47,7 @@
             <li><a href="/listado/compras">Informe de Compras</a></li>
             <li><a href="/boleta/historial">Informe de Ventas</a></li>
             <li><a href="/listado/eliminados">Productos eliminados</a></li>
+            <li><a href="/listado/ajustes">Informe de ajustes</a></li>
           </ul>
         </li>
 

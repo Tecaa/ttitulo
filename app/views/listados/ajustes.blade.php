@@ -14,6 +14,9 @@
       <thead align="center">
       
        <tr> 
+        <th>Fecha del ajuste</th>
+         <th>Rut responsable</th>
+         <th>Nombre responsable</th>
         <th>Codigo producto</th>
         <th>Nombre</th>
         <th>Tipo</th>

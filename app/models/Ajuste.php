@@ -14,4 +14,8 @@ class Ajuste extends Eloquent {
   {
     return $this->belongsTo('Producto', 'codigo_producto');
   }
+  public function usuario()
+  {
+    return $this->belongsTo('Usuario', 'rut');
+  }
 }

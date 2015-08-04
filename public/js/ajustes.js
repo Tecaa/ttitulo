@@ -6,19 +6,14 @@ $(document).ready(function() {
         },
    data: ajuste, 
         columns: [
+            { "data": "fecha_ajuste" },
+            { "data": "rut" },
+            { "data": "usuario.nom_usuario" },
             { "data": "codigo_producto" },
             { "data": "producto.nombre_producto" },
             { "data": "tipo_ajuste" },
             { "data": "cantidad" },
             { "data": "descripcion" }
-
-        ],
-            columnDefs: [
-        {
-          data: null,
-
-          targets: [ 4 ]
-        }
-      ]
+        ]
     });
 })

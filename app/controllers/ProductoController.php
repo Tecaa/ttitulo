@@ -194,7 +194,9 @@ class ProductoController extends BaseController {
     $ajuste = new Ajuste();  
     $ajuste->codigo_producto = $codigo_producto;
     $ajuste->cantidad = Input::get('cantidad');
-    $ajuste->descripcion = Input::get('descripcion'); 
+    $ajuste->descripcion = Input::get('descripcion');
+    $ajuste->fecha_ajuste = Carbon::now();
+    $ajuste->rut = Auth::user()->rut;
     $tipo = Input::get('tipo'); 
     if ($tipo == 'extra')
        $ajuste->tipo_ajuste = 'extra';
