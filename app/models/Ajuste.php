@@ -9,5 +9,9 @@ class Ajuste extends Eloquent {
 	protected $table = 'ajuste';
   protected $primaryKey = 'cod_ajuste';
 
-
+  
+  public function producto()
+  {
+    return $this->belongsTo('Producto', 'codigo_producto');
+  }
 }

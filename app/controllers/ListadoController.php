@@ -188,7 +188,7 @@ class ListadoController extends BaseController {
     $this->layout->content = View::make('listados.ajustes'); 
 
     JavaScript::put([
-      'ajuste' => Ajuste::get()
+      'ajuste' => Ajuste::with("producto")->get()
     ]);
   }   
   

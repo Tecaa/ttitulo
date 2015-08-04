@@ -177,7 +177,10 @@ $(document).ready(function() {
               window.location.reload();
             }
           }
-        ]
+        ],
+        onhide: function(dialogRef){
+          window.location.reload();
+        },
       });
     });
   });
