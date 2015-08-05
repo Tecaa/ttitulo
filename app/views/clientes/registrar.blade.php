@@ -25,7 +25,7 @@
 
                     <hr>
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Rut (*)</label>
+                      <label class="col-sm-5 control-label">Rut sin puntos y con guión (*)</label>
                       <div class="col-sm-7">
                         <input type="text" name="rut" class="form-control" pattern="\d{3,8}-[\d|kK]{1}" placeholder="Ej.: 11222333-k " required>
                       </div>

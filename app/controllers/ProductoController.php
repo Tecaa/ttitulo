@@ -35,6 +35,7 @@ class ProductoController extends BaseController {
     $producto->contenido = Input::get('contenido');
     $producto->ingredientes = Input::get('ingredientes');
     $producto->precio_venta = Input::get('precio');
+    $producto->precio_venta_oferta = Input::get('precio_venta_oferta');
     $producto->precio_compra = Input::get('precio_compra');
     
     if (Input::file('imagen') != null) {
@@ -239,7 +240,7 @@ class ProductoController extends BaseController {
     $productos = Producto::whereHas('CatProducto', function($query) use ($codigo_categoria)
                                     {
                                       $query->where('cod_categoria', '=' , $codigo_categoria);
-                                    })->where('activo', '=', true);
+                                    })->where('activo', '=', true)->where("cantidad", ">", 0);
     $pages = ceil($productos->count() /$perPage);
 
     $productos = $productos->skip($perPage * ($page-1))->take($perPage)->get();

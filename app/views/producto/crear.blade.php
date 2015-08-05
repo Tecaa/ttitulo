@@ -64,14 +64,21 @@
       <div class="form-group">
           <label class="col-sm-5 control-label">Precio de Compra(*)</label>
           <div class="col-sm-7">
-            <input type="number" name="precio" class="form-control" placeholder="Ej.: 2990 " required>
+            <input type="number" name="precio_compra" class="form-control" placeholder="Ej.: 2990 " required>
           </div>
         </div>
         
         <div class="form-group">
           <label class="col-sm-5 control-label">Precio de Venta(*)</label>
           <div class="col-sm-7">
-            <input type="number" name="precio_compra" class="form-control" placeholder="Ej.: 2990 " required>
+            <input type="number" name="precio" class="form-control" placeholder="Ej.: 2990 " required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Precio Oferta</label>
+          <div class="col-sm-7">
+            <input type="number" name="precio_venta_oferta" class="form-control" placeholder="(Opcional)">
           </div>
         </div>
 

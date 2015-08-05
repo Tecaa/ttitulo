@@ -12,7 +12,7 @@ $(document).ready(function() {
       { "data": "proveedor.nom_proveedor" },
       { "data": "cantidad" },
       { "data": "precio_venta" },
-      { "data": "precioVentaFinal" },
+      { "data": null },
       { "data": "cantidadVendida" },
       { "data": "subtotal" }
     ],
@@ -27,7 +27,10 @@ $(document).ready(function() {
       {
         data: null,
         render: function ( data, type, row ) {
-          return  MoneyFormat(data);
+          if (row.precio_venta_oferta != null && row.precio_venta_oferta != 0)
+            return  MoneyFormat(row.precio_venta_oferta);
+          else
+            return "";
         },
         targets: [ 4 ]
       },

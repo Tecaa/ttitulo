@@ -7,7 +7,7 @@ $(document).ready(function() {
       data: productos, 
       columns: [
             { "data": "nombre_producto" },
-            { "data": "laboratorio.nom_laboratorio" },
+            { "data": "proveedor.nom_proveedor" },
             { "data": "cantidad" },
             { "data": "precio_venta" },
             { "data": "codigo_barras" }

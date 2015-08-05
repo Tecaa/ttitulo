@@ -38,18 +38,26 @@
           @endif
           </a></li>
         
-        <li><a href="/compra/factura">Compras</a></li>
-        <li><a href="/producto/stockCritico">Bajo stock</a></li>
+        <li><a href="/compra/factura">Realizar compra</a></li>
+        
 
         <li>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Informes <i class="fa fa-caret-down icon-dropdown"></i></a>
           <ul class="dropdown-menu sub-menu">
             <li><a href="/listado/compras">Informe de Compras</a></li>
             <li><a href="/boleta/historial">Informe de Ventas</a></li>
-            <li><a href="/listado/eliminados">Productos eliminados</a></li>
             <li><a href="/listado/ajustes">Informe de ajustes</a></li>
+            <li><a href="/producto/stockCritico">Bajo stock</a></li>
           </ul>
         </li>
+        <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Eliminados <i class="fa fa-caret-down icon-dropdown"></i></a>
+          <ul class="dropdown-menu sub-menu">
+            <li><a href="/listado/eliminados">Productos eliminados</a></li>
+            <li><a href="/listado/vendedores/desactivados">Vendedores eliminados</a></li>
+          </ul>
+        </li>
+        
 
         <li><a href="/agendaProveedores">Agenda proveedores</a></li>
         <li>
