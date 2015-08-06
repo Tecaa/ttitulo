@@ -52,6 +52,12 @@ class FacturaController extends BaseController {
 
       $producto = Producto::find($detfactura->codigo_producto);
       $producto->cantidad = $producto->cantidad + $detfactura->cantidad;
+      $producto->precio_compra = intval ($prodComprado["precio_compra"]);
+      $producto->precio_venta = intval ($prodComprado["precio_venta"]);
+      if ($prodComprado["precio_venta_oferta"] != null)
+        $producto->precio_venta_oferta = intval ($prodComprado["precio_venta_oferta"]);
+      else 
+        $producto->precio_venta_oferta = null;
       $producto->ultima_compra = $producto->cantidad;
       if ($producto->cantidad >= 0){
         $producto->save();
@@ -67,7 +73,7 @@ class FacturaController extends BaseController {
     $detalles = DetalleFac::where('cod_documento', '=', $cod_documento);
     $this->layout->content = View::make('facturas.detalle')->withDocumento(Documento::find($cod_documento));
     JavaScript::put([
-      'detalles' => $detalles->with("producto")->with("producto.laboratorio")->get()
+      'detalles' => $detalles->with("producto")->with("producto.proveedor")->get()
     ]);
   }
 }

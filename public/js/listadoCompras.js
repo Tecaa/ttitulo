@@ -6,7 +6,7 @@ $(document).ready(function() {
     order: [[1, 'desc']],
     data: compras, 
     columns: [
-      { "data": "cod_documento" },
+      { "data": "factura.cod_factura" },
       { "data": "created_at" },
       { "data": "factura.cod_proveedor" },
       { "data": "factura.proveedor.nom_proveedor" },
@@ -22,6 +22,7 @@ $(document).ready(function() {
           return  MoneyFormat(data);
 
         },
+        type: "currency",
         targets: [ 5 ]
       },
       {

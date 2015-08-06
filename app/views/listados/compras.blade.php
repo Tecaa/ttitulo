@@ -32,6 +32,8 @@
 @stop
       
 @section('extra-js')
-  {{ HTML::script('js/dataTables/jquery.dataTables.min.js') }}
-  {{ HTML::script('js/listadoCompras.js') }}
+{{ HTML::script('js/dataTables/jquery.dataTables.min.js') }}
+
+{{ HTML::script('js/dataTables/sorting.currency.js') }}
+{{ HTML::script('js/listadoCompras.js') }}
 @stop()

@@ -4,7 +4,7 @@ $(document).ready(function() {
       "url": "/js/dataTables/Spanish.json"
     },
     data: boletas,
-    order: [[1, 'asc']],
+    order: [[2, 'desc']],
     columns: [
       { "data": "cod_documento" },
       { "data": "tipo_documento"},
@@ -45,6 +45,7 @@ $(document).ready(function() {
           return  MoneyFormat(data);
 
         },
+        type: "currency",
         targets: [ 6 ]
       },
       {

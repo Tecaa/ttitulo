@@ -9,7 +9,7 @@ $(document).ready(function() {
     columns: [
       { "data": "codigo_producto" },
       { "data": "producto.nombre_producto" },
-      { "data": "producto.laboratorio.nom_laboratorio" },
+      { "data": "producto.proveedor.nom_proveedor" },
       { "data": "producto.cantidad" },
       { "data": "precio_compra" },
       { "data": "cantidad" }
@@ -33,7 +33,7 @@ $(document).ready(function() {
     ]
   });
   $(detalles).each(function(index, value){
-    actualizarTotales(value.cantidad, value.precio_compra);
+    actualizarTotales(parseInt(value.cantidad), value.precio_compra);
   });
 
 });

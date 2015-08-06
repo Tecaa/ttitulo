@@ -41,14 +41,14 @@
         </div>
 -->
         
-                            <div class="form-group">
-                      <label class="col-sm-5 control-label">Fecha compra (*)</label>
-                      <div class="col-sm-7">
-                        <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " required>
-                        <input type="hidden" name="fecha" id="fnac" required> 
-                      </div>
-                    </div>
-        
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Fecha compra (*)</label>
+          <div class="col-sm-7">
+            <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " required>
+            <input type="hidden" name="fecha" id="fnac" required> 
+          </div>
+        </div>
+
         
         <h3>Datos Compra</h3>
         <div class="form-group">
@@ -61,20 +61,41 @@
         <div class="form-group">
           <label class="col-sm-5 control-label">Cantidad (*)</label>
           <div class="col-sm-7">
-            <input id="cantidad" type="number" class="form-control" placeholder="Ej.: 3 " min=1 max=5000 required>
+            <input id="cantidad" type="number" class="form-control" placeholder="Ej.: 3 " min=1 max=5000 value=1 required>
           </div>
         </div>
-
+<!--
                 <div class="form-group">
           <label class="col-sm-5 control-label">Precio (*)</label>
           <div class="col-sm-7">
-            <input id="precio" type="number" name="precio" class="form-control" placeholder="Ej.: 3000 " min=1 max=10000000 required>
+            <input id="precio" type="number" name="precio" class="form-control" placeholder="Ej.: 3000 "required>
+          </div>
+        </div>
+    -->    
+        
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Precio de Compra(*)</label>
+          <div class="col-sm-7">
+            <input type="number" name="precio_compra" id="precio_compra" class="form-control" placeholder="Ej.: 2990 "  min=1 max=100000 required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Precio de Venta(*)</label>
+          <div class="col-sm-7">
+            <input type="number" name="precio_venta" id="precio_venta" class="form-control" placeholder="Ej.: 2990 " min=1 max=100000 required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Precio Oferta</label>
+          <div class="col-sm-7">
+            <input type="number" name="precio_venta_oferta" id="precio_venta_oferta" class="form-control" placeholder="(Opcional)" min=1 max=100000>
           </div>
         </div>
         
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-10">
-            
             <div class="pull-right">
             <button type="button" class="btn btn-purple" id="ingresar">Ingresar</button>
               <br><br>
@@ -94,6 +115,8 @@
         <th>Laboratorio</th>
         <th>Cantidad</th>
         <th>Precio compra</th>
+        <th>Precio venta</th>
+        <th>Precio oferta</th>
         <th>SubTotal</th>
         <!--<th>Acción</th>-->
       </thead>

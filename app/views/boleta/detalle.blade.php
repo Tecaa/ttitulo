@@ -126,9 +126,9 @@
   <div id="table-responsive" class="table-responsive">
     <table class="table table-bordered table-hover" id="detalleTable" width="100%">
       <thead align="center">
-        <th>ID producto</th>
+        <th>Código producto</th>
         <th>Nombre</th>
-        <th>Laboratorio</th>
+        <th>Proveedor</th>
         <th>Stock</th>
         <th>Precio unitario</th>
         <th>Cantidad Pedida</th>

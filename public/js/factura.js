@@ -8,16 +8,18 @@ $(document).ready(function() {
       data: null, 
       columns: [
             { "data": "nombre_producto" },
-            { "data": "laboratorio.nom_laboratorio" },
+            { "data": "proveedor.nom_proveedor" },
             { "data": "cantidadComprada" },
             { "data": "precio_compra" },
+            { "data": "precio_venta" },
+            { "data": "precio_venta_oferta" },
             { "data": "subtotal" }
         ],
     columnDefs: [
       {
           data: null,
           render: function ( data, type, row ) {
-            return  "$ " + FormatNumberBy3(data);
+            return  MoneyFormat(data);
 
           },
           targets: [ 3 ]
@@ -25,10 +27,28 @@ $(document).ready(function() {
       {
           data: null,
           render: function ( data, type, row ) {
-            return  "$ " + FormatNumberBy3(data);
+            return  MoneyFormat(data);
 
           },
           targets: [ 4 ]
+        },
+      {
+          data: null,
+          render: function ( data, type, row ) {
+            if (data != undefined && data != null && data != 0)
+              return  MoneyFormat(data);
+            else
+              return "";
+
+          },
+          targets: [ 5 ]
+        },
+      {
+          data: null,
+          render: function ( data, type, row ) {
+              return  MoneyFormat(data);
+          },
+          targets: [ 6 ]
         }/*,
         {
           data: null,
@@ -45,10 +65,12 @@ $(document).ready(function() {
   
   var f = $("#facturaTable").DataTable();
   $('#ingresar').click(function (event) {
-    if ($('#cantidad').val()   === '' || $('#precio').val() === "" || $('#precio').val() === "0" || $('#cantidad').val() === "0" || $('#codigoB').val() === "0"
-       || $('#codigoB').val() == "" || $('#codigoB').val() === undefined || $('#precio').val() === undefined || $('#cantidad').val() === undefined) 
+    if ($('#cantidad').val()   === '' || $('#precio_compra').val() === "" || $('#precio_compra').val() === "0" || $('#cantidad').val() === "0" || $('#codigoB').val() === "0"
+        || $('#precio_venta').val() === "" || $('#precio_venta').val() === "0"
+       || $('#codigoB').val() == "" || $('#codigoB').val() === undefined || $('#precio_compra').val() === undefined || $('#cantidad').val() === undefined
+       || $('#precio_venta').val() === undefined) 
     {
-      alert ('Debe completar el código, la cantidad y el precio.');
+      alert ('Debe completar el código, la cantidad, el precio de compra y de venta.');
       return;
     }
     
@@ -69,17 +91,26 @@ $(document).ready(function() {
       {
 
         element.cantidadComprada = parseInt(element.cantidadComprada) +  parseInt($('#cantidad').val());
-        element.precio_compra = parseInt($('#precio').val());
+        element.precio_compra = parseInt($('#precio_compra').val());
+        element.precio_venta = parseInt($('#precio_venta').val());
+        element.precio_venta_oferta = ($('#precio_venta_oferta').val() != "" && $('#precio_venta_oferta') != undefined) 
+              ? parseInt($('#precio_venta_oferta').val()) : null;
 
         element.subtotal = parseInt(element.cantidadComprada) * parseInt(element.precio_compra);
         f.row( idx ).data( element );
         encontrado = true;
         // Redibujamos la tabla visual en caso de que se hayan echo cambios encontrando el producto
         f.draw();
-
+        $('input[name=codigoB]').val("");
+        $('input[name=cantidad]').val("1");
+        $('input[name=precio_compra]').val("");
+        $('input[name=precio_venta]').val("");
+        $('input[name=precio_venta_oferta]').val("");
       }
 
-        actualizarTotales(element.cantidadComprada, element.precio_compra);
+      actualizarTotales(element.cantidadComprada, element.precio_compra);
+
+ 
     } );
 
 
@@ -89,22 +120,30 @@ $(document).ready(function() {
     if (encontrado === false)
     {
       $.ajax({
-            type: "POST",
-            url: "/producto/obtener",
-            data: { 'codigo_barras' : $('#codigoB').val() },
-          })
-          .done(function (producto) {
-            var productoComprado = producto;
-            productoComprado.cantidadComprada = parseInt($('#cantidad').val(), 10);
-            productoComprado.precio_compra = parseInt($('#precio').val(), 10);                
-            productoComprado.subtotal = productoComprado.precio_compra * productoComprado.cantidadComprada;
-           
+        type: "POST",
+        url: "/producto/obtener",
+        data: { 'codigo_barras' : $('#codigoB').val() },
+      })
+        .done(function (producto) {
+        var productoComprado = producto;
+        productoComprado.cantidadComprada = parseInt($('#cantidad').val());
+        productoComprado.precio_compra = parseInt($('#precio_compra').val());     
+        productoComprado.precio_venta = parseInt($('#precio_venta').val());
+        productoComprado.precio_venta_oferta = ($('#precio_venta_oferta').val() != "" && $('#precio_venta_oferta') != undefined) 
+          ? parseInt($('#precio_venta_oferta').val()) : null;
+        productoComprado.subtotal = productoComprado.precio_compra * productoComprado.cantidadComprada;
 
-             f.row.add(productoComprado).draw();
-            
-            actualizarTotales(productoComprado.cantidadComprada, productoComprado.precio_compra);
-            
-          });
+
+        f.row.add(productoComprado).draw();
+
+        actualizarTotales(productoComprado.cantidadComprada, productoComprado.precio_compra);
+
+        $('input[name=codigoB]').val("");
+        $('input[name=cantidad]').val("1");
+        $('input[name=precio_compra]').val("");
+        $('input[name=precio_venta]').val("");
+        $('input[name=precio_venta_oferta]').val("");
+      });
     }
   });
 
@@ -119,7 +158,7 @@ $(document).ready(function() {
              'productos' : $('#facturaTable').DataTable().rows().data().toArray()
             },
     })
-    .done(function (resultado) {
+      .done(function (resultado) {
       console.log(resultado);
       BootstrapDialog.show({
         type: BootstrapDialog.TYPE_SUCCESS,
@@ -137,16 +176,6 @@ $(document).ready(function() {
       });
     });
   });
-
-
-
-
-  /*
-
-
-        counter++;
-    } );
-  */
 } );
 
 actualizarTotales = function(cantidad, precioUnitario)

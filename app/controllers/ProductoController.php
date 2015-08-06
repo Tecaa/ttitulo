@@ -16,6 +16,68 @@ class ProductoController extends BaseController {
     }
 
   }
+  public function encargoEntregar($cod_encargo){
+    
+        View::share('titulo', "Entregar encargo");
+    $encargo = Encargo::find($cod_encargo);
+    if ($encargo->estado_encargo != "encargado")
+      return;
+    $encargo->estado_encargo = "entregado";
+    
+    $producto = Producto::find($encargo->cod_producto);
+    $producto->encargados -= 1;
+    
+    $documento = new Documento();
+    $documento->rut = Auth::user()->rut;
+    $documento->tipo_documento = 'boleta';
+
+
+    if ($producto->cantidad - $encargo->cantidad < 0)
+    {
+      return 'Insuficiente stock de: ' + $produdcto->nombre_producto;
+    }
+    else
+    {
+      $producto->cantidad = $producto->cantidad - $encargo->cantidad;
+    }
+
+    $documento->precio_total = $encargo->producto->precioVentaFinal;
+    $documento->cantidad_total = $encargo->cantidad;
+    $documento->save();
+    
+    $boleta = new Boleta();
+    $boleta->cod_documento = $documento->cod_documento;
+    if ($encargo->rut != null)
+      $boleta->rut = $encargo->rut;
+    $boleta->save();
+
+
+    $detboleta = new DetalleBoleta();
+    $detboleta->cod_documento = $documento->cod_documento;
+    $detboleta->codigo_producto = $producto->codigo_producto;
+    $detboleta->cantidad = $encargo->cantidad;
+    $detboleta->precio_venta = $producto->precioVentaFinal;
+    $detboleta->precio_compra = $producto->precio_compra;
+    
+    $detboleta->save();
+    $producto->save();
+    $encargo->save();
+    
+    return Redirect::to('/listado/encargos');
+  }
+  public function encargoCancelar($cod_encargo){
+        View::share('titulo', "Cancelar encargo");
+    $encargo = Encargo::find($cod_encargo);
+    if ($encargo->estado_encargo != "encargado");
+      return;
+    $producto = Producto::find($encargo->cod_producto);
+    $producto->encargados -= 1;
+    $encargo->estado_encargo = "rechazado";
+    $encargo->save();
+    $producto->save();
+
+    return Redirect::to('/listado/encargos');
+  }
   public function crear(){
     $labs = Proveedor::get();
     $categorias = Categoria::get();
@@ -31,12 +93,12 @@ class ProductoController extends BaseController {
     $producto->codigo_barras = strtoupper(Input::get('codigoB'));
     $producto->cod_proveedor = Input::get('laboratorio');
     $producto->descripcion = Input::get('descripcion');
-    $producto->cantidad = Input::get('cantidad');
+    $producto->cantidad = 0;
     $producto->contenido = Input::get('contenido');
     $producto->ingredientes = Input::get('ingredientes');
-    $producto->precio_venta = Input::get('precio');
-    $producto->precio_venta_oferta = Input::get('precio_venta_oferta');
-    $producto->precio_compra = Input::get('precio_compra');
+    //$producto->precio_venta = Input::get('precio');
+    //$producto->precio_venta_oferta = Input::get('precio_venta_oferta');
+    //$producto->precio_compra = Input::get('precio_compra');
     
     if (Input::file('imagen') != null) {
     $producto->imagen = base64_encode(file_get_contents(Input::file('imagen')));
@@ -163,6 +225,52 @@ class ProductoController extends BaseController {
     return Redirect::to('/listado/productos');
   }
 
+    
+  public function encargar($codigo_producto){
+    $producto = Producto::find($codigo_producto);
+    $catsProducto = CatProducto::where('codigo_producto', '=', $producto->codigo_producto)->get();
+    View::share('titulo', "Encargar Producto");
+    $this->layout->content = View::make('producto.encargar')->withProducto($producto)->withCatsProducto($catsProducto);
+    
+  }
+  
+  public function encargando($codigo_producto){
+    //Get all the data and store it inside Store Variable
+    $data = Input::all();
+
+    //Validation rules
+    $rules = array (
+      'nombre' => 'required|alpha_spaces',
+      'fecha_encargo' => 'required',
+      'monto_abonado' => 'required|numeric',
+      'cantidad' => 'required|numeric'
+    );
+
+    //Validate data
+    $validator  = Validator::make ($data, $rules);
+
+    //If everything is correct than run passes.
+    if ($validator -> passes()){
+      $encargo = new Encargo();
+      if (Input::get('rut') != null)
+        $encargo->rut = Input::get('rut');
+      $encargo->nombre_cliente = Input::get('nombre');
+      $encargo->fecha_encargo = Input::get('fecha_encargo');
+      $encargo->estado_encargo = "encargado";
+      $encargo->monto_abonado = Input::get('monto_abonado');
+      $encargo->cantidad = Input::get('cantidad');
+      $encargo->rut_vendedor = Auth::user()->rut;
+      $encargo->cod_producto = $codigo_producto;
+      
+      $p = Producto::find($codigo_producto);
+      $p->encargados += 1;
+      $p->save();
+      
+      $encargo->save();
+    }
+    return Redirect::to('/listado/encargos');
+    
+  }
   
   public function eliminando($codigo_producto){
     View::share('titulo', "Eliminar Producto");
@@ -198,22 +306,18 @@ class ProductoController extends BaseController {
     $ajuste->descripcion = Input::get('descripcion');
     $ajuste->fecha_ajuste = Carbon::now();
     $ajuste->rut = Auth::user()->rut;
-    $tipo = Input::get('tipo'); 
-    if ($tipo == 'extra')
-       $ajuste->tipo_ajuste = 'extra';
-    else if ($tipo == 'dan')
-         $ajuste->tipo_ajuste = 'dañado'; 
-    else if ($tipo == 'devuelto')
-          $ajuste->tipo_ajuste = 'devuelto';         
-    else  
-      $ajuste->tipo_ajuste = 'vencido';
+      $ajuste->tipo_ajuste = Input::get('tipo'); ;
     
     
     $producto = Producto::find($ajuste->codigo_producto);
     if ($ajuste->tipo_ajuste == 'extra' || $ajuste->tipo_ajuste == 'devuelto')
       $producto->cantidad = $producto->cantidad + $ajuste->cantidad;
-    else if ($ajuste->tipo_ajuste == 'dañado' || $ajuste->tipo_ajuste == "vencido")
+    else if ($ajuste->tipo_ajuste == 'dañado')
       $producto->cantidad = $producto->cantidad - $ajuste->cantidad;
+      else if ($ajuste->tipo_ajuste == "inventario")
+      $producto->cantidad = $ajuste->cantidad;
+      else
+      return Redirect::to('/listado/ajustes');  
     if ($producto->cantidad >= 0)
     {
       $producto->save();
@@ -240,7 +344,7 @@ class ProductoController extends BaseController {
     $productos = Producto::whereHas('CatProducto', function($query) use ($codigo_categoria)
                                     {
                                       $query->where('cod_categoria', '=' , $codigo_categoria);
-                                    })->where('activo', '=', true)->where("cantidad", ">", 0);
+                                    })->where('activo', '=', true)->where("cantidad", ">", "encargos");
     $pages = ceil($productos->count() /$perPage);
 
     $productos = $productos->skip($perPage * ($page-1))->take($perPage)->get();

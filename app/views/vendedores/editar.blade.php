@@ -64,7 +64,7 @@
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Fecha de nacimiento (*)</label>
                       <div class="col-sm-7">
-                        <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " required>
+                        <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " value="{{$vendedor->fechaNacimientoF}}" required>
                         <input type="hidden" name="fnac" id="fnac" required>
                       </div>
                     </div>

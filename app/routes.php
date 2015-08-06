@@ -21,6 +21,7 @@ Route::post('/logeando', ['uses' => 'HomeController@logeando']);
 Route::get('/producto/crear', ['uses' => 'ProductoController@crear', 'before' => 'administrador']);
 Route::get('/producto/consultar/{codigo_producto}', ['uses' => 'ProductoController@consultar']);
 Route::get('/producto/editar/{codigo_producto}', ['uses' => 'ProductoController@editar', 'before' => 'administrador']);
+Route::get('/producto/encargar/{codigo_producto}', ['uses' => 'ProductoController@encargar', 'before' => 'vendedor']);
 Route::get('/producto/eliminar', ['uses' => 'ProductoController@eliminar', 'before' => 'administrador']);
 //Route::get('/producto/listar', ['uses' => 'ProductoController@listar']);
 Route::get('/producto/categoria/{codigo_categoria}/{page?}', ['uses' => 'ProductoController@listarCategoria']);
@@ -30,6 +31,7 @@ Route::post('/producto/obtener360', ['uses' => 'ProductoController@obtener360'])
 Route::any('/producto/editando/{codigo_producto}', ['uses' => 'ProductoController@editando', 'before' => 'administrador']);
 Route::any('/producto/eliminando/{codigo_producto}', ['uses' => 'ProductoController@eliminando', 'before' => 'administrador']);
 Route::any('/producto/activando/{codigo_producto}', ['uses' => 'ProductoController@activando', 'before' => 'administrador']);
+Route::any('/producto/encargando/{codigo_producto}', ['uses' => 'ProductoController@encargando', 'before' => 'vendedor']);
 Route::get('/producto/ajustar/{codigo_producto}', ['uses' => 'ProductoController@ajustar', 'before' => 'administrador']);
 Route::any('/producto/ajustando/{codigo_producto}', ['uses' => 'ProductoController@ajustando', 'before' => 'administrador']);
 Route::get('/producto/stockCritico', ['uses' => 'ProductoController@stockCritico', 'before' => 'administrador']);
@@ -41,6 +43,9 @@ Route::get('/iniciarSesion', ['uses'=> 'HomeController@iniciarSesion']);
 Route::get('/contacto', ['uses'=> 'HomeController@contacto']);
 //Form request:: POST action will trigger to controller
 Route::post('/contacto/enviar','HomeController@enviarContacto');
+
+Route::get('/encargo/entregar/{cod_encargo}', ['uses' => 'ProductoController@encargoEntregar']);
+Route::get('/encargo/cancelar/{cod_encargo}', ['uses' => 'ProductoController@encargoCancelar']);
 
 Route::get('/categorias/crear', ['uses' => 'CategoriasController@crear', 'before' => 'administrador']);
 Route::get('/categorias/consultar', ['uses' => 'CategoriasController@consultar']);
@@ -129,6 +134,8 @@ Route::get('/listado/vendedores', ['uses' => 'ListadoController@listarVendedor',
 Route::get('/listado/clientes', ['uses' => 'ListadoController@listadoClientes', 'before' => 'administrador']);
 Route::get('/listado/bancos', ['uses' => 'ListadoController@listadoBancos', 'before' => 'administrador']);
 Route::get('/listado/ciudades', ['uses' => 'ListadoController@listadoCiudades', 'before' => 'administrador']);
+Route::get('/listado/encargos', ['uses' => 'ListadoController@encargos', 'before' => 'vendedor']);
+Route::get('/listado/encargosHistorial', ['uses' => 'ListadoController@encargosHistorial', 'before' => 'vendedor']);
 //Route::get('/listado/listarProductos', ['uses' => 'ListadoController@listProductos', 'before' => 'administrador']);
 //Route::get('/listado/listarCat', ['uses' => 'ListadoController@listarCat', 'before' => 'administrador']);
 //Route::get('/listado/listarLab', ['uses' => 'ListadoController@listarLab', 'before' => 'administrador']);

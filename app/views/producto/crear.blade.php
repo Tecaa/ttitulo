@@ -32,14 +32,14 @@
             <input type="text" name="nombre" class="form-control"  placeholder="Ej : Mi producto " required>
           </div>
         </div>
-        
+        <!--
          <div class="form-group">
           <label class="col-sm-5 control-label">Cantidad </label>
           <div class="col-sm-7">
             <input type="number" min=1 name="cantidad" class="form-control"  value=1 placeholder="Ej.: 1 " >
           </div>
         </div>
-        
+        -->
         <div class="form-group">
           <label class="col-sm-5 control-label">Descripción </label>
           <div class="col-sm-7">
@@ -60,7 +60,7 @@
             <input type="text" name="ingredientes" class="form-control" placeholder="Ej.: aceite de almendras, agua " >
           </div>
         </div>
--->
+
       <div class="form-group">
           <label class="col-sm-5 control-label">Precio de Compra(*)</label>
           <div class="col-sm-7">
@@ -81,7 +81,7 @@
             <input type="number" name="precio_venta_oferta" class="form-control" placeholder="(Opcional)">
           </div>
         </div>
-
+-->
         <div class="form-group">
           <label class="col-sm-5 control-label">Categorías</label>
           <div class="col-sm-7">

@@ -71,6 +71,25 @@ class ListadoController extends BaseController {
     ]);
   }
 
+  public function encargos(){
+    View::share('titulo', "Encargos");
+    $this->layout->content = View::make('listados.encargos');
+
+    JavaScript::put([
+      'encargos' => Encargo::where("estado_encargo", "encargado")->with('vendedor')->with("cliente")->with("boleta")->with("producto")->get(),
+      'tipo_usuario' => Auth::user()->tipo_usuario
+    ]);
+  }
+  
+   public function encargosHistorial(){
+    View::share('titulo', "Encargos historial");
+    $this->layout->content = View::make('listados.encargosHistorial');
+
+    JavaScript::put([
+      'encargos' => Encargo::where("estado_encargo", "!=", "encargado")->with('vendedor')->with("cliente")->with("boleta")->with("producto")->get(),
+      'tipo_usuario' => Auth::user()->tipo_usuario
+    ]);
+  }
 
   public function categorias(){
     View::share('titulo', "Lista de Categorías");

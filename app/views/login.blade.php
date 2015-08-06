@@ -40,19 +40,18 @@
                     @endif
                     
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Rut:</label>
+                      <label class="col-sm-5 control-label">Rut sin puntos y con guión (*)</label>
                       <div class="col-sm-7">
                         <input type="text" name="usuario" class="form-control" pattern="\d{3,8}-[\d|kK]{1}" placeholder="Rut : " required>
                       </div>
                     </div>
-
+                    
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Contraseña</label>
                       <div class="col-sm-7">
-                        <input type="password" name="pass" class="form-control" placeholder="***** " required>
+                        <input type="password" name="pass" class="form-control" placehlsolder="***** " required>
                       </div>
                     </div>
-
                   
                      
                     <div class="form-group">

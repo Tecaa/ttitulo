@@ -16,6 +16,7 @@
         <th>Nombre</th>
         <th>Proveedor</th>
         <th>Cantidad</th>
+        <th>Encargados</th>
         <th>$ Compra</th>
         <th>$ Venta</th>
         <th>$ Oferta</th>
@@ -27,7 +28,7 @@
       <tbody>
       </tbody>
     </table>
-     <br> 
+    <br> 
     @if(Auth::user()->tipo_usuario == "administrador")
     <div class="pull-right">
       <a class="btn btn-primary" href="/producto/crear" role="button">Agregar producto</a>
@@ -36,12 +37,13 @@
   </div>
 </div>
 
- 
+
 
 
 @stop
       
 @section('extra-js')
-  {{ HTML::script('js/dataTables/jquery.dataTables.min.js') }}
-  {{ HTML::script('js/listadoProductos.js') }}
+{{ HTML::script('js/dataTables/jquery.dataTables.min.js') }}
+{{ HTML::script('js/dataTables/sorting.currency.js') }}
+{{ HTML::script('js/listadoProductos.js') }}
 @stop()

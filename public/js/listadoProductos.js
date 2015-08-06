@@ -8,7 +8,8 @@ $(document).ready(function() {
         render: function ( data, type, row ) {
           return MoneyFormat(data);  
         },
-        targets: [ 3 ]
+        type: "currency",
+        targets: [ 4 ]
       },
       {
         data: null,
@@ -18,7 +19,8 @@ $(document).ready(function() {
           else
             return "<strike>" + MoneyFormat(data) + "</strike>";
         },
-        targets: [ 4 ]
+        type: "currency",
+        targets: [ 5 ]
       },
       {
         data: null,
@@ -28,7 +30,8 @@ $(document).ready(function() {
           else
             return "";
         },
-        targets: [ 5 ]
+        type: "currency",
+        targets: [ 6 ]
       },
       {
         data: null,
@@ -37,13 +40,15 @@ $(document).ready(function() {
           return "<a class='btn btn-primary' href=/producto/ajustar/" + data.codigo_producto +
             "><i class='glyphicon glyphicon-asterisk icon-white'></i></a>" +
             " <a class='btn btn-warning' href=/producto/editar/" + data.codigo_producto +
-            "><i class='glyphicon glyphicon-pencil icon-white'></i></a>"
-            + " <a class='btn btn-danger' data-codigo-producto=" + data.codigo_producto + " onclick='eliminarProducto(this)'" +
+            "><i class='glyphicon glyphicon-pencil icon-white'></i></a>" +
+            " <a class='btn btn-success' href=/producto/encargar/" + data.codigo_producto +
+            "><i class='glyphicon glyphicon-user icon-white'></i></a>" +
+            " <a class='btn btn-danger' data-codigo-producto=" + data.codigo_producto + " onclick='eliminarProducto(this)'" +
             "><i class='glyphicon glyphicon-remove icon-white'></i></a>";
 
         },
-        width: "17%",
-        targets: [ 7 ]
+        width: "25%",
+        targets: [ 8 ]
       }
     ];
   }
@@ -55,9 +60,9 @@ $(document).ready(function() {
         render: function ( data, type, row ) {
           return MoneyFormat(data);  
         },
-        targets: [ 3 ]
+        targets: [ 4 ]
       },
-    {
+      {
         data: null,
         render: function ( data, type, row ) {
           if(row.precio_venta_oferta == null)
@@ -65,9 +70,9 @@ $(document).ready(function() {
           else
             return "<strike>" + MoneyFormat(data) + "</strike>";
         },
-        targets: [ 4 ]
+        targets: [ 5 ]
       },
-    {
+      {
         data: null,
         render: function ( data, type, row ) {
           if (data != null)
@@ -75,7 +80,7 @@ $(document).ready(function() {
           else
             return "";
         },
-        targets: [ 5 ]
+        targets: [ 6 ]
       }
     ];
   }
@@ -89,6 +94,7 @@ $(document).ready(function() {
         { "data": "nombre_producto" },
         { "data": "proveedor.nom_proveedor" },
         { "data": "cantidad" },
+        { "data": "encargadosF" },
         { "data": "precio_compra" },
         { "data": "precio_venta" },
         { "data": "precio_venta_oferta" },

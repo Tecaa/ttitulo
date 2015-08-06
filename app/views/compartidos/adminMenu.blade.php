@@ -37,8 +37,17 @@
           <span class="badge">{{$numpedidos}}</span>
           @endif
           </a></li>
-        
+
         <li><a href="/compra/factura">Realizar compra</a></li>
+        
+        
+         <li>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Encargos <i class="fa fa-caret-down icon-dropdown"></i></a>
+          <ul class="dropdown-menu sub-menu">
+            <li><a href="/listado/encargos">Encargos pendientes</a></li>
+            <li><a href="/listado/encargosHistorial">Historial</a></li>
+          </ul>
+        </li>
         
 
         <li>
@@ -57,7 +66,7 @@
             <li><a href="/listado/vendedores/desactivados">Vendedores eliminados</a></li>
           </ul>
         </li>
-        
+
 
         <li><a href="/agendaProveedores">Agenda proveedores</a></li>
         <li>
