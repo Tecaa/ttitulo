@@ -68,7 +68,7 @@
 
         <th>Nombre Producto</th>
         <th>Proveedor</th>
-        <th>Stock</th>
+        <th>Stock público</th>
         <th>Precio</th>
         <th>Oferta</th>
         <th>Cantidad</th>

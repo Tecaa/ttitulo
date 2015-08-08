@@ -10,7 +10,7 @@ $(document).ready(function() {
     columns: [
       { "data": "nombre_producto" },
       { "data": "proveedor.nom_proveedor" },
-      { "data": "cantidad" },
+      { "data": "cantidadPublico" },
       { "data": "precio_venta" },
       { "data": null },
       { "data": "cantidadVendida" },
@@ -120,9 +120,9 @@ $(document).ready(function() {
         var productoVendido = producto;
         productoVendido.cantidadVendida = parseInt($("input[name='cantidad']").val());
         productoVendido.subtotal =   productoVendido.cantidadVendida * productoVendido.precioVentaFinal;
-        if (productoVendido.cantidadVendida > productoVendido.cantidad)
+        if (productoVendido.cantidadVendida > productoVendido.cantidadPublico)
         {
-          sobreStockMessage(productoVendido.cantidad, parseInt($('input[name=cantidad]').val()), 0);
+          sobreStockMessage(productoVendido.cantidadPublico, parseInt($('input[name=cantidad]').val()), 0);
           return;
         }
         
