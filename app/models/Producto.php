@@ -55,7 +55,7 @@ class Producto extends Eloquent {
   
   public function getCantidadPublicoAttribute()
   {
-    return $this->cantidad - $this->encargos;
+    return ($this->cantidad - $this->encargados);
   }
   public function getEncargadosFAttribute()
   {

@@ -20,9 +20,9 @@ $(document).ready(function() {
       $(compras).each(function(index, val) {
         if (val.codigo_producto == producto.codigo_producto)
         {
-          if (producto.cantidadComprada +  parseInt(val.cantidadComprada) > producto.cantidad)
+          if (producto.cantidadComprada +  parseInt(val.cantidadComprada) > producto.cantidadPublico)
           {
-           sobreStockMessage(producto.cantidad, producto.cantidadComprada, parseInt(val.cantidadComprada));
+           sobreStockMessage(producto.cantidadPublico, producto.cantidadComprada, parseInt(val.cantidadComprada));
             sobreStock = true;
             return false;
           }
@@ -39,9 +39,9 @@ $(document).ready(function() {
       return;
     if (encontrado === false)
     {
-      if (producto.cantidadComprada > producto.cantidad)
+      if (producto.cantidadComprada > producto.cantidadPublico)
         {
-          sobreStockMessage(producto.cantidad, producto.cantidadComprada, 0);
+          sobreStockMessage(producto.cantidadPublico, producto.cantidadComprada, 0);
           return;
         }
       producto.subtotal = producto.cantidadComprada * producto.precioVentaFinal;

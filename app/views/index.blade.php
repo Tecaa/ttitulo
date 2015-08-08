@@ -1,12 +1,10 @@
 @section('content')
-
 <!-- begin:slider -->
     <div id="home">
       <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#home-slider" data-slide-to="0" class="active"></li>
           <li data-target="#home-slider" data-slide-to="1"></li>
-          <li data-target="#home-slider" data-slide-to="2"></li>
         </ol>
         <div class="carousel-inner">
           <div class="item active" style="background: url(img/img01.jpg);">
@@ -15,7 +13,7 @@
                 <div class="col-md-12">
                   <div class="carousel-content">
                     <h2 class="animated fadeInUpBig text-center text-black">Bienvenidos</h2>
-                      <p class="animated rollIn text-black text-center"><span class="text900">Productos de salud y belleza de la mano de la naturaleza</span> </p>  
+                      <p class="animated rollIn text-black text-center"><span class="text900">Le invitamos a conocer nuestras variedades en joyas</span> </p>  
                   </div>
                 </div> 
               </div>
@@ -27,7 +25,7 @@
                 <div class="col-md-12">
                   <div class="carousel-content">
                   	<h3 class="animated fadeInLeftBig text-left">Inaugurando nueva página</h3>
-					<p class="animated fadeInDownBig text-left">Compruebe los precios rebajados de inauguración de nueva página.<br> ¡Son por poco tiempo!.</p>
+					<p class="animated fadeInDownBig text-left">Compruebe las rebajas por la inauguración de nuestra página.<br> ¡Son por poco tiempo!.</p>
 					<a class="btn btn-purple btn-lg animated fadeInRight" href="#">Leer más &raquo;</a>
                   </div>
                 </div>
@@ -52,8 +50,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2>Conozca nuestra galería de productos</h2>
-					<p>Visite nuestra galería de productos o utilice el buscador para encontrar esos productos que más ha estado buscando.</p>
+					<h2>Conozca nuestra galería de joyas</h2>
+					<p>Visite nuestra galería de joyas en la sección Productos del panel superior.</p>
 				</div>
 			</div>
 		</div>
@@ -67,7 +65,7 @@
 				<div class="col-md-12">
 					<div class="heading-title">
 						<h2>Características</h2>
-						<p>En Centro Naturista Masiel podrá encontrar lo siguiente. </p>
+						<p>En Joyas Marelene podrá encontrar lo siguiente. </p>
 					</div>
 				</div>
 			</div>
@@ -78,7 +76,7 @@
 							<i class="fa fa-gift"></i>
 						</div>
 						<h3>Compra por internet</h3>
-						<p>Podrá comprar sus productos favoritos desde la comodidad de su hogar.</p>
+						<p>Podrá comprar las joyas que más le gusten desde la comodidad de su hogar.</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4">
@@ -86,8 +84,8 @@
 						<div class="featured-photos">
 							<i class="fa fa-heart-o"></i>
 						</div>
-						<h3>Cuidamos su salud</h3>
-						<p>Los productos ofrecidos por nosotros no poseen aditivos químicos, cuidando su salud.</p>
+						<h3>Garantía de devolución</h3>
+						<p>Si en el momento de su entrega su producto no lo deja conforme puede devolverlo inmediatamente.</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4">
@@ -111,7 +109,7 @@
 				<div class="col-md-12">
 					<div class="heading-title">
 						<h2>Más populares</h2>
-						<p>Los productos más populares de este último tiempo.</p>
+						<p>Los joyas más populares de este último tiempo.</p>
 					</div>	
 				</div>
 			</div>
@@ -242,7 +240,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="testimoni-icon"><i class="fa fa-quote-left"></i></div>
-					<h3>¿Por qué escoger productos naturales?</h3>
+					<h3>¿Por qué comprar en Joyas Marlene?</h3>
 				</div>
 			</div>
 			<div class="row">
@@ -250,16 +248,16 @@
 					<div id="testi" class="carousel slide" data-ride="carousel">
 				      <div class="carousel-inner">
 				        <div class="item active">
-				           <p class="testimoni-item"> Son más saludables porque están libres de sustancias nocivas para la piel y la salud.</p>
-							<h4>&#8212; Cuidan la salud &#8212;</h4>
+				           <p class="testimoni-item"> Su sistema de compra es bastante confiable y con políticas de devolución que lo dejarán agradado.</p>
+							<h4>&#8212; Confianza &#8212;</h4>
 				        </div>
 				        <div class="item">
-				           <p class="testimoni-item">Son elaborados con ingredientes que provienen de la naturaleza, extraídos principalmente de plantas, hierbas, frutas, flores, etc.</p>
-							<h4>&#8212; Elaboración &#8212;</h4>
+				           <p class="testimoni-item"> Puedes ver los productos online en vistas de 360 grados y además puedes dimensionar su tamaño en una imagen con una modelo</p>
+							<h4>&#8212; Transparencia &#8212;</h4>
 				        </div>
 				        <div class="item">
-				           <p class="testimoni-item">Uno de los fundamentos principales es respetar el medio ambiente, evitando la contaminación de la tierra, el agua y el aire.</p>
-							<h4>&#8212; Protrgen el medio ambiente &#8212;</h4>
+				           <p class="testimoni-item"> Tenemos buena disponibilidad pudiendonos contactar en los distintos medios de hoy en día. Revisa la sección Contacto del panel superior para más información.</p>
+							<h4>&#8212; Buena comunicación &#8212;</h4>
 				        </div>
 				      </div>
 				      <a class="left carousel-control" href="#testi" data-slide="prev">&lsaquo;</a>

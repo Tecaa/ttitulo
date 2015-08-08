@@ -8,6 +8,7 @@ $(document).ready(function() {
     },
     data: null, 
     columns: [
+      { "data": "codigo_barras" },
       { "data": "nombre_producto" },
       { "data": "proveedor.nom_proveedor" },
       { "data": "cantidadPublico" },
@@ -20,9 +21,12 @@ $(document).ready(function() {
       {
         data: null,
         render: function ( data, type, row ) {
-          return  MoneyFormat(data);
+           if (row.precio_venta_oferta != null && row.precio_venta_oferta != 0)
+            return  "<strike>" +MoneyFormat(data) + "</strike";
+          else
+            return MoneyFormat(data);
         },
-        targets: [ 3 ]
+        targets: [ 4 ]
       },
       {
         data: null,
@@ -32,14 +36,14 @@ $(document).ready(function() {
           else
             return "";
         },
-        targets: [ 4 ]
+        targets: [ 5 ]
       },
       {
         data: null,
         render: function ( data, type, row ) {
-          return  MoneyFormat(data);
+            return MoneyFormat(data);
         },
-        targets: [ 6 ]
+        targets: [ 7 ]
       }
     ]
   });
@@ -78,9 +82,9 @@ $(document).ready(function() {
       if (element.codigo_barras == $('input[name=codigoB]').val())
       {
         
-        if (parseInt(element.cantidadVendida) +  parseInt($('input[name=cantidad]').val()) > element.cantidad)
+        if (parseInt(element.cantidadVendida) +  parseInt($('input[name=cantidad]').val()) > element.cantidadPublico)
         {
-          sobreStockMessage(element.cantidad, parseInt($('input[name=cantidad]').val()), element.cantidadVendida);
+          sobreStockMessage(element.cantidadPublico, parseInt($('input[name=cantidad]').val()), element.cantidadVendida);
           sobreStock = true;
           return false;
         }
