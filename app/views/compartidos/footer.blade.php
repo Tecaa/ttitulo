@@ -3,14 +3,14 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Centro Naturista Masiel</h3>
-        <p>Productos de salud y belleza totalmente naturales.</p>
+        <h3>Joyas Marlene</h3>
+        <p>Tienda online de joyas de La Calera</p>
 
         <ul class="list-unstyled social-icon">
-          <li><a href="http://www.facebook.com/CentroNaturistaMasiel" rel="tooltip" title="Facebook" class="icon-facebook"><span><i class="fa fa-facebook-square"></i></span></a></li>
+          <li><a href="http://www.facebook.com/JoyasMarlene" rel="tooltip" title="Facebook" class="icon-facebook"><span><i class="fa fa-facebook-square"></i></span></a></li>
 
         </ul>
-        <div class="fb-facepile" data-href="https://www.facebook.com/CentroNaturistaMasiel" data-max-rows="1" data-colorscheme="light" data-size="medium" data-show-count="true"></div>
+        <div class="fb-facepile" data-href="https://www.facebook.com/JoyasMarlene" data-max-rows="1" data-colorscheme="light" data-size="medium" data-show-count="true"></div>
         <div class="sitemap">
           <ul>
             <li><a href="/">INICIO</a></li>
