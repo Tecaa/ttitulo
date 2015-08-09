@@ -11,7 +11,13 @@
       </div>
     </div>
 
-    facebook, whatsapp, email, 
+        
+    <ul class="list-unstyled social-icon">
+      <li><a href="http://www.facebook.com/JoyasMasiel" rel="tooltip" title="Facebook" class="icon-facebook">
+        <span><i class="fa fa-facebook-square"></i> /JoyasMasiel</span></a></li>
+      <li><span><i class="fa fa-whatsapp"></i> +56 912345678</span></li>
+    </ul>
+        
     <div class="row">
       <div class="col-md-12 text-center">
         <h3>¡Envíanos un mensaje!</h3>

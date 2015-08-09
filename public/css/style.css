@@ -2402,6 +2402,9 @@ blockquote {
 #footer .social-icon > li > .icon-instagram:hover{
 	background: #B9C6D0;
 }
+#footer .social-icon > li > .icon-whatsapp:hover{
+	background: #4DC247;
+}
 
 #footer .sitemap > *{
 	margin-left: auto;
