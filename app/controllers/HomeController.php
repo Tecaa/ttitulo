@@ -55,7 +55,7 @@ class HomeController extends BaseController {
   }
   
   const MY_NAME = "Marco Rojas";
-  const MY_EMAIL = "cnaturista.masiel@gmail.com";
+  const MY_EMAIL = "fergushog@hotmail.com";
   public function enviarContacto(){
 
     //Get all the data and store it inside Store Variable
@@ -63,7 +63,7 @@ class HomeController extends BaseController {
 
     //Validation rules
     $rules = array (
-      'nombre' => 'required|alpha',
+      'nombre' => 'required|alpha_spaces',
       'email' => 'required|email',
       'mensaje' => 'required|min:10',
       'asunto' => 'required|min:5'
@@ -79,9 +79,9 @@ class HomeController extends BaseController {
       Mail::send('emails.contacto', $data, function($message) use ($data)
                  {
                    //email 'From' field: Get users email add and name
-                   $message->from($data['email'] , $data['nombre']);
+                   $message->from($data['email'], $data['nombre']);
                    //email 'To' field: cahnge this to emails that you want to be notified.                    
-                   $message->to(self::MY_EMAIL, self::MY_NAME)->cc(self::MY_EMAIL)->subject($data["asunto"]);
+                   $message->to(self::MY_EMAIL, self::MY_NAME)->subject($data["asunto"]);
 
                  });
 

@@ -4,11 +4,12 @@ $(document).ready(function() {
 	$("#maps").gmap3({
 		map: {
 			options: {
-			  center: [-32.7895051,-71.191398],
-			  zoom: 16,
+			  center: [-32.7879528,-71.1991765],
+			  zoom: 14,
 			  scrollwheel: false
 			}  
-		 },
+		 }
+    /*,
 		marker:{
 			latLng: [-32.7921717,-71.1928978],
 			options: {
@@ -17,7 +18,7 @@ $(document).ready(function() {
 			   new google.maps.Size(48, 48, "px", "px")
 			 )
 			}
-		 }
+		 }*/
 	});
 	
 	//Slider

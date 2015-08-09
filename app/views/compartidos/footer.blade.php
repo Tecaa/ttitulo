@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-12">
         <h3>Joyas Marlene</h3>
-        <p>Tienda online de joyas de La Calera</p>
+        <p>Tienda online de joyas - La Calera</p>
 
         <ul class="list-unstyled social-icon">
           <li><a href="http://www.facebook.com/JoyasMarlene" rel="tooltip" title="Facebook" class="icon-facebook"><span><i class="fa fa-facebook-square"></i></span></a></li>

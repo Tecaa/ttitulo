@@ -8,10 +8,10 @@
     <meta name="keywords" content="responsive, catalog, cart, themes, twitter bootstrap, bootstrap">
     <meta name="author" content="afriq yasin ramadhan">
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
-    <title>{{$titulo}} - Centro Naturista Masiel</title>
+    <title>{{$titulo}} - Joyas Masiel</title>
 
     <!-- Bootstrap core CSS -->
-    {{ HTML::style('css/bootstrap.css') }}
+    {{ HTML::style('css/bootstrap.min.css') }}
     <!-- Custom styles for this template -->
     {{ HTML::style('css/style.css') }}
     {{ HTML::style('css/responsive.css') }}
@@ -83,7 +83,7 @@
 ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     {{ HTML::script('js/jquery.js') }}
-    {{ HTML::script('js/bootstrap.js') }}
+    {{ HTML::script('js/bootstrap.min.js') }}
     {{ HTML::script('http://maps.google.com/maps/api/js?sensor=false&amp;language=en') }}
     {{ HTML::script('js/gmap3.js') }}
     {{ HTML::script('js/script.js') }}

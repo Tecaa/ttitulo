@@ -30,7 +30,8 @@ return array(
 	*/
 
 	//'host' => 'smtp.mailgun.org',
-  'host' => 'smtp.sendgrid.net',
+  //'host' => 'smtp.sendgrid.net',
+  'host' => 'smtp.mandrillapp.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ return array(
 	*/
 
 	'port' => 587,
-
+  //'port' => 465,
 	/*
 	|--------------------------------------------------------------------------
 	| Global "From" Address
@@ -58,7 +59,7 @@ return array(
 
   //'from' => array('address' => null, 'name' => null),
 
-	'from' => array('address' => "cnaturista@gmail.com", 'name' => "Masiel"),
+	'from' => array('address' => "fergushog@hotmail.com", 'name' => "Marco Rojas"),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -83,8 +84,8 @@ return array(
 	| connection. You may also set the "password" value below this one.
 	|
 	*/
-
-	'username' => "fergushog@gmail.com",
+  //'username' => null,
+	'username' => "fergushog@hotmail.com",
 
 	/*
 	|--------------------------------------------------------------------------
@@ -97,7 +98,7 @@ return array(
 	|
 	*/
 
-	'password' => "1123581321tka",
+	'password' => 'gOpVl5_eVN5J0APGkZ9MVw',
 
 	/*
 	|--------------------------------------------------------------------------
