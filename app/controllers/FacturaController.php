@@ -13,19 +13,18 @@ class FacturaController extends BaseController {
 
 
     View::share('titulo', "Compra");
-    $productos = Input::get('productos');
+    $productos = json_decode(Input::get('productos'));
 
     $documento = new Documento();
     $documento->rut = Auth::user()->rut;
     $documento->tipo_documento = 'factura';
 
-
     $total = 0;
     $precio_total = 0;
     foreach ($productos as $detFactura)
     {
-      $total = $total+ $detFactura["cantidadComprada"]; 
-      $precio_total = $precio_total + $detFactura["subtotal"];
+      $total = $total+ $detFactura->cantidadComprada; 
+      $precio_total = $precio_total + $detFactura->subtotal;
     }
 
     $documento->precio_total = $precio_total;
@@ -45,17 +44,17 @@ class FacturaController extends BaseController {
     {
       $detfactura = new DetalleFac();
       $detfactura->cod_documento = $documento->cod_documento;
-      $detfactura->codigo_producto = intval ($prodComprado["codigo_producto"]);
-      $detfactura->cantidad = intval( $prodComprado["cantidadComprada"]);
-      $detfactura->precio_compra = intval ($prodComprado["precio_compra"]);
+      $detfactura->codigo_producto = intval ($prodComprado->codigo_producto);
+      $detfactura->cantidad = intval( $prodComprado->cantidadComprada);
+      $detfactura->precio_compra = intval ($prodComprado->precio_compra);
 
 
       $producto = Producto::find($detfactura->codigo_producto);
       $producto->cantidad = $producto->cantidad + $detfactura->cantidad;
-      $producto->precio_compra = intval ($prodComprado["precio_compra"]);
-      $producto->precio_venta = intval ($prodComprado["precio_venta"]);
-      if ($prodComprado["precio_venta_oferta"] != null)
-        $producto->precio_venta_oferta = intval ($prodComprado["precio_venta_oferta"]);
+      $producto->precio_compra = intval ($prodComprado->precio_compra);
+      $producto->precio_venta = intval ($prodComprado->precio_venta);
+      if ($prodComprado->precio_venta_oferta != null)
+        $producto->precio_venta_oferta = intval ($prodComprado->precio_venta_oferta);
       else 
         $producto->precio_venta_oferta = null;
       $producto->ultima_compra = $producto->cantidad;

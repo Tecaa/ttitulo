@@ -9,15 +9,19 @@ $(document).ready(function() {
             { "data": "nombre_producto" },
             { "data": "proveedor.nom_proveedor" },
             { "data": "cantidad" },
+            { "data": "precio_compra" },
             { "data": "precio_venta" },
+            { "data": "precio_venta_oferta" },
             { "data": "codigo_barras" }
         ],
       columnDefs: [
         {
           render: function ( data, type, row ) {
+            if (data != null)
             return MoneyFormat(data);
+            return "";
           },
-          targets: [ 3 ]
+          targets: [ 3, 4,5 ]
         },
         {
           data: null,
@@ -25,7 +29,7 @@ $(document).ready(function() {
             return " <a class='btn btn-success'  data-codigo-producto=" + data.codigo_producto + " onclick='activarProducto(this)'" +
               "><i class='glyphicon glyphicon-plus icon-white'></i></a>";
           },
-          targets: [ 5 ]
+          targets: [ 7 ]
         }
       ]
     });

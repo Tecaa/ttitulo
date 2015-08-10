@@ -110,9 +110,8 @@
   <div id="table-responsive" class="table-responsive">
     <table class="table table-bordered table-hover" id="facturaTable" width="100%">
       <thead align="center">
-
+       <th>Còdigo</th>
         <th>Nombre Producto</th>
-        <th>Laboratorio</th>
         <th>Cantidad</th>
         <th>Precio compra</th>
         <th>Precio venta</th>
