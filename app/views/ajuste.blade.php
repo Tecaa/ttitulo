@@ -32,7 +32,7 @@
           <label class="col-sm-5 control-label">Tipo ajuste (*)</label>
           <div class="col-sm-7">
             <select class="form-control" name="tipo" required>
-              <option value="dan" id="dañado">Dañado</option>
+              <option value="dañado" id="dañado">Dañado</option>
               <option value="devuelto" id="devuelto">Devuelto</option>
               <option value="extra" id="extra">Extra</option>
               <option value="inventario" id="inventario">Inventario</option>
