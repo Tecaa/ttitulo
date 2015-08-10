@@ -1,6 +1,5 @@
 var totalProductos = 0;
 var totalVenta = 0;
-var test;
 $(document).ready(function() {
   $('#facturaTable').DataTable({
     language: {
@@ -156,7 +155,7 @@ $(document).ready(function() {
              'nombre' : $("input[name='nombre']").val(),
              'codFactura' : $("input[name='codFactura']").val(),
              'fecha' : $("input[name='fecha']").val(),
-             'productos' : JSON.stringify(test)//$('#facturaTable').DataTable().rows().data().toArray()
+             'productos' : JSON.stringify($('#facturaTable').DataTable().rows().data().toArray())
             },
     })
       .done(function (resultado) {
