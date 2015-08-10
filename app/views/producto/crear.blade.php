@@ -53,6 +53,12 @@
             <input type="number" min=0 max=20 name="contenido" class="form-control" placeholder="Ej.: 8 " >
           </div>
         </div>
+        <div class="form-group">
+        <label class="col-sm-5 control-label">Uso interno </label>
+        <div class="col-sm-7">
+          <input type="checkbox" name="uso_interno" class="form-control" value=true>
+        </div>
+      </div>
 <!--
         <div class="form-group">
           <label class="col-sm-5 control-label">Ingredientes </label>

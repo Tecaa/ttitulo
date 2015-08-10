@@ -93,6 +93,7 @@ class ProductoController extends BaseController {
     $producto->codigo_barras = strtoupper(Input::get('codigoB'));
     $producto->cod_proveedor = Input::get('laboratorio');
     $producto->descripcion = Input::get('descripcion');
+    $producto->uso_interno = Input::get('uso_interno') == "true" ? true : false;
     $producto->cantidad = 0;
     $producto->contenido = Input::get('contenido');
     $producto->ingredientes = Input::get('ingredientes');
@@ -172,6 +173,7 @@ class ProductoController extends BaseController {
     $producto->cod_proveedor = Input::get('laboratorio');
     $producto->descripcion = Input::get('descripcion');
     $producto->precio_compra = Input::get('precio_compra');
+    $producto->uso_interno = Input::get('uso_interno') == "true" ? true : false;
     $producto->precio_venta = Input::get('precio');
     $producto->contenido = Input::get('contenido');
     $producto->ingredientes = Input::get('ingredientes');
@@ -344,7 +346,7 @@ class ProductoController extends BaseController {
     $productos = Producto::whereHas('CatProducto', function($query) use ($codigo_categoria)
                                     {
                                       $query->where('cod_categoria', '=' , $codigo_categoria);
-                                    })->where('activo', '=', true)->where("cantidad", ">", "encargos");
+                                    })->where('activo', '=', true)->where("cantidad", ">", "encargos")->where("uso_interno", false);
     $pages = ceil($productos->count() /$perPage);
 
     $productos = $productos->skip($perPage * ($page-1))->take($perPage)->get();

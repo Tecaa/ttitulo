@@ -36,7 +36,7 @@ class ListadoController extends BaseController {
     $this->layout->content = View::make('listados.productos');
 
     JavaScript::put([
-      'productos' => Producto::where('activo', '=', true)->where("cantidad", ">", 0)->with('proveedor')->get(),
+      'productos' => Producto::where('activo', '=', true)->where("uso_interno", false)->where("cantidad", ">", 0)->with('proveedor')->get(),
       'tipo_usuario' => Auth::user()->tipo_usuario
     ]);
 

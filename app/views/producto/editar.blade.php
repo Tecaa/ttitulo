@@ -50,6 +50,16 @@
             <input type="text" name="contenido" class="form-control" value="{{$producto->contenido}}" placeholder="Ej: 2.">
           </div>
         </div>
+      <div class="form-group">
+          <label class="col-sm-5 control-label">Uso interno </label>
+          <div class="col-sm-7">
+            <input type="checkbox" name="uso_interno" class="form-control" value=true
+            @if($producto->uso_interno == true) 
+            checked 
+            @endif
+            >
+          </div>
+        </div>
       <!--
        <div class="form-group">
           <label class="col-sm-5 control-label">Componentes </label>

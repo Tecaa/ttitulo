@@ -1,5 +1,6 @@
 var totalProductos = 0;
 var totalVenta = 0;
+var test;
 $(document).ready(function() {
   $('#facturaTable').DataTable({
     language: {
@@ -7,8 +8,8 @@ $(document).ready(function() {
         },
       data: null, 
       columns: [
+            { "data": "codigo_barras" },
             { "data": "nombre_producto" },
-            { "data": "proveedor.nom_proveedor" },
             { "data": "cantidadComprada" },
             { "data": "precio_compra" },
             { "data": "precio_venta" },
@@ -155,7 +156,7 @@ $(document).ready(function() {
              'nombre' : $("input[name='nombre']").val(),
              'codFactura' : $("input[name='codFactura']").val(),
              'fecha' : $("input[name='fecha']").val(),
-             'productos' : $('#facturaTable').DataTable().rows().data().toArray()
+             'productos' : JSON.stringify(test)//$('#facturaTable').DataTable().rows().data().toArray()
             },
     })
       .done(function (resultado) {
@@ -174,6 +175,9 @@ $(document).ready(function() {
           }
         ]
       });
+    }).error(function (resultado) {
+      console.log(resultado);
+      
     });
   });
 } );

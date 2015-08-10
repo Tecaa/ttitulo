@@ -28,7 +28,7 @@ class HomeController extends BaseController {
   public function index(){
     View::share('titulo', "Inicio");
     
-    $producto = Producto::orderBy('visitas', 'desc')->where("activo", "=", true)->where("cantidad", ">", 0)->take(8)->get();
+    $producto = Producto::orderBy('visitas', 'desc')->where("activo", "=", true)->where("cantidad", ">", "encargados")->where('uso_interno', false)->take(8)->get();
     
     $this->layout->content = View::make('index')->withProductos($producto);
   } 

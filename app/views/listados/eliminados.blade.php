@@ -16,7 +16,9 @@
         <th>Nombre</th>
         <th>Laboratorio</th>
         <th>Cantidad</th>
+        <th>$ Compra</th>
         <th>$ Venta</th>
+        <th>$ Oferta</th>
         <th>Código de barras</th>
         <th>Acciones</th>
       </thead>
