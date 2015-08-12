@@ -210,7 +210,7 @@ class ProductoController extends BaseController {
       $img360->d270 = base64_encode(Image::make(Input::file('img270'))->resize(336, 387)->encode('jpg', 100));
     if (Input::file('img315') != null)
       $img360->d315  = base64_encode(Image::make(Input::file('img315'))->resize(336, 387)->encode('jpg', 100));
-    if ($img360 != null)
+    if (Input::file('img0') != null)
       $img360->save();
     
     
