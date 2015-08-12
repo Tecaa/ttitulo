@@ -182,7 +182,7 @@ class ProductoController extends BaseController {
     if (Input::file('imagen') != null)
     {
       //$producto->imagen = base64_encode(file_get_contents(Input::file('imagen')));
-      $producto->imagen = base64_encode(Image::make(Input::file('imagen'))->resize(336, 387)->encode('jpg', 40));
+      $producto->imagen = base64_encode(Image::make(Input::file('imagen'))->resize(336, 387)->encode('jpg', 100));
     }
     $producto->save();
     
