@@ -159,6 +159,7 @@ $(document).ready(function() {
   });
 
   $('#venta').click(function (event) {
+    $('#venta').prop('disabled', true);
     $.ajax({
       type: "POST",
       url: "/venta/local/crear",
@@ -167,7 +168,7 @@ $(document).ready(function() {
              //'cantidad' : $('input[name=cantidad]').val(),
              //'cantidad' : $("input[name='cantidad']").val(),
              'rutCliente' : $("input[name='rut']").val(),
-             'productos' : $('#boletaTable').DataTable().rows().data().toArray()
+             'productos' : JSON.stringify($('#boletaTable').DataTable().rows().data().toArray())
             },
     })
       .done(function (resultado) {
@@ -189,6 +190,8 @@ $(document).ready(function() {
           window.location.reload();
         },
       });
+    }).always(function(){
+      $('#venta').prop('disabled', false);  
     });
   });
 

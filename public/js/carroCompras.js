@@ -58,7 +58,7 @@ $(document).ready(function() {
         $.ajax({
       type: "POST",
       url: "/venta/pedido",
-      data: { 'productos' : $('#carroTable').DataTable().rows().data().toArray(), 'cod_metodo' : $( "#metodo" ).val() },
+      data: { 'productos' : JSON.stringify($('#carroTable').DataTable().rows().data().toArray()), 'cod_metodo' : $( "#metodo" ).val() },
     })
     .done(function () {
       delete localStorage.compras;
@@ -85,7 +85,7 @@ $(document).ready(function() {
   
   $(metodos).each(function(index, val){
     if (val.cod_metodo == $( "#metodo" ).val())
-      monto_envio = val.costo;
+      monto_envio = parseInt(val.costo);
   });
   
   $(compras).each(function(index, compra) {
@@ -113,7 +113,7 @@ rem = function (e)
 $( "#metodo" ).change(function() {
   $(metodos).each(function(index, val){
     if (val.cod_metodo == $( "#metodo" ).val())
-      monto_envio = val.costo;
+      monto_envio = parseInt(val.costo);
   });
   
   $("#suma").html(MoneyFormat(suma));

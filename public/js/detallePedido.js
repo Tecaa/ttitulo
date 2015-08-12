@@ -46,5 +46,5 @@ actualizarTotales = function(cantidad, precioUnitario)
   totalVenta +=  cantidad * precioUnitario;
   $("input[name=cantidadTotal").val(FormatNumberBy3(totalProductos));
   $("input[name=subtotal").val(MoneyFormat(totalVenta));
-  $("input[name=total").val(MoneyFormat(totalVenta + envio));
+  $("input[name=total").val(MoneyFormat(totalVenta + parseInt(envio)));
 };

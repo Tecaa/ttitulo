@@ -70,7 +70,21 @@ $(document).ready(function() {
        || $('#codigoB').val() == "" || $('#codigoB').val() === undefined || $('#precio_compra').val() === undefined || $('#cantidad').val() === undefined
        || $('#precio_venta').val() === undefined) 
     {
-      alert ('Debe completar el código, la cantidad, el precio de compra y de venta.');
+      BootstrapDialog.show({
+        type: BootstrapDialog.TYPE_DANGER,
+        title: 'Datos insuficientes',
+        message: 'Debe completar el código, la cantidad, el precio de compra y de venta.',
+        buttons: [
+          {
+            label: 'Aceptar',
+            cssClass: 'btn-primary',
+            action: function(dialogRef){
+                dialogRef.close();
+            }
+          }
+        ]
+      });
+      
       return;
     }
     
@@ -148,6 +162,7 @@ $(document).ready(function() {
   });
 
   $('#comprar').click(function (event) {
+    $('#comprar').prop('disabled', true);
     $.ajax({
       type: "POST",
       url: "/compra/factura/crear",
@@ -172,11 +187,16 @@ $(document).ready(function() {
               window.location.assign("/listado/compras");
             }
           }
-        ]
+        ], 
+        onhide: function(dialogRef){
+          window.location.assign("/listado/compras");
+        }
       });
     }).error(function (resultado) {
       console.log(resultado);
       
+    }).always(function(){
+      $('#comprar').prop('disabled', false);
     });
   });
 } );

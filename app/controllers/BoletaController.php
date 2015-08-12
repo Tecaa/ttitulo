@@ -17,22 +17,21 @@ class BoletaController extends BaseController {
 
   public function crearboleta(){
     View::share('titulo', "Compra");
-    $productos = Input::get('productos');
+    $productos = json_decode(Input::get('productos'));
 
     $documento = new Documento();
     $documento->rut = Auth::user()->rut;
     $documento->tipo_documento = 'boleta';
 
-
     $total = 0;
     $precio_total = 0;
     foreach ($productos as $detBoleta)
     {
-      $total = $total+ intval($detBoleta["cantidadVendida"]); 
-      $precio_total = intval($precio_total + $detBoleta["subtotal"]);
+      $total = $total+ intval($detBoleta->cantidadVendida); 
+      $precio_total = intval($precio_total + $detBoleta->subtotal);
       
-      $prod = Producto::find(intval($detBoleta["codigo_producto"]));  
-      if ($prod->cantidad - intval($detBoleta["cantidadVendida"]) < 0)
+      $prod = Producto::find(intval($detBoleta->codigo_producto));  
+      if ($prod->cantidadPublico < intval($detBoleta->cantidadVendida))
       {
         return 'Insuficiente stock de: ' + $prod->nombre_producto;
       }
@@ -44,15 +43,11 @@ class BoletaController extends BaseController {
     
     foreach($productos as $det)
     {
-      $prod = Producto::find(intval($det["codigo_producto"]));  
-      if ($prod->cantidad - intval($det["cantidadVendida"]) >= 0)
-      {
-        $prod->cantidad = $prod->cantidad - intval($det["cantidadVendida"]);
-        $prod->save();
-      }
+      $prod = Producto::find(intval($det->codigo_producto)); 
+      $prod->cantidad = $prod->cantidad - intval($det->cantidadVendida);
+      $prod->save();
     }
     $documento->save();
-
 
     $boleta = new Boleta();
     $boleta->cod_documento = $documento->cod_documento;
@@ -65,10 +60,10 @@ class BoletaController extends BaseController {
     {
       $detboleta = new DetalleBoleta();
       $detboleta->cod_documento = $documento->cod_documento;
-      $detboleta->codigo_producto = intval ($prodVendido["codigo_producto"]);
-      $detboleta->cantidad = intval( $prodVendido["cantidadVendida"]);
-      $detboleta->precio_venta = intval ($prodVendido ["precioVentaFinal"]);
-      $detboleta->precio_compra = intval ($prodVendido ["precio_compra"]);
+      $detboleta->codigo_producto = intval ($prodVendido->codigo_producto);
+      $detboleta->cantidad = intval( $prodVendido->cantidadVendida);
+      $detboleta->precio_venta = intval ($prodVendido->precioVentaFinal);
+      $detboleta->precio_compra = intval ($prodVendido->precio_compra);
       $detboleta->save();
     }
 
@@ -93,7 +88,7 @@ class BoletaController extends BaseController {
   }*/  
   public function crearPedido()
   {
-    $productos = Input::get('productos');
+    $productos = json_decode(Input::get('productos'));
     $metodo = MetodoEnvio::find(Input::get('cod_metodo'));
     
     $documento = new Documento();
@@ -104,10 +99,17 @@ class BoletaController extends BaseController {
     $precio_total = 0;
     foreach ($productos as $detBoleta)
     {
-      $total = $total+ intval($detBoleta["cantidadComprada"]); 
-      $p = Producto::where('codigo_barras', '=', $detBoleta["codigo_barras"])->first();
-      $precio_total = $precio_total + $p->precioVentaFinal *intval($detBoleta["cantidadComprada"]);
+      $total = $total+ intval($detBoleta->cantidadComprada); 
+      $p = Producto::where('codigo_barras', '=', $detBoleta->codigo_barras)->first();
+      $precio_total = $precio_total + $p->precioVentaFinal *intval($detBoleta->cantidadComprada);
+      if ($p->cantidadPublico < intval($detBoleta->cantidadComprada))
+      {
+        return 'Insuficiente stock de: ' + $prod->nombre_producto;
+      }
     }
+    
+    
+    
 
     $documento->precio_total = $precio_total + $metodo->costo;
     $documento->cantidad_total = $total;
@@ -122,11 +124,11 @@ class BoletaController extends BaseController {
 
     foreach ($productos as $prodVendido)
     {
-      $p = Producto::where('codigo_barras', '=', $detBoleta["codigo_barras"])->first();
+      $p = Producto::where('codigo_barras', '=', $prodVendido->codigo_barras)->first();
       $detboleta = new DetalleBoleta();
       $detboleta->cod_documento = $documento->cod_documento;
-      $detboleta->codigo_producto = intval ($prodVendido["codigo_producto"]);
-      $detboleta->cantidad = intval( $prodVendido["cantidadComprada"]);
+      $detboleta->codigo_producto = intval ($p->codigo_producto);
+      $detboleta->cantidad = intval( $prodVendido->cantidadComprada);
       $detboleta->precio_compra = $p->precio_compra;
       $detboleta->precio_venta = $p->precioVentaFinal;
       $detboleta->save();

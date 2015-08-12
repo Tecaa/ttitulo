@@ -102,12 +102,11 @@ class ProductoController extends BaseController {
     //$producto->precio_compra = Input::get('precio_compra');
     
     if (Input::file('imagen') != null) {
-    $producto->imagen = base64_encode(file_get_contents(Input::file('imagen')));
+      $producto->imagen = base64_encode(Image::make(Input::file('imagen'))->resize(336, 387)->encode('jpg', 100));
     }
     else      
       $producto->imagen = null;
       
-    //$producto->imagen = base64_encode(file_get_contents(Input::file('imagen')->resize(510, 588)));
     $producto->save();
     
     if (Input::get('idsCategorias') != null)
