@@ -240,7 +240,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="testimoni-icon"><i class="fa fa-quote-left"></i></div>
-					<h3>¿Por qué comprar en Joyas Marlene?</h3>
+					<h3>¿Por qué comprar en Joyas Sagitario?</h3>
 				</div>
 			</div>
 			<div class="row">

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="description" content="dodolan manuk responsive catalog themes built with twitter bootstrap">
-    <meta name="keywords" content="responsive, catalog, cart, themes, twitter bootstrap, bootstrap">
-    <meta name="author" content="afriq yasin ramadhan">
+    <meta name="description" content="Tienda online de joyas ubicada en La Calera">
+    <meta name="keywords" content="joyas, joyeria, joyería, calera, la calera, sagitario, sagitario joyas, joyas sagitario, quillota, la cruz, joyas online, joyeria online, joyas v region, joyeria v region, anillo, anillos, pendiente, pendientes, oro, plata, acero, acero quirurgico, acero quirúrgico, bañado en oro, bañado en plata, anillos de compromiso, regalos mujer, cadenas">
+    <meta name="author" content="">
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
-    <title>{{$titulo}} - Joyas Masiel</title>
+    <title>{{$titulo}} - Joyas Sagitario</title>
 
     <!-- Bootstrap core CSS -->
     {{ HTML::style('css/bootstrap.min.css') }}
@@ -35,7 +35,7 @@
         <div class="row">
           <div class="col-md-12">
             <ol class="breadcrumb">
-              <li><a href="#">Inicio</a></li>
+              <li><a href="/">Inicio</a></li>
               <li class="active">{{ $titulo}}</li>
             </ol>
           </div>

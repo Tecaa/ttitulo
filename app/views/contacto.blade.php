@@ -13,8 +13,8 @@
 
         
     <ul class="list-unstyled social-icon">
-      <li><a href="http://www.facebook.com/JoyasMasiel" rel="tooltip" title="Facebook" class="icon-facebook">
-        <span><i class="fa fa-facebook-square"></i> /JoyasMasiel</span></a></li>
+      <li><a href="http://www.facebook.com/JoyasSagitario" rel="tooltip" title="Facebook" class="icon-facebook">
+        <span><i class="fa fa-facebook-square"></i> /JoyasSagitario</span></a></li>
       <li><span><i class="fa fa-whatsapp"></i> +56 912345678</span></li>
     </ul>
         

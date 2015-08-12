@@ -3,14 +3,14 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h3>Joyas Marlene</h3>
+        <h3>Joyas Sagitario</h3>
         <p>Tienda online de joyas - La Calera</p>
 
         <ul class="list-unstyled social-icon">
-          <li><a href="http://www.facebook.com/JoyasMarlene" rel="tooltip" title="Facebook" class="icon-facebook"><span><i class="fa fa-facebook-square"></i></span></a></li>
+          <li><a href="http://www.facebook.com/JoyasSagitario" rel="tooltip" title="Facebook" class="icon-facebook"><span><i class="fa fa-facebook-square"></i></span></a></li>
           <li><a href="/contacto" rel="tooltip" title="Whatsapp +56 912345678" class="icon-whatsapp"><span><i class="fa fa-whatsapp"></i></span></a></li>
         </ul>
-        <div class="fb-facepile" data-href="https://www.facebook.com/JoyasMarlene" data-max-rows="1" data-colorscheme="light" data-size="medium" data-show-count="true"></div>
+        <div class="fb-facepile" data-href="https://www.facebook.com/JoyasSagitario" data-max-rows="1" data-colorscheme="light" data-size="medium" data-show-count="true"></div>
         <div class="sitemap">
           <ul>
             <li><a href="/">INICIO</a></li>
