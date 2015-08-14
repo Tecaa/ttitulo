@@ -65,7 +65,7 @@
 				<div class="col-md-12">
 					<div class="heading-title">
 						<h2>Características</h2>
-						<p>En Joyas Marelene podrá encontrar lo siguiente. </p>
+						<p>En Joyas Sagitario podrá encontrar lo siguiente. </p>
 					</div>
 				</div>
 			</div>
