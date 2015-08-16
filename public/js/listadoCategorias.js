@@ -11,7 +11,7 @@ $(document).ready(function() {
             + " <a class='btn btn-danger' data-cod-categoria=" + data.cod_categoria + " onclick='eliminarCategoria(this)'" +
               "><i class='glyphicon glyphicon-remove icon-white'></i></a>";
           },
-          targets: [ 2 ]
+          targets: [ 3 ]
         }
       ];
   }
@@ -24,7 +24,8 @@ $(document).ready(function() {
     data: categorias, 
       columns: [
             { "data": "cod_categoria" },
-            { "data": "nom_categoria" }
+            { "data": "nom_categoria" },
+        { "data": "tipo" }
         ],
     
     columnDefs: column

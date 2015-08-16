@@ -8,13 +8,17 @@
       <form class="form-horizontal" role="form" method="post" action="/categorias/editando/{{$categoria->cod_categoria}}">
 
         <hr>
-        <div class="form-group">
-          <label class="col-sm-5 control-label">Código categoría</label>
+    
+         <div class="form-group">
+          <label class="col-sm-5 control-label">Tipo de categoría (*)</label>
           <div class="col-sm-7">
-            <input type="text" class="form-control" placeholder="Codigo : " value="{{$categoria->cod_categoria}}" disabled>
+            <select class="form-control" name="tipo" required>
+              <option value="material" @if ($categoria->tipo == "material") selected @endif >Material</option>
+              <option value="accesorio" @if ($categoria->tipo == "accesorio") selected @endif >Accesorio</option>
+            </select>
           </div>
         </div>
-
+        
         <div class="form-group">
           <label class="col-sm-5 control-label">Nombre categoría  (*)</label>
           <div class="col-sm-7">

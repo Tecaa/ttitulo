@@ -21,6 +21,16 @@
           </div>
         </div>
 
+         <div class="form-group">
+          <label class="col-sm-5 control-label">Tipo de categoría (*)</label>
+          <div class="col-sm-7">
+            <select class="form-control" name="tipo" required>
+              <option value="material">Material</option>
+              <option value="accesorio">Accesorio</option>
+            </select>
+          </div>
+        </div>
+
         <div class="form-group">
           <label class="col-sm-5 control-label">Descripción  </label>
           <div class="col-sm-7">

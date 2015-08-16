@@ -15,6 +15,7 @@ class CategoriasController extends BaseController {
     $categoria = new Categoria();
     $categoria->nom_categoria = Input::get('nombre');
     $categoria->descripcion = Input::get('descripcion');
+    $categoria->tipo = Input::get('tipo');
     
     $categoria->save();
     
@@ -38,8 +39,8 @@ class CategoriasController extends BaseController {
     $categoria = Categoria::find($cod_categoria);
     $categoria->nom_categoria = Input::get('nombre');
     $categoria->descripcion = Input::get('descripcion');
-    
-      $categoria->save();
+    $categoria->tipo = Input::get('tipo');
+    $categoria->save();
     
     return Redirect::to('/listado/categorias');
   }

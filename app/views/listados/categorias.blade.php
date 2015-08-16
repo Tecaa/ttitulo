@@ -14,6 +14,7 @@
       <thead align="center">
         <th>Código</th>
         <th>Nombre Categoría</th>
+        <th>Tipo</th>
           @if(Auth::user()->tipo_usuario == "administrador")
         <th>Acciones</th>
         @endif
