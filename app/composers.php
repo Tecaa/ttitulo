@@ -1,7 +1,11 @@
 <?php
 
 View::composer('compartidos.navbar', function($view) {
-    $view->with('categorias', Categoria::orderBy("nom_categoria")->get());
+    $view->with('categoriasM', Categoria::where('tipo', 'material')->orderBy("nom_categoria")->get());
+});
+
+View::composer('compartidos.navbar', function($view) {
+    $view->with('categoriasA', Categoria::where('tipo', 'accesorio')->orderBy("nom_categoria")->get());
 });
 
 View::composer('compartidos.vendedorMenu', function($view) {
