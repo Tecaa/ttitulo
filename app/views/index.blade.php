@@ -84,8 +84,8 @@
 						<div class="featured-photos">
 							<i class="fa fa-heart-o"></i>
 						</div>
-						<h3>Garantía de devolución</h3>
-						<p>Si en el momento de su entrega su producto no lo deja conforme puede devolverlo inmediatamente.</p>
+						<h3>Buena atención</h3>
+						<p>Atención rápida y amigable para hacer de sus compras una experiencia agradable.</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4">
@@ -93,8 +93,8 @@
 						<div class="featured-photos">
 							<i class="fa fa-flag"></i>
 						</div>
-						<h3>Buena atención</h3>
-						<p>Atención rápida y amigable para hacer de sus compras una experiencia agradable.</p>
+						<h3>Revisa nuestro catálogo</h3>
+						<p>¡Contamos con una variedad de joyas que cada día se amplía más y más!</p>
 					</div>
 				</div>
 			</div>
@@ -248,11 +248,11 @@
 					<div id="testi" class="carousel slide" data-ride="carousel">
 				      <div class="carousel-inner">
 				        <div class="item active">
-				           <p class="testimoni-item"> Su sistema de compra es bastante confiable y con políticas de devolución que lo dejarán agradado.</p>
+				           <p class="testimoni-item"> Sistema de compra claro y confiable, los pagos de internet se hacen por transferencias bancarias de la página de los propios bancos.</p>
 							<h4>&#8212; Confianza &#8212;</h4>
 				        </div>
 				        <div class="item">
-				           <p class="testimoni-item"> Puedes ver los productos online en vistas de 360 grados y además puedes dimensionar su tamaño en una imagen con una modelo</p>
+				           <p class="testimoni-item"> Puedes ver los productos online y consultar cualquier contactándonos</p>
 							<h4>&#8212; Transparencia &#8212;</h4>
 				        </div>
 				        <div class="item">
