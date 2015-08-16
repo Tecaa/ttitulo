@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav nav-left">
         <li class="{{HTML::isActive('/')}}"><a href="/">Inicio</a></li>
-        <li class="{{HTML::isActive('quienesSomos')}}"><a href="/quienesSomos">Quienes somos</a></li>
+        <li class="{{HTML::isActive('quienesSomos')}}"><a href="/quienesSomos">¿Cómo comprar?</a></li>
         <li class="{{HTML::isActive('contacto')}}"><a href="/contacto">Contacto</a></li>
       </ul>
       <a href="#" class="logo visible-lg visible-md">{{ HTML::image("img/logo.jpg", "Logo") }}</a>
