@@ -35,6 +35,7 @@ class ListadoController extends BaseController {
     View::share('titulo', "Lista de Productos");
     $this->layout->content = View::make('listados.productos');
   $productos = Producto::where('activo', '=', true)->where("uso_interno", false)->where("cantidad", ">", 0)->with('proveedor')->get();
+    //patch imagen in productos
     foreach($productos as $p)
       {
       $p->imagen = null;
