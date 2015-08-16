@@ -34,9 +34,13 @@ class ListadoController extends BaseController {
   public function productos(){
     View::share('titulo', "Lista de Productos");
     $this->layout->content = View::make('listados.productos');
-
+  $productos = Producto::where('activo', '=', true)->where("uso_interno", false)->where("cantidad", ">", 0)->with('proveedor')->get();
+    foreach($productos as $p)
+      {
+      $p->imagen = null;
+    }
     JavaScript::put([
-      'productos' => Producto::where('activo', '=', true)->where("uso_interno", false)->where("cantidad", ">", 0)->with('proveedor')->get(),
+      'productos' => $productos,
       'tipo_usuario' => Auth::user()->tipo_usuario
     ]);
 

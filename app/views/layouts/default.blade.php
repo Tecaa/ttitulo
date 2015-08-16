@@ -42,6 +42,7 @@
     {{ HTML::script('js/script.js') }}
     {{ HTML::script('js/numberFormater.js') }}
     {{ HTML::script('js/carritoComprasCounter.js') }}
+    {{ HTML::script('js/googleAnalytics.js') }}
     @yield('extra-js')
   </body>
 </html>
