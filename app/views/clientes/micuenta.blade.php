@@ -42,7 +42,7 @@
                     
                     
                     <div class="form-group">
-                        <label class="col-sm-5 control-label">fecha de nacimiento :</label>
+                        <label class="col-sm-5 control-label">Fecha de nacimiento :</label>
                         <label class="col-sm-5 control-label">{{$cliente->FechaNacimientoF}} </label>
                     </div>
                     
@@ -64,7 +64,7 @@
                       </div>
                     </div>
 -->
-                    
+                   
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Teléfono :</label>
                         <label class="col-sm-5 control-label">{{$cliente->fono}} </label>

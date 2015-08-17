@@ -22,16 +22,16 @@
                     </div>
 
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Nombre (*)</label>
+                      <label class="col-sm-5 control-label">Nombre y apellido (*)</label>
                       <div class="col-sm-7">
                         <input type="text" name="nombre" class="form-control" placeholder="Nombre : " value="{{$user->nom_usuario}}" required>
                       </div>
                     </div>
 
                     <div class="form-group">
-                      <label class="col-sm-5 control-label">Dirección (*)</label>
+                      <label class="col-sm-5 control-label">Dirección (Opcional)</label>
                       <div class="col-sm-7">
-                        <input type="text" name="direccion"class="form-control" placeholder="Ej : " value="{{$user->direccion}}" required>
+                        <input type="text" name="direccion"class="form-control" placeholder="Ej : " value="{{$user->direccion}}">
                       </div>
                     </div>
 
@@ -57,7 +57,7 @@
                       <label class="col-sm-5 control-label">Fecha de nacimiento (*)</label>
                       <div class="col-sm-7">
                         <input type="text" id="datepicker" class="form-control" placeholder="DD/MM/AAAA : " value="{{$user->fechaNacimientoF}}" required>
-                        <input type="hidden" name="fnac" id="fnac" required> 
+                        <input type="hidden" name="fnac" id="fnac" value="{{ $user->fecha_nacimiento }}" required> 
                       </div>
                     </div>
                     
@@ -71,6 +71,12 @@
                       </div>
                     </div>
                     
+                    <div class="form-group">
+                      Datos de contacto, por favor rellénelos para poder contactarlo cuando haga sus compras.
+                    </div>
+                    <hr>
+
+
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Teléfono</label>
                       <div class="col-sm-7">

@@ -43,7 +43,7 @@
       @endif
       <span class="pull-right label label-warning">Código # {{$producto->codigo_barras}}</span>
       @if($producto->contenido != null)
-      <p>Tamaño: {{$producto->contenido}}</p>
+      <p>Tamaño: {{$producto->contenido}} (Sistema americano)</p>
       @endif
       <p>{{$producto->descripcion}}</p>
       @if($producto->ingredientes != null)

@@ -34,10 +34,7 @@ class HomeController extends BaseController {
   } 
   
   public function quienesSomos(){
-    View::share('titulo', "
-    
-    
-    Quienes somos");
+    View::share('titulo', "Quienes somos");
     $this->layout->content = View::make('quienesSomos');
   }
   
@@ -119,6 +116,7 @@ class HomeController extends BaseController {
     return Redirect::to('/');
   }
   
+  
   public function logeando()
   {
     
@@ -157,6 +155,11 @@ class HomeController extends BaseController {
       return Redirect::back()->withErrors($error)->withInput(Input::except('pass')); // redirect back to the login page, using ->withErrors($errors) you send the error created above
   
     }
+  }
+  //Deshabilitar google analytics
+  public function dga()
+  {
+    return View::make('disableGoogleAnalytics');
   }
   
 }

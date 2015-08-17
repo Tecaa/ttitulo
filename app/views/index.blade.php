@@ -252,11 +252,11 @@
 							<h4>&#8212; Confianza &#8212;</h4>
 				        </div>
 				        <div class="item">
-				           <p class="testimoni-item"> Puedes ver los productos online y consultar cualquier contactándonos</p>
+				           <p class="testimoni-item"> Puedes ver los productos online y consultar cualquier cosa contactándonos</p>
 							<h4>&#8212; Transparencia &#8212;</h4>
 				        </div>
 				        <div class="item">
-				           <p class="testimoni-item"> Tenemos buena disponibilidad pudiendonos contactar en los distintos medios de hoy en día. Revisa la sección Contacto del panel superior para más información.</p>
+				           <p class="testimoni-item"> Tenemos buena disponibilidad. Nos puedes contactar por los distintos medios de hoy en día. Revisa la sección Contacto del panel superior para más información.</p>
 							<h4>&#8212; Buena comunicación &#8212;</h4>
 				        </div>
 				      </div>

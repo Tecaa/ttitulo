@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-          <label class="col-sm-5 control-label">Nombre (*)</label>
+          <label class="col-sm-5 control-label">Nombre y apellido(*)</label>
           <div class="col-sm-7">
             <input type="text" name="nombre" class="form-control" placeholder="Ej.: Nombre Apellido " required>
           </div>
@@ -46,16 +46,16 @@
         </div>
 
         <div class="form-group">
-          <label class="col-sm-5 control-label">Dirección (*)</label>
+          <label class="col-sm-5 control-label">Dirección (Opcional)</label>
           <div class="col-sm-7">
-            <input type="text" name="direccion" class="form-control" placeholder="Ej.: Los Maitenes 1400 " required>
+            <input type="text" name="direccion" class="form-control" placeholder="Ej.: Los Maitenes 1400 ">
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-sm-5 control-label">Ciudad (*)</label>
           <div class="col-sm-7">
-            <select class="form-control" name="ciudad" required>
+            <select class="form-control" name="ciudad">
               @foreach ($ciudad as $cdd)
               <option value="{{ $cdd->cod_ciudad }}">{{ $cdd->nom_ciudad}}</option>
               @endforeach
@@ -83,7 +83,12 @@
         </div>
 
         <div class="form-group">
-          <label class="col-sm-5 control-label">Teléfono (*)</label>
+        Datos de contacto, por favor rellénelos para poder contactarlo cuando haga sus compras.
+        </div>
+        <hr>
+        
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Teléfono contacto(*)</label>
           <div class="col-sm-7">
             <input type="number" name="fono" class="form-control" placeholder="Ej.: 90909090 " required>
           </div>
