@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                   <div class="carousel-content">
                     <h2 class="animated fadeInUpBig text-center text-black">Bienvenidos</h2>
-                      <p class="animated rollIn text-black text-center"><span class="text900">Le invitamos a conocer nuestras variedades en joyas</span> </p>  
+                      <p class="animated rollIn text-black text-center"><span class="text900">Le invitamos a conocer nuestras variedades en joyas. ¡Regístrese en la sección Mi Cuenta para hacer sus pedidos!</span> </p>  
                   </div>
                 </div> 
               </div>
