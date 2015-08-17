@@ -115,7 +115,9 @@ class ProductoController extends BaseController {
     
     if (Input::file('imagen') != null) {
       $producto->imagen = base64_encode(Image::make(Input::file('imagen'))->resize(336, 387)->encode('jpg', 100));
-      $producto->imagen_low = base64_encode(Image::make(Input::file('imagen'))->resize(336, 387)->encode('gif', 100));
+      $producto->imagen_low = base64_encode(Image::make(Input::file('imagen'))->resize(236, null, function ($constraint) {
+        $constraint->aspectRatio();
+      })->encode('gif'));
     }
     else      
       $producto->imagen = null;
@@ -195,7 +197,9 @@ class ProductoController extends BaseController {
     {
       //$producto->imagen = base64_encode(file_get_contents(Input::file('imagen')));
       $producto->imagen = base64_encode(Image::make(Input::file('imagen'))->resize(336, 387)->encode('jpg', 100));
-      $producto->imagen_low = base64_encode(Image::make(Input::file('imagen'))->resize(336, 387)->encode('gif', 100));
+      $producto->imagen_low = base64_encode(Image::make(Input::file('imagen'))->resize(236, null, function ($constraint) {
+        $constraint->aspectRatio();
+      })->encode('gif'));
     }
     $producto->save();
     
