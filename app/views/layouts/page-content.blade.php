@@ -7,7 +7,7 @@
     <meta name="description" content="Tienda online de joyas ubicada en La Calera">
     <meta name="keywords" content="joyas, joyeria, joyería, calera, la calera, sagitario, sagitario joyas, joyas sagitario, quillota, la cruz, joyas online, joyeria online, joyas v region, joyeria v region, anillo, anillos, pendiente, pendientes, oro, plata, acero, acero quirurgico, acero quirúrgico, bañado en oro, bañado en plata, anillos de compromiso, regalos mujer, cadenas">
     <meta name="author" content="">
-    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" type="image/x-icon">
 
     <title>{{$titulo}} - Joyas Sagitario</title>
     

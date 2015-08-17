@@ -8,7 +8,7 @@
 
         <ul class="list-unstyled social-icon">
           <li><a href="http://www.facebook.com/JoyasSagitario" rel="tooltip" title="Facebook" class="icon-facebook"><span><i class="fa fa-facebook-square"></i></span></a></li>
-          <li><a href="/contacto" rel="tooltip" title="Whatsapp +56 912345678" class="icon-whatsapp"><span><i class="fa fa-whatsapp"></i></span></a></li>
+          <li><a href="/contacto" rel="tooltip" title="Whatsapp +56 9 88128407" class="icon-whatsapp"><span><i class="fa fa-whatsapp"></i></span></a></li>
         </ul>
         <div class="fb-facepile" data-href="https://www.facebook.com/JoyasSagitario" data-max-rows="1" data-colorscheme="light" data-size="medium" data-show-count="true"></div>
         <div class="sitemap">
