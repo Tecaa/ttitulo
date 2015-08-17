@@ -23,7 +23,7 @@ Route::get('/producto/consultar/{codigo_producto}', ['uses' => 'ProductoControll
 Route::get('/producto/editar/{codigo_producto}', ['uses' => 'ProductoController@editar', 'before' => 'administrador']);
 Route::get('/producto/encargar/{codigo_producto}', ['uses' => 'ProductoController@encargar', 'before' => 'vendedor']);
 Route::get('/producto/eliminar', ['uses' => 'ProductoController@eliminar', 'before' => 'administrador']);
-//Route::get('/producto/listar', ['uses' => 'ProductoController@listar']);
+Route::get('/producto/ofertas/{page?}', ['uses'=> 'ProductoController@verOfertas']);
 Route::get('/producto/categoria/{codigo_categoria}/{page?}', ['uses' => 'ProductoController@listarCategoria']);
 Route::any('/producto/creando', ['uses' => 'ProductoController@creando', 'before' => 'administrador']);
 Route::post('/producto/obtener', ['uses' => 'ProductoController@obtener']);

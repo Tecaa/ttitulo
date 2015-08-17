@@ -35,6 +35,8 @@
         <li class="dropdown {{HTML::isActive('producto/categoria/*')}} {{HTML::isActive('producto/consultar/*')}}">
           <a href="#" class="dropdown-toggle" href="" data-toggle="dropdown">Productos <b class="caret"></b></a>
           <ul class="dropdown-menu">
+            <li><a href="/producto/ofertas"><strong>Ofertas</strong></a></li>
+            <li class="divider"></li>
             @foreach ($categoriasA as $categoria)
             <li><a href="/producto/categoria/{{ $categoria->cod_categoria }}">{{ $categoria->nom_categoria}}</a></li>
             @endforeach

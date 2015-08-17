@@ -6,7 +6,7 @@ class ProductoController extends BaseController {
 
   public function __construct()
   {
-    if (Request::is("producto/listar") || Request::is("producto/categoria/*"))
+    if (Request::is("producto/listar") || Request::is("producto/categoria/*") || Request::is("producto/ofertas"))
     {
       $this->layout = "layouts.catalogue";
     }
@@ -83,6 +83,18 @@ class ProductoController extends BaseController {
     $categorias = Categoria::get();
     View::share('titulo', "Crear Producto");
     $this->layout->content = View::make('producto.crear')->withLabs($labs)->withCategorias($categorias);
+  }
+  
+   public function verOfertas($page =1){
+    $perPage = 12.0;
+    View::share('titulo', "Ofertas");
+
+    $productos = Producto::where('precio_venta_oferta', '!=', 0)->where('activo', '=', true)->where("cantidad", ">", "encargos")->where("uso_interno", false);
+    $pages = ceil($productos->count() /$perPage);
+
+    $productos = $productos->skip($perPage * ($page-1))->take($perPage)->get();
+
+    $this->layout->content = View::make('producto.ofertas')->withProductos($productos)->withPages($pages)->withPage($page);
   }
   
   public function creando()
