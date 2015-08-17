@@ -27,8 +27,9 @@
   </head>
 
   <body>
-	@include('compartidos.navbar')
-	@include('compartidos.header')
+    @include('compartidos.facebook')
+    @include('compartidos.navbar')
+    @include('compartidos.header')
 	
 	<!-- begin:product -->
 	<div id="catalogue">

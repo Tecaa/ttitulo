@@ -25,7 +25,8 @@
   </head>
 
   <body>
-  @include('compartidos.navbar')
+    @include('compartidos.facebook')
+    @include('compartidos.navbar')
     @include('compartidos.header')
 
 

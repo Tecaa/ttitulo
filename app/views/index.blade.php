@@ -26,7 +26,7 @@
                   <div class="carousel-content">
                   	<h3 class="animated fadeInLeftBig text-left">Inaugurando nueva página</h3>
 					<p class="animated fadeInDownBig text-left">Compruebe las rebajas por la inauguración de nuestra página.<br> ¡Son por poco tiempo!.</p>
-					<a class="btn btn-purple btn-lg animated fadeInRight" href="#">Leer más &raquo;</a>
+					<a class="btn btn-purple btn-lg animated fadeInRight" href="/producto/ofertas">Ver ofertas &raquo;</a>
                   </div>
                 </div>
               </div>

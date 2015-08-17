@@ -25,6 +25,7 @@
   </head>
 
   <body>
+    @include('compartidos.facebook')
     	@include('compartidos.navbar')
 
     @yield('content')

@@ -15,7 +15,7 @@
     <ul class="list-unstyled social-icon">
       <li><a href="http://www.facebook.com/JoyasSagitario" rel="tooltip" title="Facebook" class="icon-facebook">
         <span><i class="fa fa-facebook-square"></i> /JoyasSagitario</span></a></li>
-      <li><span><i class="fa fa-whatsapp"></i> +56 9 88128407</span></li>
+      <li><span><i class="fa fa-whatsapp"></i> +56 9 65066951</span></li>
     </ul>
         
     <div class="row">
