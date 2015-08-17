@@ -126,7 +126,7 @@ class ClientesController extends BaseController {
         break;
     }
 	
-    if ($dv == $rut[strlen($rut)-1])
+    if ($dv == strtoupper($rut[strlen($rut)-1])
       return true;
     else
       return false;
