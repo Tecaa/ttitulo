@@ -11,7 +11,7 @@ class Producto extends Eloquent {
   protected $primaryKey = 'codigo_producto';
   protected $appends = array('precioCompraF', 'precioVentaF', 'precioVentaOfertaF', 'precioVentaFinal', 'precioVentaFinalF', 'cantidadPublico', 'encargadosF');
   
-  protected $hidden = array('imagen');
+  protected $hidden = array('imagen', 'imagen_low');
   public function proveedor()
   {
     return $this->belongsTo('Proveedor', 'cod_proveedor');
