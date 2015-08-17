@@ -361,7 +361,7 @@ class ProductoController extends BaseController {
     $pages = ceil($productos->count() /$perPage);
 
     $productos = $productos->skip($perPage * ($page-1))->take($perPage)->get();
-
+   
     $cat = Categoria::find($codigo_categoria);
     $this->layout->content = View::make('producto.listar')->withProductos($productos)->withCategoria($cat)->withPages($pages)->withPage($page);
   }
