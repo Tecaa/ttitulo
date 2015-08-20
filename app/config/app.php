@@ -40,7 +40,8 @@ return array(
 	|
 	*/
 
-	'timezone' => 'America/Santiago',
+	//'timezone' => 'America/Santiago', Comment out by error in time zone in Chile summer time
+  'timezone' => 'America/Argentina/Buenos_Aires', // share timezone
 
 	/*
 	|--------------------------------------------------------------------------
