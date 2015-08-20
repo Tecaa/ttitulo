@@ -9,6 +9,9 @@ $(document).ready(function() {
   $('#carroTable').DataTable({
     // Lista de productos
     data: compras,
+    language: {
+      "url": "/js/dataTables/Spanish.json"
+    },
     columns: [
       { "data": "codigo_barras" },
             { "data": "nombre_producto" },
