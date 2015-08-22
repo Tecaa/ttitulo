@@ -41,7 +41,7 @@
       @if(Auth::user() && Auth::user()->tipo_usuario == "administrador") 
       <a class='btn btn-warning pull-right' href=/producto/editar/{{$producto->codigo_producto}}> <i class='glyphicon glyphicon-pencil icon-white'></i></a>
       @endif
-      <span class="pull-right label label-warning">Código # {{$producto->codigo_barras}}</span>
+      <span class="pull-right label label-warning"><font size="3">Código # {{$producto->codigo_barras}}</font></span>
       @if($producto->contenido != null)
       <p>Tamaño: {{$producto->contenido}} (Sistema americano)</p>
       @endif
