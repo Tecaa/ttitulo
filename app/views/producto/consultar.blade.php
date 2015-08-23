@@ -72,14 +72,14 @@
 
   </div>
 
-  <div class="rotContainer" id="img360div" draggable="true">
+  <div class="rotContainer" id="img360div">
 
     <div style="{background:white;}">
       <img id="img360" src="{{ asset('img/loading.gif') }}" width="330" height="330" draggable="true">
       </img>
 
   </div>
-  <label>Arrastre la imagen para rotarla</label>
+  <!--<label>Arrastre la imagen para rotarla</label>-->
   </div>
   
 
