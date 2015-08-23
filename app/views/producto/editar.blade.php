@@ -183,9 +183,9 @@
     <div class="carousel-inner">
       <div class="item active">
         @if ($producto->imagen == null)
-        {{ HTML::image("img/manuk.jpg", "Logo") }}
+        {{ HTML::image("img/nodisponible.jpg", "Logo") }}
         @else
-          <img class="img-responsive imagenListada" src='data:image/jpeg;base64,{{ $producto->imagen }}' />
+          <img class="img-responsive imagenListada" src='data:image/jpeg;base64,{{ $producto->imagen_low }}' />
         @endif
       </div>
       <div class="item">

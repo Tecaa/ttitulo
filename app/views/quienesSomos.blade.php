@@ -31,7 +31,7 @@
           
 				</div>
 				<div class="col-md-4 col-sm-4">
-					<img src="img/img01.jpg" class="img-responsive img-rounded" alt="dodolan manuk catalog template">
+					<img src="img/img03.jpg" class="img-responsive img-rounded" alt="dodolan manuk catalog template">
 				</div>
 			</div>
 			
