@@ -11,7 +11,7 @@
           @if($prod->imagen == null)
             {{ HTML::image("img/nodisponible.jpg", "Foto 2", array('class' => 'img-responsive imagenListada'))  }}
           @else
-            <img class="img-responsive imagenListada" src='data:image/jpeg;base64,{{ $prod->imagen }}' />
+            <img class="img-responsive imagenListada" src='data:image/jpeg;base64,{{ $prod->imagen_low }}' />
           @endif
         </a>
         <div class="caption-details">
