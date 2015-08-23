@@ -71,12 +71,15 @@
     </div>
 
   </div>
-  
-  <div class="rotContainer">
+
+  <div class="rotContainer" id="img360div">
+
     <div style="{background:white;}">
       <img id="img360" src="{{ asset('img/loading.gif') }}" width="330" height="330" draggable="true">
       </img>
-    </div>
+
+  </div>
+  <label>Arrastre la imagen para rotarla</label>
   </div>
   
 
@@ -88,28 +91,4 @@
 {{ HTML::script('js/comprarProducto.js') }}
 {{ HTML::script('js/jquery.Threesixty/jquery.threesixty.js') }}
 {{ HTML::script('js/photos360loader.js') }}
-<!--
-<script>
-  var arr = [];
-  $(function() {
-    if (imagen360 == null)
-      return;
-
-    arr.push(imagen360.d0);
-    arr.push(imagen360.d45);
-    arr.push(imagen360.d90);
-    arr.push(imagen360.d135);
-    arr.push(imagen360.d180);
-    arr.push(imagen360.d225);
-    arr.push(imagen360.d270);
-    arr.push(imagen360.d315);
-
-
-    $("#img360").threesixty({images:arr, method:'click', autoscrollspeed:200, 'cycle':3, direction:"backward", base64:true});
-    //$("#click").threesixty({images:arr2, method:'click', 'cycle':1, 'resetMargin': 10});
-    //$("#auto").threesixty({images:arr2, method:'auto', autoscrollspeed:100});
-
-  });
-</script>
--->
 @stop()

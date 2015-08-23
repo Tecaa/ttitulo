@@ -26,7 +26,7 @@ $(document).ready(function() {
     
       })
         .error(function() {
-         $("#img360").hide();
+         $("#img360div").hide();
       });
   
 });
