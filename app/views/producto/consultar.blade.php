@@ -79,7 +79,7 @@
       </img>
 
   </div>
-  <!--<label>Arrastre la imagen para rotarla</label>-->
+  <label>Arrastre la imagen para rotarla</label>
   </div>
   
 
