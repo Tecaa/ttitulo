@@ -20,9 +20,9 @@ $(document).ready(function() {
         {
           data: null,
           render: function ( data, type, row ) {
-            return  " <a class='btn btn-warning' href=/cliente/editar/" + data.rut +
+            return  " <a class='btn btn-warning' href=/cliente/editar/" + data.usuario_id +
               "><i class='glyphicon glyphicon-pencil icon-white'></i></a>"
-            + " <a class='btn btn-danger' data-rut=" + data.rut + " onclick='eliminarCliente(this)'" + "><i class='glyphicon glyphicon-remove icon-white'></i></a>";
+            + " <a class='btn btn-danger' data-usuario_id=" + data.usuario_id + " onclick='eliminarCliente(this)'" + "><i class='glyphicon glyphicon-remove icon-white'></i></a>";
 
           },
           targets: [ 8 ]
@@ -32,7 +32,7 @@ $(document).ready(function() {
 } );
 
 var eliminarCliente = function (e){
-    var rut = e.dataset.rut;
+    var usuario_id = e.dataset.usuario_id;
     BootstrapDialog.show({
           type: BootstrapDialog.TYPE_DANGER,
           title: 'Confirmación',
@@ -49,7 +49,7 @@ var eliminarCliente = function (e){
               label: 'Aceptar',
               cssClass: 'btn-primary',
               action: function(dialogRef){
-                window.location.assign("/cliente/eliminando/" + rut)
+                window.location.assign("/cliente/eliminando/" + usuario_id)
               }
             }
           ]

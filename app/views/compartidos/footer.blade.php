@@ -10,7 +10,8 @@
           <li><a href="http://www.facebook.com/JoyasSagitario" rel="tooltip" title="Facebook" class="icon-facebook"><span><i class="fa fa-facebook-square"></i></span></a></li>
           <li><a href="/contacto" rel="tooltip" title="Whatsapp +56 9 65066951" class="icon-whatsapp"><span><i class="fa fa-whatsapp"></i></span></a></li>
         </ul>
-        <div class="fb-facepile" data-href="https://www.facebook.com/JoyasSagitario" data-max-rows="1" data-colorscheme="light" data-size="medium" data-show-count="true"></div>
+        <div class="fb-page" data-href="https://www.facebook.com/JoyasSagitario" data-width="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/JoyasSagitario"><a href="https://www.facebook.com/JoyasSagitario">Joyas Sagitario</a></blockquote></div></div>
+        </div>
         <div class="sitemap">
           <ul>
             <li><a href="/">INICIO</a></li>

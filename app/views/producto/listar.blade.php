@@ -1,3 +1,6 @@
+@section('extra-css')
+  {{ HTML::style('css/listarProductos.css') }}
+@stop()
 @section('content')
 <div class="col-md-12">
   <h2>{{ $categoria->nom_categoria}}</h2>
@@ -61,6 +64,3 @@
 </div>
 @stop
 
-@section('extra-css')
-  {{ HTML::style('css/listarProductos.css') }}
-@stop()

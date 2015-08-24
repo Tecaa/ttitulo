@@ -20,7 +20,7 @@ class BoletaController extends BaseController {
     $productos = json_decode(Input::get('productos'));
 
     $documento = new Documento();
-    $documento->rut = Auth::user()->rut;
+    $documento->vendedor_id = Auth::user()->usuario_id;
     $documento->tipo_documento = 'boleta';
 
     $total = 0;
@@ -52,7 +52,7 @@ class BoletaController extends BaseController {
     $boleta = new Boleta();
     $boleta->cod_documento = $documento->cod_documento;
     if (Input::get('rutCliente') != "")
-      $boleta->rut = Input::get('rutCliente');
+      $boleta->rut_cliente = Input::get('rutCliente');
     $boleta->save();
 
 
@@ -119,7 +119,7 @@ class BoletaController extends BaseController {
     $boleta->cod_documento = $documento->cod_documento;
     $boleta->metodo_nombre = $metodo->nombre;
     $boleta->metodo_costo = $metodo->costo;
-    $boleta->rut = Auth::user()->rut;
+    $boleta->rut_cliente = Auth::user()->rut;
     $boleta->save();
 
     foreach ($productos as $prodVendido)

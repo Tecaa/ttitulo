@@ -112,6 +112,7 @@ class HomeController extends BaseController {
   
   public function logout(){
     View::share('titulo', "Logout");
+    //$this->layout->content = View::make('logout');
     Auth::logout();
     return Redirect::to('/');
   }
@@ -126,7 +127,7 @@ class HomeController extends BaseController {
       'password'=> Input::get('pass'),
     );
     
-    if(Usuario::find($userdata["rut"]) && !Usuario::find($userdata["rut"])->activo)
+    if(Usuario::where('rut', $userdata["rut"])->first() && !Usuario::where('rut', $userdata["rut"])->first()->activo)
       {
       $error = "No tienes permiso para entrar al sistema.";
       return Redirect::back()->withErrors($error)->withInput(Input::except('pass')); // redirect back to the login page, using ->withErrors($errors) you send the error created above
@@ -154,6 +155,92 @@ class HomeController extends BaseController {
        $error = "Combinación de rut y contraseña inválido.";
       return Redirect::back()->withErrors($error)->withInput(Input::except('pass')); // redirect back to the login page, using ->withErrors($errors) you send the error created above
   
+    }
+  }
+  public function fb_logeando()
+  {
+    $usuario = Usuario::where('fb_id', Input::get("id"));
+    if($usuario->count() > 0 )
+    {
+      if ($usuario->first()->activo)
+      {
+        //se logea en el sistema
+        Auth::login($usuario->first());
+        return 'true';
+      }
+      else
+      {
+        $error = "No tienes permiso para entrar al sistema.";
+        //TODO: fb logout
+        return Redirect::back()->withErrors($error)->withInput(Input::except('pass')); 
+      }
+    }
+    else
+    {
+      $usuario = Usuario::where('mail', Input::get('email'));
+      if (Input::get('email') != null && $usuario->count() >0)
+      {
+        $usuario = $usuario->first();
+        if($usuario->activo)
+        {
+          //registro fb
+          $usuario->fb_id = Input::get('id');
+          //logeo
+          //se logea en el sistema
+          Auth::login($usuario);
+          
+          return 'true';
+        }
+        else
+        {
+          $error = "No tienes permiso para entrar al sistema.";
+          //TODO: fb logout
+          return Redirect::back()->withErrors($error)->withInput(Input::except('pass')); 
+        }
+      }
+      else
+      {
+        
+        /*
+        //Validation rules
+        $rules = array (
+          //'rut' => 'required|unique:usuario,rut',
+          'nombre' => 'required|alpha_spaces',
+          //'pass' => 'required|min:4',
+          //'direccion' => 'min:5',
+          'fechaDeNacimiento' => 'required',
+          'sexo' => 'required',
+          'email' => 'required|email|unique:usuario,mail',
+          'fono' => 'required|numeric'
+        );
+*/
+        //Validate data
+        //      $validator  = Validator::make ($data, $rules);
+
+        //If everything is correct than run passes.
+        //    if ($validator -> passes()){
+
+        //  if ($this->validarRut(Input::get('rut')))
+        //{
+        $cliente = new Usuario();
+        $cliente->nom_usuario = Input::get('nombre');
+        //$cliente->contrasena = Hash::make(Input::get('pass'));
+        //$cliente->direccion = Input::get('direccion');
+        $cliente->fecha_nacimiento = Input::get('fechaDeNacimiento');
+        $cliente->fb_id = Input::get('id');
+        //$cliente->cod_ciudad = Input::get('ciudad');
+        $cliente->sexo = Input::get('sexo');
+        $cliente->mail = Input::get('email');
+        $cliente->tipo_usuario = 'cliente';  
+        $cliente->activo = 1;
+        $cliente->save();
+        
+
+        Auth::login($cliente);
+        
+        return 'true';
+        
+      }
     }
   }
   //Deshabilitar google analytics

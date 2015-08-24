@@ -5,7 +5,7 @@
 | Application Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register all of the routes for an application.
+| Here is where you can register alta/ol of the routes for an application.
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the Closure to execute when that URI is requested.
 |
@@ -13,9 +13,10 @@
 
 
 Route::get('/', ['uses' => 'HomeController@index']);
-Route::get('/cuenta/login', ['uses' => 'HomeController@login']);
+Route::get('/cuenta/login', ['uses' => 'HomeController@login', 'before' => 'guest']);
 Route::get('/logout', ['uses' => 'HomeController@logout', 'before' => 'auth']);
 Route::post('/logeando', ['uses' => 'HomeController@logeando']);
+Route::post('/fb_logeando', ['uses' => 'HomeController@fb_logeando']);
 Route::get('/dga', ['uses' => 'HomeController@dga', 'before' => 'vendedor']);
 
 
@@ -103,10 +104,10 @@ Route::get('/cliente/registrarse', ['uses' => 'ClientesController@registrar']);
 Route::any('/cliente/creando', ['uses' => 'ClientesController@creando', 'before' => 'vendedor']);
 Route::any('/cliente/registrando', ['uses' => 'ClientesController@registrando']);
 Route::get('/cliente/consultar', ['uses' => 'ClientesController@consultar']);
-Route::get('/cliente/editar/{rut}', ['uses' => 'ClientesController@editar']);
-Route::any('/cliente/editando/{rut}', ['uses' => 'ClientesController@editando']);
+Route::get('/cliente/editar/{usuario_id}', ['uses' => 'ClientesController@editar']);
+Route::any('/cliente/editando/{usuario_id}', ['uses' => 'ClientesController@editando']);
 Route::get('/cliente/eliminar', ['uses' => 'ClientesController@eliminar', 'before' => 'vendedor']);
-Route::any('/cliente/eliminando/{rut}', ['uses' => 'ClientesController@eliminando', 'before' => 'vendedor']);
+Route::any('/cliente/eliminando/{usuario_id}', ['uses' => 'ClientesController@eliminando', 'before' => 'vendedor']);
 
 Route::get('/micuenta', ['uses' => 'ClientesController@micuenta']);
 Route::get('/micuenta/modificar', ['uses' => 'ClientesController@modificar']);

@@ -35,7 +35,7 @@ class VendedoresController extends BaseController {
   
   public function editar($rut){
     $ciudad = Ciudad::get();
-    $vendedor = Usuario::find($rut);
+    $vendedor = Usuario::where('rut', $rut)->first();
     View::share('titulo', "Editar Vendedor");
     $this->layout->content = View::make('vendedores.editar')->withCiudad($ciudad)->withVendedor($vendedor);
   }
@@ -43,7 +43,7 @@ class VendedoresController extends BaseController {
   public function editando($rut)
   {
     View::share('titulo', "Editando Vendedor");
-    $vendedor = Usuario::find($rut);
+    $vendedor = Usuario::where('rut', $rut)->first());
   //  $vendedor->rut = Input::get('rut');
     $vendedor->nom_usuario = Input::get('nombre');
    // $vendedor->contrasena = Hash::make(Input::get('pass'));
@@ -66,7 +66,7 @@ class VendedoresController extends BaseController {
   
   public function eliminando($rut){
     View::share('titulo', "Eliminar Vendedor");
-    $vendedor = Usuario::find($rut);
+    $vendedor = Usuario::where('rut', $rut)->first();
     $vendedor -> activo = false; 
     $vendedor->save();
     return Redirect::to('/listado/vendedores');
@@ -75,7 +75,7 @@ class VendedoresController extends BaseController {
 
     public function activando($rut){
     View::share('titulo', "Activar Vendedor");
-    $vendedor = Usuario::find($rut);
+    $vendedor = Usuario::where('rut', $rut)->first();
     $vendedor->activo = true;
     $vendedor->save();
     return Redirect::to('/listado/vendedores');

@@ -17,11 +17,11 @@ public function producto()
   }
   public function cliente()
   {
-    return $this->belongsTo('Usuario', 'rut');
+    return $this->belongsTo('Usuario', 'rut_cliente', 'rut');
   }
   public function vendedor()
   {
-    return $this->belongsTo('Usuario', 'rut_vendedor');
+    return $this->belongsTo('Usuario', 'vendedor_id', 'usuario_id');
   }
   public function boleta()
   {

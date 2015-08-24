@@ -26,7 +26,7 @@
         <div class="form-group">
           <label class="col-sm-5 control-label">Rut Cliente </label>
           <div class="col-sm-7">
-            <input type="text" name="rutCliente" class="form-control" value="{{$documento->boleta->rut}}" readonly>
+            <input type="text" name="rutCliente" class="form-control" value="{{$documento->boleta->rut_cliente}}" readonly>
           </div>
         </div>
         

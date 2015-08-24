@@ -16,7 +16,7 @@ class FacturaController extends BaseController {
     $productos = json_decode(Input::get('productos'));
 
     $documento = new Documento();
-    $documento->rut = Auth::user()->rut;
+    $documento->vendedor_id = Auth::user()->usuario_id;
     $documento->tipo_documento = 'factura';
 
     $total = 0;

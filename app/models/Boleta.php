@@ -22,7 +22,7 @@ class Boleta extends Eloquent {
   }*/
   public function cliente()
   {
-      return $this->belongsTo('Usuario', 'rut');  
+      return $this->belongsTo('Usuario', 'rut_cliente', 'rut');  
   }
 
   public function getMetodoCostoFAttribute()

@@ -16,6 +16,6 @@ class Ajuste extends Eloquent {
   }
   public function usuario()
   {
-    return $this->belongsTo('Usuario', 'rut');
+    return $this->belongsTo('Usuario', 'usuario_id');
   }
 }

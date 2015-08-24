@@ -27,6 +27,10 @@
                   <form class="form-horizontal" role="form" action="/logeando" method="POST">
 
                     <hr>
+                    Inicia sesión con tu cuenta de Facebook sin necesidad de registrarte.
+                    <!--<div class="fb-login-button" data-scope="public_profile,email" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="false" onlogin="checkLoginState();"></div>-->
+                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="false"></fb:login-button>
+                  <hr>
                      @if (Session::get("message"))
                     <div class="alert alert-success">
                       {{ Session::get("message") }}
@@ -52,14 +56,13 @@
                         <input type="password" name="pass" class="form-control" placehlsolder="***** " required>
                       </div>
                     </div>
-                  
                      
                     <div class="form-group">
                       <div class="col-sm-offset-3 col-sm-10">
                         <div class="pull-right">
                           
                         <button type="submit" class="btn btn-purple">Ingresar</button>
-                               
+                        
                         </div>  
                       </div>
                     </div>

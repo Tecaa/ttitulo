@@ -6,17 +6,27 @@ $(document).ready(function() {
     data: encargos, 
     columns: [
       { "data": "cod_encargo" },
-      { "data": "rut" },
+      { "data": null },
       { "data": "nombre_cliente" },
       { "data": "fechaEncargoF" },
       { "data": "estado_encargo" },
       { "data": "monto_abonado" },
       { "data": "producto.codigo_barras" },
       { "data": "cantidad" },
-      { "data": "rut_vendedor" },
+      { "data": "vendedor.rut" },
     ],
 
     columnDefs: [
+      {
+        data: null,
+        render: function ( data, type, row ) {
+          if (data.rut_cliente != null)
+            return data.rut_cliente;
+          else
+            return "";
+        },
+        targets: [ 1 ]
+      },
       {
         data: null,
         render: function ( data, type, row ) {

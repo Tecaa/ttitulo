@@ -44,6 +44,18 @@
     {{ HTML::script('js/numberFormater.js') }}
     {{ HTML::script('js/carritoComprasCounter.js') }}
     {{ HTML::script('js/googleAnalytics.js') }}
+    
+    
     @yield('extra-js')
+    <script>
+      if (typeof FB !== 'undefined') 
+      {
+        $(document).ready(function (){
+          FB.getLoginStatus(function(response) {
+            loadingPageLoginCallback(response);
+          });
+        });
+      }
+    </script>
   </body>
 </html>

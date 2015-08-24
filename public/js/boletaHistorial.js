@@ -26,7 +26,7 @@ $(document).ready(function() {
       {
         data: null,
         render: function ( data, type, row ) {
-          return  (data.boleta.rut != null) ? data.boleta.rut : '';
+          return  (data.boleta.rut_cliente != null) ? data.boleta.rut_cliente : '';
 
         },
         targets: [ 3 ]

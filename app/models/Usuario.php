@@ -15,7 +15,7 @@ class Usuario extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
   protected $table = 'usuario';
-  protected $primaryKey = 'rut';
+  protected $primaryKey = 'usuario_id';
     protected $appends = array('edad', 'fechaNacimientoF');
 
   public function ciudad()
@@ -24,11 +24,11 @@ class Usuario extends Eloquent implements UserInterface, RemindableInterface {
   }
   public function boleta()
     {
-    return $this->hasMany("Boleta", 'rut');
+    return $this->hasMany("Boleta", 'cliente_rut', 'rut');
   }
   public function ajustes()
     {
-    return $this->hasMany("Ajuste", 'rut');
+    return $this->hasMany("Ajuste", 'usuario_id');
   }
   
   protected $hidden = array('contrasena');
@@ -36,6 +36,11 @@ class Usuario extends Eloquent implements UserInterface, RemindableInterface {
   public function getAuthPassword() {
     return $this->contrasena;
   }
+  /*
+  public function getAuthIdentifier()
+    {
+    return $this->usuario_id;
+  }*/
 
   public function getEdadAttribute()
   { 

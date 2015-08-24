@@ -84,7 +84,7 @@
         </li>
 
         @else
-        <li><a href="/logout">Cerrar sesión</a></li>
+        <li><a onclick="fb_logout();" href="#">Cerrar sesión</a></li>
         @endunless
 
 

@@ -7,7 +7,7 @@ $(document).ready(function() {
     columns: [
       { "data": "cod_documento" },
       { "data": null },
-      { "data": "boleta.rut" },
+      { "data": "boleta.rut_cliente" },
       { "data": "boleta.cliente.nom_usuario" },
       { "data": "cantidad_total" },
       { "data": "precio_total" }

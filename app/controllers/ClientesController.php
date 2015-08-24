@@ -132,17 +132,17 @@ class ClientesController extends BaseController {
   }
   
  
-  public function editar($rut){
+  public function editar($usuario_id){
     $ciudad = Ciudad::get();
-    $cliente = Usuario::find($rut);
+    $cliente = Usuario::find($usuario_id);
     View::share('titulo', "Editar Cliente");
     $this->layout->content = View::make('clientes.editar')->withCiudad($ciudad)->withCliente($cliente);
   }
   
-  public function editando($rut)
+  public function editando($usuario_id)
   {
     View::share('titulo', "Editando Cliente");
-    $cliente = Usuario::find($rut);
+    $cliente = Usuario::find($usuario_id);
     //$cliente->rut = Input::get('rut');
     $cliente->nom_usuario = Input::get('nombre');
    // $cliente->contrasena = Hash::make(Input::get('pass'));
@@ -163,9 +163,9 @@ class ClientesController extends BaseController {
      $this->layout->content = View::make('clientes.eliminar');
   }
   
-   public function eliminando($rut){
+   public function eliminando($usuario_id){
     View::share('titulo', "Eliminar Cliente");
-    $cliente = Usuario::find($rut);
+    $cliente = Usuario::find($usuario_id);
     $cliente->delete();
     return Redirect::to('/listado/clientes');
   }

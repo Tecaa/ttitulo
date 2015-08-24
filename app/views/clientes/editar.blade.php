@@ -11,7 +11,7 @@
          
               <div class="row confirm">
                 <div class="col-md-15">
-                  <form class="form-horizontal" role="form" method="post" action="/cliente/editando/{{$cliente->rut}}" onlyread>
+                  <form class="form-horizontal" role="form" method="post" action="/cliente/editando/{{$cliente->usuario_id}}" onlyread>
 
                     <hr>
                     <div class="form-group">

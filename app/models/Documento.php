@@ -33,7 +33,7 @@ class Documento extends Eloquent {
   public function vendedor()
     {
     
-    return $this->belongsTo('Usuario', 'rut');
+    return $this->belongsTo('Usuario', 'vendedor_id', 'usuario_id');
   }
   
 

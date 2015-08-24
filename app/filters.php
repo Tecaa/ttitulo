@@ -64,7 +64,7 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::guest('/cuenta/login');
 		}
 	}
 });

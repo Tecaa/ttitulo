@@ -28,7 +28,7 @@ class ProductoController extends BaseController {
     $producto->encargados -= 1;
     
     $documento = new Documento();
-    $documento->rut = Auth::user()->rut;
+    $documento->vendedor_id = Auth::user()->usuario_id;
     $documento->tipo_documento = 'boleta';
 
 
@@ -47,8 +47,8 @@ class ProductoController extends BaseController {
     
     $boleta = new Boleta();
     $boleta->cod_documento = $documento->cod_documento;
-    if ($encargo->rut != null)
-      $boleta->rut = $encargo->rut;
+    if ($encargo->rut_cliente != null)
+      $boleta->rut_cliente = $encargo->rut_cliente;
     $boleta->save();
 
 
@@ -324,7 +324,7 @@ class ProductoController extends BaseController {
     $ajuste->cantidad = Input::get('cantidad');
     $ajuste->descripcion = Input::get('descripcion');
     $ajuste->fecha_ajuste = Carbon::now();
-    $ajuste->rut = Auth::user()->rut;
+    $ajuste->usuario_id = Auth::user()->usuario_id;
       $ajuste->tipo_ajuste = Input::get('tipo'); ;
     
     
