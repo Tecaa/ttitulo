@@ -11,7 +11,9 @@
           <ul class="dropdown-menu sub-menu">
             <li><a href="/micuenta">Mi Cuenta</a></li>
             <li><a href="/micuenta/modificar">Modificar Datos</a></li>
+            @if(Auth::user()->fb_id == null)
             <li><a href="/micuenta/modificar/pass">Cambiar Contraseña</a></li>
+            @endif
           </ul>
         </li>
         <li><a href="/listado/carroCompras">Carro de Compras</a></li> 

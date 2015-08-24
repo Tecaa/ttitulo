@@ -17,7 +17,11 @@
                     <div class="form-group">
                       <label class="col-sm-5 control-label">Rut (*)</label>
                       <div class="col-sm-7">
-                        <input type="text" name="rut"class="form-control" pattern="\d{3,8}-[\d|kK]{1}" placeholder="Rut : " value="{{$user->rut}}" disabled>
+                        <input type="text" name="rut"class="form-control" pattern="\d{3,8}-[\d|kK]{1}" placeholder="Rut : " value="{{$user->rut}}" 
+                               @if ($user->rut != null)
+                               disabled
+                                @endif
+                        >
                       </div>
                     </div>
 
