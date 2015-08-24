@@ -190,7 +190,8 @@ class ClientesController extends BaseController {
   {
     View::share('titulo', "Modificando Datos");
     $cliente = Auth::user();
-    $cliente->rut = Input::get('rut');
+    if ($cliente->rut == null)
+      $cliente->rut = Input::get('rut');
     $cliente->nom_usuario = Input::get('nombre');
     $cliente->direccion = Input::get('direccion');
     $cliente->fecha_nacimiento = Input::get('fnac');
