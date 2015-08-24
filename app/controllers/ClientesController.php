@@ -133,7 +133,7 @@ class ClientesController extends BaseController {
   
  
   public function editar($usuario_id){
-    $ciudad = Ciudad::get();
+    $ciudad = Ciudad::orderby("nom_ciudad")->get();
     $cliente = Usuario::find($usuario_id);
     View::share('titulo', "Editar Cliente");
     $this->layout->content = View::make('clientes.editar')->withCiudad($ciudad)->withCliente($cliente);
