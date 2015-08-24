@@ -54,9 +54,14 @@
       <div class="form-group">
 
         @if (Auth::check())
-        <a class="btn btn-success pull-right col-sm-8" id="pedido" role="button">Realizar pedido</a>
+          @if (Auth::user()->rut == null || Auth::user()->fecha_nacimiento == null || Auth::user()->sexo == null || Auth::user()->cod_ciudad == null
+            || Auth::user()->mail == null || Auth::user()->fono == null)
+            <a class="btn btn-success pull-right col-sm-8" href="/micuenta/modificar" role="button">Completar datos para realizar pedido</a>
+          @else
+            <a class="btn btn-success pull-right col-sm-8" id="pedido" role="button">Realizar pedido</a>
+          @endif
         @else
-        <a class="btn btn-success pull-right" href="/cuenta/login" role="button">Iniciar sesión para pagar</a>
+        <a class="btn btn-success pull-right" href="/cuenta/login" role="button">Iniciar sesión para realizar pedido</a>
         @endif
       </div>
     </div>
