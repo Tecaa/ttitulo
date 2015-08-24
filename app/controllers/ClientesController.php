@@ -143,7 +143,7 @@ class ClientesController extends BaseController {
   {
     View::share('titulo', "Editando Cliente");
     $cliente = Usuario::find($usuario_id);
-    $cliente->rut = Input::get('rut');
+    //$cliente->rut = Input::get('rut');
     $cliente->nom_usuario = Input::get('nombre');
    // $cliente->contrasena = Hash::make(Input::get('pass'));
     $cliente->direccion = Input::get('direccion');
@@ -180,7 +180,7 @@ class ClientesController extends BaseController {
   }
   
   public function modificar(){
-    $ciudad = Ciudad::get();
+    $ciudad = Ciudad::orderby("nom_ciudad")->get();
     $user = Auth::user();
     View::share('titulo', "Modificar Datos");
     $this->layout->content = View::make('clientes.modificar')->withCiudad($ciudad)->withUser($user);
@@ -190,6 +190,7 @@ class ClientesController extends BaseController {
   {
     View::share('titulo', "Modificando Datos");
     $cliente = Auth::user();
+    $cliente->rut = Input::get('rut');
     $cliente->nom_usuario = Input::get('nombre');
     $cliente->direccion = Input::get('direccion');
     $cliente->fecha_nacimiento = Input::get('fnac');
