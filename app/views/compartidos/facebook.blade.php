@@ -46,9 +46,10 @@ fjs.parentNode.insertBefore(js, fjs);
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       //document.getElementById('status').innerHTML = 'Please log ' +
-      FB.logout(function(response) {
+      ;
+      /*FB.logout(function(response) {
         // Person is now logged out
-      }); //'into this app.';
+      }); //'into this app.';*/
     } else {
       @if(!Auth::guest() && Auth::user()->fb_id != null)
         window.location = "/logout";
