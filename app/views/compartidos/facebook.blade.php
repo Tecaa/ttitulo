@@ -10,7 +10,7 @@ fjs.parentNode.insertBefore(js, fjs);
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1478172079150703',
+      appId      : '1478164025818175',
       xfbml      : true,
       version    : 'v2.4'
     });
