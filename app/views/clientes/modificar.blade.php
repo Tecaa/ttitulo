@@ -21,7 +21,7 @@
                                @if ($user->rut != null)
                                disabled
                                 @endif
-                        >
+                        required>
                       </div>
                     </div>
 
