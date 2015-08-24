@@ -143,7 +143,7 @@ class ClientesController extends BaseController {
   {
     View::share('titulo', "Editando Cliente");
     $cliente = Usuario::find($usuario_id);
-    //$cliente->rut = Input::get('rut');
+    $cliente->rut = Input::get('rut');
     $cliente->nom_usuario = Input::get('nombre');
    // $cliente->contrasena = Hash::make(Input::get('pass'));
     $cliente->direccion = Input::get('direccion');
