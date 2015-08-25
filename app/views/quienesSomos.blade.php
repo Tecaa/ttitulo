@@ -31,14 +31,14 @@
           
 				</div>
 				<div class="col-md-4 col-sm-4">
-					<img src="img/img03.jpg" class="img-responsive img-rounded" alt="dodolan manuk catalog template">
+					<img src="img/img03.jpg" class="img-responsive img-rounded">
 				</div>
 			</div>
 			
       <br><br>
 			<div class="row padd20-top-btm">
 				<div class="col-md-4 col-sm-4">
-					<img src="img/img02.jpg" class="img-responsive img-rounded" alt="dodolan manuk catalog template">
+					<img src="img/img04.jpg" class="img-responsive img-rounded">
 				</div>
 				<div class="col-md-8 col-sm-8">
 					<h3>Nuestra misión</h3>

@@ -93,8 +93,8 @@
 						<div class="featured-photos">
 							<i class="fa fa-flag"></i>
 						</div>
-						<h3>Revisa nuestro catálogo</h3>
-						<p>¡Contamos con una variedad de joyas que cada día se amplía más y más!</p>
+						<h3>Entrega gratis</h3>
+						<p>Entregamos en La Calera (fuera de Ripley) y Quillota (fuera de Lider) gratis. También entregamos a domicilio en La Calera con cargo de $500</p>
 					</div>
 				</div>
 			</div>
