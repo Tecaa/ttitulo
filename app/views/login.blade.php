@@ -29,7 +29,7 @@
                     <hr>
                     Inicia sesión con tu cuenta de Facebook sin necesidad de registrarte.
                     <!--<div class="fb-login-button" data-scope="public_profile,email" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="false" onlogin="checkLoginState();"></div>-->
-                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-max-rows="1" data-size="xlarge" data-show-faces="true" data-auto-logout-link="false"></fb:login-button>
+                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="false"></fb:login-button>
                   <hr>
                      @if (Session::get("message"))
                     <div class="alert alert-success">
