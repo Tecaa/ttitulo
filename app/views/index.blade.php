@@ -127,8 +127,8 @@
               @endif
             </a>
             <div class="caption-details">
-              <h3>{{$prod->nombre_producto}} @if($prod->contenido != null) ({{$prod->contenido}}) @endif</h3>
-              <label><!--{{$prod->proveedor->nom_proveedor}}--></label>
+              <h3>{{$prod->nombre_producto}}</h3>
+              <label>@if($prod->contenido != null) {{$prod->contenido}} (USA) - {{$prod->tamanoEuropeo}} (Eur) @endif</label>
               <?php $oferta = false; ?>
               @if($prod->precio_venta_oferta != null)
                 <?php $oferta = true; ?>
