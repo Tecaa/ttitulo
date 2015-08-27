@@ -14,7 +14,8 @@
       <div class="row padd20-top-btm">
 				<div class="col-md-12 text-center">
 					<h3>¿Cómo comprar?</h3>
-					<p>Para comprar productos utiliza nuestro catálogo de productos ubicado en la sección superior de la página y agrégalos a tu carro de compras. Una vez tengas todos tus productos en el carro, selecciona el método como te llegarán los productos. Si eres de La Calera, Quillota o La Cruz podemos ofrecerte entregarte los productos en ciertos puntos específicos acordando la hora y fecha. 
+					<p>Para comprar productos utiliza nuestro catálogo de productos ubicado en la sección superior de la página y agrégalos a tu carro de compras.
+            Una vez tengas todos tus productos en el carro, selecciona el método como te llegarán los productos. Si eres de La Calera, Quillota o La Cruz podemos ofrecerte entregarte los productos en ciertos puntos específicos acordando la hora y fecha. Además, si eres de La Calera, podemos entregarte el producto a domicilio con un pequeño cargo.
           <br>
             Si no lo gustas de esa manera o si eres de otra zona, existen metodos de envío por agencias de encomiendas las cuales se envían por pagar a la dirección que nos otorgues, es decir, primero nos cancelas el costo de los productos a nosotros por transferencia bancaria y luego tu debes cancelar el costo de envío a la agencia al momento de recibir la encomienda.</p>
 				</div>
