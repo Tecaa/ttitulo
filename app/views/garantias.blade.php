@@ -15,9 +15,9 @@
 				<div class="col-md-8 col-sm-8">
 					<h3>Política de Devolución</h3>
           <!--<p><em>Joyas Sagitario es una tienda online de venta de joyas ubicada en La Calera.</em></p>-->
-					<p>Si algún producto no era de su tamaño o simplemente no era lo que usted esperaba tiene hasta 5 días para contactarnos desde la fecha de entrega y para que le realicemos una devolución del 100% del valor del producto (No incluye cargos de envíos)
+					<p>Si algún producto no era de su tamaño o simplemente no era lo que usted esperaba tiene hasta 5 días para contactarnos desde la fecha de entrega y para que le realicemos una devolución del 100% del valor del producto (No incluye cargos de envíos).
 
-No se aceptan devoluciones si el producto devuelto le faltan tornillos o algún componente. Tampoco si se devuelve rayado o deteriorado por el mal uso.
+<!--No se aceptan devoluciones si el producto devuelto le faltan tornillos o algún componente. Tampoco si se devuelve rayado o deteriorado por el mal uso.-->
           </p>
 				</div>
 				<div class="col-md-4 col-sm-4">
