@@ -38,6 +38,11 @@ class HomeController extends BaseController {
     $this->layout->content = View::make('quienesSomos');
   }
   
+  public function garantias(){
+    View::share('titulo', "Garantías");
+    $this->layout->content = View::make('garantias');
+  }
+  
   public function administrador(){
     View::share('titulo', "Administración");
     $this->layout->content = View::make('administrador');

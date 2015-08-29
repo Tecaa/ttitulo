@@ -75,8 +75,8 @@
 						<div class="featured-photos">
 							<i class="fa fa-gift"></i>
 						</div>
-						<h3>Compra por internet</h3>
-						<p>Podrá comprar las joyas que más le gusten desde la comodidad de su hogar.</p>
+						<h3>Compra por internet segura</h3>
+						<p>Podrá comprar las joyas que más le gusten desde la comodidad de su hogar. Si su producto no lo dejó satisfecho tiene hasta 5 días para devolución. Y tiene un mes si lo desea cambiar por otro.</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4">
@@ -85,7 +85,7 @@
 							<i class="fa fa-heart-o"></i>
 						</div>
 						<h3>Buena atención</h3>
-						<p>Atención rápida y amigable para hacer de sus compras una experiencia agradable.</p>
+						<p>Atención rápida y amigable para hacer de sus compras una experiencia agradable. Puede contactarnos por las redes sociales o por la sección Contacto</p>
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4">
@@ -94,7 +94,7 @@
 							<i class="fa fa-flag"></i>
 						</div>
 						<h3>Entrega gratis</h3>
-						<p>Entregamos en La Calera (fuera de Ripley) y Quillota (fuera de Lider) gratis. También entregamos a domicilio en La Calera con cargo de $500</p>
+						<p>Entregamos en La Calera (fuera de Ripley), La Cruz (plaza) y Quillota (fuera de Lider) gratis. También entregamos a domicilio en La Calera con cargo de $500</p>
 					</div>
 				</div>
 			</div>

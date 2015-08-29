@@ -39,7 +39,7 @@ Route::any('/producto/ajustando/{codigo_producto}', ['uses' => 'ProductoControll
 Route::get('/producto/stockCritico', ['uses' => 'ProductoController@stockCritico', 'before' => 'administrador']);
 
 Route::get('/quienesSomos', ['uses'=> 'HomeController@quienesSomos']);
-
+Route::get('/garantias', ['uses'=> 'HomeController@garantias']);
 Route::get('/iniciarSesion', ['uses'=> 'HomeController@iniciarSesion']);
 
 Route::get('/contacto', ['uses'=> 'HomeController@contacto']);

@@ -26,12 +26,6 @@
       <ul class="nav navbar-nav nav-left">
         <li class="{{HTML::isActive('/')}}"><a href="/">Inicio</a></li>
         <li class="{{HTML::isActive('quienesSomos')}}"><a href="/quienesSomos">¿Cómo comprar?</a></li>
-        <li class="{{HTML::isActive('contacto')}}"><a href="/contacto">Contacto</a></li>
-      </ul>
-      <a href="#" class="logo visible-lg visible-md">{{ HTML::image("img/logo.jpg", "Logo") }}</a>
-      <div id="brand" class="visible-lg visible-md">&nbsp;</div>
-      <ul class="nav navbar-nav nav-right">
-
         <li class="dropdown {{HTML::isActive('producto/categoria/*')}} {{HTML::isActive('producto/consultar/*')}}">
           <a href="#" class="dropdown-toggle" href="" data-toggle="dropdown">Productos <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -69,6 +63,15 @@
 -->
           </ul>
         </li>
+        
+      </ul>
+      <a href="#" class="logo visible-lg visible-md">{{ HTML::image("img/logo.jpg", "Logo") }}</a>
+      <div id="brand" class="visible-lg visible-md">&nbsp;</div>
+      <ul class="nav navbar-nav nav-right">
+        <li class="{{HTML::isActive('garantias')}}"><a href="/garantias">Garantías</a></li>
+        
+        <li class="{{HTML::isActive('contacto')}}"><a href="/contacto">Contacto</a></li>
+        
         @if (Auth::check())
         <li class="{{HTML::isActive('sesion/*')}} {{HTML::isActive('micuenta')}} {{HTML::isActive('micuenta/*')}}"><a href="/sesion">Menu</a></li>
         @endif
@@ -93,8 +96,6 @@
             <span id="totalCompras" class="badge alert-danger"></span>
             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
         </a></li>
-        
-        
         
       </ul>
 

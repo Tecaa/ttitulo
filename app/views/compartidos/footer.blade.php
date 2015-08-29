@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-12">
         <h3>Joyas Sagitario</h3>
-        <p>Tienda online de joyas - La Calera</p>
+        <p>Tienda online de joyas - La Calera y alrededores</p>
         <div class="fb-follow"></div>
         <ul class="list-unstyled social-icon">
           <li><a href="http://www.facebook.com/JoyasSagitario" rel="tooltip" title="Facebook" class="icon-facebook"><span><i class="fa fa-facebook-square"></i></span></a></li>
