@@ -19,6 +19,9 @@
 
 <!--No se aceptan devoluciones si el producto devuelto le faltan tornillos o algún componente. Tampoco si se devuelve rayado o deteriorado por el mal uso.-->
           </p>
+          
+          <h3>Política de Cambio</h3>
+					<p>Puede cambiar su producto con nosotros por cualquier producto de valor igual o superior (abonando la diferencia) siempre que el producto venga en perfectas condiciones en un plazo de hasta 30 días desde la fecha de entrega.</p>
 				</div>
 				<div class="col-md-4 col-sm-4">
 					<img src="img/img03.jpg" class="img-responsive img-rounded">
@@ -31,8 +34,7 @@
 					<img src="img/img04.jpg" class="img-responsive img-rounded">
 				</div>
 				<div class="col-md-8 col-sm-8">
-					<h3>Política de Cambio</h3>
-					<p>Puede cambiar su producto con nosotros por cualquier producto de valor igual o superior (abonando la diferencia) siempre que el producto venga en perfectas condiciones en un plazo de hasta 30 días desde la fecha de entrega.</p>
+					
 				</div>
 			</div>
 			
