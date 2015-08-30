@@ -30,7 +30,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <small>Copyright &copy; 2013 Dodolan Manuk All Right Reserved. Made With <i class="fa fa-heart-o"></i> by Afriq</small>
+        <small>Copyright &copy; 2015 Joyas Sagitario. Hecho con <i class="fa fa-heart-o"></i> para sus ustedes</small>
       </div>
     </div>
   </div>

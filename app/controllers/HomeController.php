@@ -57,7 +57,7 @@ class HomeController extends BaseController {
   }
   
   const MY_NAME = "Marco Rojas";
-  const MY_EMAIL = "fergushog@hotmail.com";
+  const MY_EMAIL = "contacto.joyas.sagitario@gmail.com";
   public function enviarContacto(){
 
     //Get all the data and store it inside Store Variable
