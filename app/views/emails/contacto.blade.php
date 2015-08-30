@@ -1,7 +1,7 @@
 <!--This is a blade template that goes in email message to site administrator-->
 <?php
 //get the first name
-$name = Input::get('name');
+$name = Input::get('nombre');
 $email = Input::get ('email');
 $asunto = Input::get ('asunto');
 $mensaje = Input::get ('mensaje');
