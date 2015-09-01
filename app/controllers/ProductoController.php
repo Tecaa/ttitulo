@@ -357,7 +357,7 @@ class ProductoController extends BaseController {
     ]);
   }
   public function listarCategoria($codigo_categoria, $page =1){
-    $perPage = 12.0;
+    $perPage = 20.0;
     View::share('titulo', "Lista de productos");
 
     $productos = Producto::whereHas('CatProducto', function($query) use ($codigo_categoria)

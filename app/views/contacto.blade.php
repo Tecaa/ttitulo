@@ -16,6 +16,7 @@
       <li><a href="http://www.facebook.com/JoyasSagitario" rel="tooltip" title="Facebook" class="icon-facebook">
         <span><i class="fa fa-facebook-square"></i> /JoyasSagitario</span></a></li>
       <li><span><i class="fa fa-whatsapp"></i> +56 9 65066951</span></li>
+      <li><a href="https://instagram.com/joyas.sagitario/"<span><i class="fa fa-instagram"></i> Joyas.Sagitario</span></a></li>
       <li><span><i class="glyphicon glyphicon-earphone"></i> +56 9 65066951</span></li>
       
     </ul>
