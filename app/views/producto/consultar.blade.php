@@ -68,7 +68,7 @@
       <p><!--Cantidad a comprar: --><input type="hidden" name="cantidad" value=1 min=1 max=100> 
         <a id="comprar" class="btn btn-success btn-large" data-cod-producto={{$producto->codigo_producto}} ><i class="icon-shopping-cart"></i> Agregar al carro de compras</a>
       </p>
-      <div class="fb-share-button pull-right" data-href="http://www.joyassagitario.cl/producto/consultar/{{$producto->codigo_producto}}" data-layout="button_count"></div>
+      <div class="fb-share-button pull-right" data-descrption='You can place your own description of the page here.' data-href="http://www.joyassagitario.cl/producto/consultar/{{$producto->codigo_producto}}" data-layout="button_count"></div>
     </div>
   </div>
 

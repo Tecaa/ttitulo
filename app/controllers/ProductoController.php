@@ -147,7 +147,7 @@ class ProductoController extends BaseController {
         Session::put($producto->codigo_producto, Carbon::now());
       }
     }
-    View::share('titulo', "Consultar Producto");
+    View::share('titulo', $producto->nombre_producto );
     JavaScript::put([
       'producto' => $producto,
       'producto.laboratorio' =>$producto->proveedor/*,
